@@ -42,6 +42,8 @@ use App\Shop\Shipping\ShippingInterface;
 use App\Shop\Shipping\Shippo\ShippoShipmentRepository;
 use App\Shop\States\Repositories\StateRepository;
 use App\Shop\States\Repositories\StateRepositoryInterface;
+use App\Shop\Coupons\Repositories\Interfaces\CouponRepositoryInterface;
+use App\Shop\Coupons\Repositories\CouponRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -91,6 +93,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ProductRepositoryInterface::class,
             ProductRepository::class
+        );
+
+        $this->app->bind(
+            CouponRepositoryInterface::class,
+            CouponRepository::class
         );
 
         $this->app->bind(

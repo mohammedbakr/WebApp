@@ -145,16 +145,50 @@
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning">{{config('cart.currency')}} {{ number_format($tax, 2) }}</td>
                                 </tr>
+                                @if(session()->has('coupon'))
+                                <tr>
+                                    <td class="bg-warning">Discount:</td>
+                                    <td class="bg-warning">{{session()->get('coupon')['name']}}</td>
+                                    <td class="bg-warning">
+                                        <form action="{{route('coupon.destroy')}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger muted">Remove</button>
+                                        </form>
+                                    </td>
+                                    <td class="bg-warning"></td>
+                                    <td class="bg-warning">-{{config('cart.currency')}} {{$discount}}</td>
+                                </tr>
+                                @endif
+                                <tr>
+                                    <td class="bg-warning">New Subtotal</td>
+                                    <td class="bg-warning"></td>
+                                    <td class="bg-warning"></td>
+                                    <td class="bg-warning"></td>
+                                    <td class="bg-warning">{{config('cart.currency')}} {{ $newSubtotal}}</td>
+                                </tr>
                                 <tr>
                                     <td class="bg-success">Total</td>
                                     <td class="bg-success"></td>
                                     <td class="bg-success"></td>
                                     <td class="bg-success"></td>
-                                    <td class="bg-success">{{config('cart.currency')}} {{ number_format($total, 2, '.', ',') }}</td>
+                                    <td class="bg-success">{{config('cart.currency')}} {{ $newTotal }}</td>
                                 </tr>
                             </tfoot>
                         </table>
                         <hr>
+                        @if (!session()->has('coupon'))
+                        <div class="row">
+                            <p>Have a code ?</p>
+                            <form action="{{route('coupon.store')}}" method="POST">
+                                @csrf
+                                <input type="text" name="couponCode" id="couponCode">
+                                <button type="submit" class="btn btn-primary">Apply</button>
+                            </form>
+                        </div>
+                        <hr> 
+                        @endif
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="btn-group pull-right">
