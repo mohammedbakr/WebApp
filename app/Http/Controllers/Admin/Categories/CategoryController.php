@@ -37,7 +37,6 @@ class CategoryController extends Controller
 
         return view('admin.categories.list', [
             'categories' => $this->categoryRepo->paginateArrayResults($list->all())
-            // 'categories' => Category::paginate(4)
         ]);
     }
 

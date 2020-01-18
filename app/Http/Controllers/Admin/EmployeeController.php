@@ -144,7 +144,7 @@ class EmployeeController extends Controller
             $employee->roles()->detach();
         }
 
-        return redirect()->route('admin.employees.index', $id)
+        return redirect()->route('admin.employees.edit', $id)
             ->with('message', 'Update successful');
     }
 

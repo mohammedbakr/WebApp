@@ -6,8 +6,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ol class="breadcrumb">
-                            <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
-                            <li class="active">Cart</li>
+                            <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> الرئسيه</a></li>
+                            <li class="active">السله</li>
                         </ol>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                         <div class="box-body">
                             @include('layouts.errors-and-messages')
                         </div>
-                        <h3><i class="fa fa-cart-plus"></i> Shopping Cart</h3>
+                        <h3><i class="fa fa-cart-plus"></i>سله التسوق</h3>
                     </div>
                 </div>
 
@@ -29,17 +29,17 @@
                             
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                                 <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>Cover</b></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>صوره مصغره</b></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
                                 <div class="row">
-                                    <div class="col-lg-5 col-md-5"><b>Name</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Quantity</b></div>
-                                    <div class="col-lg-1 col-md-1"><b>Remove</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Price</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Total</b></div>
+                                    <div class="col-lg-5 col-md-5"><b>المنتج</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>الكميه</b></div>
+                                    <div class="col-lg-1 col-md-1"><b>حذف</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>السعر</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>الاجمالي</b></div>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@
                                                 <input type="hidden" name="_method" value="put">
                                                 <div class="input-group">
                                                     <input type="text" name="quantity" value="{{ $cartItem->qty }}" class="form-control input-sm" />
-                                                    <span class="input-group-btn"><button class="btn btn-default btn-sm">Update</button></span>
+                                                    <span class="input-group-btn"><button class="btn btn-default btn-sm">تحديث</button></span>
                                                 </div>
                                             </form>
                                         </div>
@@ -94,7 +94,7 @@
                                             <form action="{{ route('cart.destroy', $cartItem->rowId) }}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="_method" value="delete">
-                                                <button onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
+                                                <button onclick="return confirm('هل انت متاكد !؟')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
                                             </form>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -168,7 +168,7 @@
             @else
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="alert alert-warning">No products in cart yet. <a href="{{ route('home') }}">Shop now!</a></p>
+                        <p class="alert alert-warning">السله فارغه <a href="{{ route('home') }}">تسوق الان</a> </p>
                     </div>
                 </div>
             @endif
