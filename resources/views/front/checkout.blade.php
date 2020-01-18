@@ -15,11 +15,6 @@
                         @include('layouts.errors-and-messages')
                     </div>
                     @if(count($addresses) > 0)
-                        <div class="row">
-                            <div class="col-md-12">
-                                @include('front.products.product-list-table', compact('products'))
-                            </div>
-                        </div>
                         @if(isset($addresses))
                             <div class="row">
                                 <div class="col-md-12">

@@ -3,6 +3,7 @@
 namespace App\Shop\Orders;
 
 use App\Shop\Addresses\Address;
+use App\Shop\Coupons\Coupon;
 use App\Shop\Couriers\Courier;
 use App\Shop\Customers\Customer;
 use App\Shop\OrderStatuses\OrderStatus;
@@ -124,5 +125,9 @@ class Order extends Model
     public function searchForOrder(string $term)
     {
         return self::search($term);
+    }
+
+    public function coupon(){
+        return $this->belongsTo(Coupon::class);
     }
 }
