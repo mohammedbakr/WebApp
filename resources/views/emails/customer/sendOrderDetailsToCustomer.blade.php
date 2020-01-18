@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+
 <section class="container">
     <div class="col-md-12">
         <h2>Hello {{$customer->name}}!</h2>

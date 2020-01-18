@@ -44,30 +44,6 @@ class EmployeesTableSeeder extends Seeder
             'display_name' => 'Super Admin'
         ]);
 
-        // $testAdd = factory(Permission::class)->create([
-        //     'name' => 'test-add',
-        //     'display_name' => 'Test add'
-        // ]);
-
-        // $employee = factory(Employee::class)->create([
-        //     'email' => 'islam@doe.com'
-        // ]);
-
-        // $test = factory(Role::class)->create([
-        //     'name' => 'test',
-        //     'display_name' => 'Test '
-        // ]);
-
-        // $roleSuperRepo = new RoleRepository($test);
-        // $roleSuperRepo->attachToPermission($createProductPerm);
-        // $roleSuperRepo->attachToPermission($viewProductPerm);
-        // $roleSuperRepo->attachToPermission($updateProductPerm);
-        // $roleSuperRepo->attachToPermission($deleteProductPerm);
-        // $roleSuperRepo->attachToPermission($updateOrderPerm);
-        // $roleSuperRepo->attachToPermission($testAdd);
-
-        // $employee->roles()->save($test);
-
         $roleSuperRepo = new RoleRepository($super);
         $roleSuperRepo->attachToPermission($createProductPerm);
         $roleSuperRepo->attachToPermission($viewProductPerm);

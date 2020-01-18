@@ -79,7 +79,7 @@ class OrderStatusController extends Controller
         $update->updateOrderStatus($request->all());
 
         $request->session()->flash('message', 'Update successful');
-        return redirect()->route('admin.order-statuses.index');
+        return redirect()->route('admin.order-statuses.edit', $id);
     }
 
     /**
