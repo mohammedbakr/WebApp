@@ -3,7 +3,7 @@
 use App\Shop\Coupons\Coupon;
 use Illuminate\Database\Seeder;
 
-class CouponTableseeder extends Seeder
+class CouponTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

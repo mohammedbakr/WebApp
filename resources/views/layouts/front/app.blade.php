@@ -50,6 +50,8 @@
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+    <!-- Modified CSS -->
+    <link rel="stylesheet" href="{{ asset('css/modifiedstyle.css') }}">
 </head>
 <body>
 <noscript>

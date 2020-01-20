@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="app__img">
-                                  <img onmousedown="return false" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/whiteTest4.png" alt="city" />
+                    <img onmousedown="return false" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/whiteTest4.png" alt="city" />
                 </div>
 
                 <div class="app__text app__text--1">
@@ -41,45 +41,90 @@
                    </Section>
 
     <aside>
+        
             <ul class="nav" id="oopx">
-                        <header class="mine">
+                <header class="mine">
                             التصنيفات
-                        </header>
-                        <br>
-                        <li>
+                </header>
+                <br>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>             
+                    <hr>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>
+                    <hr>
+                </li>
 
-                    <a id="cat" href="#">
-                        تجريبي
-                                            </a>
-                </li>
                 <li>
-                    <a href="#" id="cat">
-                                                تجريبي                    </a>
-                </li>
-                <li>
-                    <a href="#" id="cat">
-                        تجريبي                    </a>
-                </li>
-                <li>
-                    <a href="#" id="cat">
-                        تجريبي                    </a>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>
+                    <hr>
                 </li>
 
                 <li>
-                    <a href="#" id="cat">
-                        تجريبي
-                    </a>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                      </div>
+                    <hr>
                 </li>
 
                 <li>
-                    <a href="#" id="cat">
-                       تجريبي                    </a>
-                </li>
-
-
-                <li>
-                    <a href="#" id="cat">
-                        تجريبي                    </a>
+                    <div class="dropdown">
+                        <button class="dropbtn">تجريبي</button>
+                        <div class="dropdown-content">
+                          <a href="#">تجريبي 1</a>
+                          <a href="#">تجريبي 2</a>
+                          <a href="#">تجريبي 3</a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </aside>
