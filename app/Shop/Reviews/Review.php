@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    protected $table = 'reviews';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,7 +20,8 @@ class Review extends Model
         'employee_id',
         'customer_id',
         'rating',
-        'comment'
+        'comment',
+        'status'
     ];
 
     public function product(){

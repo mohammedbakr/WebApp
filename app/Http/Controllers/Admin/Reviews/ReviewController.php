@@ -37,6 +37,22 @@ class ReviewController extends Controller
         return view('admin.reviews.list', compact('reviews'));
     }
 
+    public function approval(Request $request)
+    {
+        $review = Review::find($request->reviewId);
+        $approveVal = $request->input('status');
+        if($approveVal == 'on'){
+            $approveVal = 1;
+        }else{
+            $approveVal = 0;
+        }
+
+        $review->status = $approveVal;
+        $review->save();
+
+        return back()->with('message', 'Approved Successfully');
+    }
+
     /**
      * Display the specified resource.
      *

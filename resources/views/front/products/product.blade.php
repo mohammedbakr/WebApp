@@ -63,12 +63,10 @@
             <div class="col-md-6">
                 @if ($product->reviews->count())
                 <h3>{{$product->reviews->count()}} Votes</h3>
-                @else
-                Be The First to Rate!
                 @endif
                 <ul>
                     @foreach ($product->reviews as $review)
-                    <li>
+                    @if (!$review->status == 0)
                         <div>
                             Customer Name: <h3>{{$review->customer->name}}</h3>
                             <div>{{$review->created_at->format('M d, Y  h:ia')}}</div>
@@ -77,6 +75,7 @@
                             Review: <p>{{$review->comment}}</p>
                         </div>
                     </li>
+                    @endif
                     @endforeach
                 </ul>
             </div>

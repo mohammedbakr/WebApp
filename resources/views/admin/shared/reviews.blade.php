@@ -6,6 +6,7 @@
             <td>Customer Name</td>
             <td>Product Name</td>
             <td>Review</td>
+            <td>Approve</td>
             <td>Actions</td>
         </tr>
         </thead>
@@ -19,6 +20,14 @@
                 <td>
                     <a href="{{ route('admin.products.show', $review->product->id) }}">{{ $review->product->name }}</a></td>
                 <td>{{ $review->comment }}</td>
+                <td>
+                    <form action="{{ route('admin.reviews.approval') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="checkbox" name="status">
+                        <input type="hidden" name="reviewId" value="{{ $review->id }}">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </form>
+                </td>
                 <td>
                     <form action="{{ route('admin.reviews.destroy', $review->id) }}" method="post" class="form-horizontal">
                         {{ csrf_field() }}
