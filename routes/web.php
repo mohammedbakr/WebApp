@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\Front\ReviewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,7 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['employee'], 'as' => 'admin.
             Route::resource('attributes', 'Attributes\AttributeController');
             Route::resource('attributes.values', 'Attributes\AttributeValueController');
             Route::resource('brands', 'Brands\BrandController');
-
+            Route::resource('reviews', 'Reviews\ReviewController');
         });
         Route::group(['middleware' => ['role:admin|superadmin, guard:employee']], function () {
             Route::resource('employees', 'EmployeeController');
@@ -101,4 +102,6 @@ Route::namespace('Front')->group(function () {
     Route::get("category/{slug}", 'CategoryController@getCategory')->name('front.category.slug');
     Route::get("search", 'ProductController@search')->name('search.product');
     Route::get("{product}", 'ProductController@show')->name('front.get.product');
+    Route::post('review', 'ReviewController@store')->name('front.review.store');
+    // Route::delete('review\{id}', 'ReviewController@destroy')->name('front.review.destroy');
 });

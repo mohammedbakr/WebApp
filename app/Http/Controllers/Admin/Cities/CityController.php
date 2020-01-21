@@ -61,6 +61,6 @@ class CityController extends Controller
 
         return redirect()
             ->route('admin.countries.provinces.cities.edit', [$countryId, $provinceId, $city])
-            ->with('message', 'Update successful');
+            ->with('message', __('Update successful'));
     }
 }

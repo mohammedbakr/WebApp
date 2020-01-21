@@ -6,6 +6,7 @@ use App\Shop\Products\Product;
 use App\Shop\Products\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Shop\Products\Transformations\ProductTransformable;
+use App\Shop\Reviews\Review;
 
 class ProductController extends Controller
 {
@@ -53,16 +54,18 @@ class ProductController extends Controller
      */
     public function show(string $slug)
     {
+        $review = Review::all();
+
         $product = $this->productRepo->findProductBySlug(['slug' => $slug]);
         $images = $product->images()->get();
         $category = $product->categories()->first();
         $productAttributes = $product->attributes;
 
-        return view('front.products.product', compact(
-            'product',
-            'images',
-            'productAttributes',
-            'category'
+        return view('front.products.product', compact('product',
+        'images',
+        'productAttributes',
+        'category',
+        'review'
         ));
     }
 }

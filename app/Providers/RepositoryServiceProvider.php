@@ -43,6 +43,8 @@ use App\Shop\Shipping\Shippo\ShippoShipmentRepository;
 use App\Shop\States\Repositories\StateRepository;
 use App\Shop\States\Repositories\StateRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Shop\Reviews\Repositories\Interfaces\ReviewRepositoryInterface;
+use App\Shop\Reviews\Repositories\ReviewRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -146,6 +148,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             PermissionRepositoryInterface::class,
             PermissionRepository::class
+        );
+
+        $this->app->bind(
+            ReviewRepositoryInterface::class,
+            ReviewRepository::class
         );
     }
 }
