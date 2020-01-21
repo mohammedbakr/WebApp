@@ -16,18 +16,18 @@
 
 <section class="container">
     <div class="col-md-12">
-        <h2>Hello {{$customer->name}}!</h2>
+        <h2>  !{{$customer->name}} اهلا </h2>
         @php($country = \App\Shop\Countries\Country::find($address->country_id))
-        <p>This order is for deliver to your: <strong>{{ ucfirst($address->alias) }} <br /></strong></p>
+        <p>اليك <strong>{{ ucfirst($address->alias) }} </strong>تم ارسال </p>
         <p>Address: {{$address->address_1}} {{$address->address_2}} {{$address->city}} {{$address->state_code}}, {{$country->name}}</p>
         <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
             <thead>
             <tr>
-                <th class="col-md-2">SKU</th>
-                <th class="col-md-2">Name</th>
-                <th class="col-md-3">Description</th>
-                <th class="col-md-1">Quantity</th>
-                <th class="col-md-4 text-right">Price</th>
+                <th class="col-md-2">الرمز</th>
+                <th class="col-md-2">الاسم</th>
+                <th class="col-md-3">الوصف</th>
+                <th class="col-md-1">الكميه</th>
+                <th class="col-md-4 text-right">السعر</th>
             </tr>
             </thead>
             <tbody>
@@ -54,35 +54,35 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Subtotal:</td>
+                <td>التكلفه :</td>
                 <td class="text-right">{{config('cart.currency')}} {{number_format($order->total_products, 2)}}</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Shipping:</td>
+                <td>الشحن :</td>
                 <td class="text-right">{{config('cart.currency')}} {{number_format($order->total_shipping, 2)}}</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Discounts:</td>
+                <td>التخفيض :</td>
                 <td class="text-right">({{config('cart.currency')}} {{number_format($order->discounts, 2)}})</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Tax:</td>
+                <td>الضرتئب :</td>
                 <td class="text-right">{{config('cart.currency')}} {{number_format($order->tax, 2)}}</td>
             </tr>
             <tr class="bg-warning">
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><strong>Total:</strong></td>
+                <td><strong>الاجمالي :</strong></td>
                 <td class="text-right"><strong>{{config('cart.currency')}} {{number_format($order->total, 2)}}</strong></td>
             </tr>
             </tfoot>

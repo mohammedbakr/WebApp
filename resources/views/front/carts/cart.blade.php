@@ -98,11 +98,11 @@
                                             </form>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                            <span class="hidden-lg hidden-md"><small>Price: </span>
+                                            <span class="hidden-lg hidden-md"><small>السعر :</span>
                                             {{config('cart.currency')}} {{ number_format($cartItem->price, 2) }}</small>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                            <span class="hidden-lg hidden-md"><small>Total: </span>
+                                            <span class="hidden-lg hidden-md"><small>الاجمالي :</span>
                                             {{config('cart.currency')}} {{ number_format(($cartItem->qty*$cartItem->price), 2) }}</small>
                                         </div>
 
@@ -123,7 +123,7 @@
                         <table class="table table-striped">
                             <tfoot>
                                 <tr>
-                                    <td class="bg-warning">Subtotal</td>
+                                    <td class="bg-warning">التكلفه</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -131,7 +131,7 @@
                                 </tr>
                                 @if(isset($shippingFee) && $shippingFee != 0)
                                 <tr>
-                                    <td class="bg-warning">Shipping</td>
+                                    <td class="bg-warning">الشحن</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -139,7 +139,7 @@
                                 </tr>
                                 @endif
                                 <tr>
-                                    <td class="bg-warning">Tax</td>
+                                    <td class="bg-warning">الضرائب</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -147,13 +147,13 @@
                                 </tr>
                                 @if(session()->has('coupon'))
                                 <tr>
-                                    <td class="bg-warning">Discount:</td>
+                                    <td class="bg-warning">التخفيض</td>
                                     <td class="bg-warning">{{session()->get('coupon')['name']}}</td>
                                     <td class="bg-warning">
                                         <form action="{{route('coupon.destroy')}}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger muted">Remove</button>
+                                            <button type="submit" class="btn btn-danger muted">حذف</button>
                                         </form>
                                     </td>
                                     <td class="bg-warning"></td>
@@ -179,11 +179,11 @@
                         <hr>
                         @if (!session()->has('coupon'))
                         <div class="row">
-                            <p>Have a code ?</p>
+                            <p>لديك كوبون !</p>
                             <form action="{{route('coupon.store')}}" method="POST">
                                 @csrf
                                 <input type="text" name="couponCode" id="couponCode">
-                                <button type="submit" class="btn btn-primary">Apply</button>
+                                <button type="submit" class="btn btn-primary">تطبيق</button>
                             </form>
                         </div>
                         <hr> 
@@ -192,8 +192,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="btn-group pull-right">
-                                    <a href="{{ route('home') }}" class="btn btn-default">Continue shopping</a>
-                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary">Go to checkout</a>
+                                    <a href="{{ route('home') }}" class="btn btn-default">استكمال التسوق</a>
+                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary">الي الدفع</a>
                                 </div>
                             </div>
                         </div>
