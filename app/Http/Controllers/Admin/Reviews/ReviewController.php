@@ -50,7 +50,11 @@ class ReviewController extends Controller
         $review->status = $approveVal;
         $review->save();
 
-        return back()->with('message', 'Approved Successfully');
+        if($review->status == 1){
+            return back()->with('message', 'Approved Successfully');
+        }else{
+            return back()->with('message', 'Changed To Not Approved Successfully');
+        }
     }
 
     /**

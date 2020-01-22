@@ -23,7 +23,9 @@
                 <td>
                     <form action="{{ route('admin.reviews.approval') }}" method="POST">
                         {{ csrf_field() }}
-                        <input type="checkbox" name="status">
+                        <input type="checkbox" name="status" @if ($review->status == 1)
+                            checked="checked"
+                        @endif>
                         <input type="hidden" name="reviewId" value="{{ $review->id }}">
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </form>
