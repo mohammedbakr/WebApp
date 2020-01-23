@@ -8,22 +8,22 @@
         @if($addresses)
             <div class="box">
                 <div class="box-body">
-                    <h2>Addresses</h2>
+                    <h2>العناوين</h2>
                     @if(!$addresses->isEmpty())
                         <table class="table">
                         <tbody>
                         <tr>
-                            <td>Alias</td>
-                            <td>Address 1</td>
+                            <td>التميز</td>
+                            <td> العنوان</td>
                             @if(isset($address->province))
-                            <td>Province</td>
+                            <td>المحافظه</td>
                             @endif
-                            <td>State</td>
-                            <td>City</td>
-                            <td>Zip Code</td>
-                            <td>Country</td>
-                            <td>Status</td>
-                            <td>Actions</td>
+                            <td>المقاطعه</td>
+                            <td>المدينه</td>
+                            <td>الرمز البريدي</td>
+                            <td>الدوله</td>
+                            <td>الحاله</td>
+                            <td>تغيرات</td>
                         </tr>
                         </tbody>
                         <tbody>
@@ -45,7 +45,7 @@
                                         <input type="hidden" name="_method" value="delete">
                                         <div class="btn-group">
                                             <a href="{{ route('admin.addresses.edit', $address->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
+                                            <button onclick="return confirm('هل انت متاكد ؟')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
                                         </div>
                                     </form>
                                 </td>
@@ -55,7 +55,7 @@
                     </table>
                         <a href="{{ route('accounts', ['tab' => 'profile']) }}" class="btn btn-default">Back to My Account</a>
                     @else
-                        <p class="alert alert-warning">No address created yet. <a href="{{ route('customer.address.create', auth()->id()) }}">Create</a></p>
+                        <p class="alert alert-warning"> <a href="{{ route('customer.address.create', auth()->id()) }}">انشاء</a> لا يوجد عناوين بعد !</p>
                     @endif
                 </div>
                 <!-- /.box-body -->
@@ -63,7 +63,7 @@
             <!-- /.box -->
         @else
             <div class="box">
-                <div class="box-body"><p class="alert alert-warning">No addresses found.</p></div>
+                <div class="box-body"><p class="alert alert-warning">لم يتم ايجاد عناوين بعد!</p></div>
             </div>
         @endif
     </section>

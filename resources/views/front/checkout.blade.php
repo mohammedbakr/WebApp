@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <ol class="breadcrumb">
                         <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
-                        <li class="active">Shopping Cart</li>
+                        <li class="active">سله التسوق</li>
                     </ol>
                 </div>
                 <div class="col-md-12 content">
@@ -15,21 +15,16 @@
                         @include('layouts.errors-and-messages')
                     </div>
                     @if(count($addresses) > 0)
-                        <div class="row">
-                            <div class="col-md-12">
-                                @include('front.products.product-list-table', compact('products'))
-                            </div>
-                        </div>
                         @if(isset($addresses))
                             <div class="row">
                                 <div class="col-md-12">
-                                    <legend><i class="fa fa-home"></i> Addresses</legend>
+                                    <legend><i class="fa fa-home"></i> العناوين</legend>
                                     <table class="table table-striped">
                                         <thead>
-                                            <th>Alias</th>
-                                            <th>Address</th>
-                                            <th>Billing Address</th>
-                                            <th>Delivery Address</th>
+                                            <th>التميز</th>
+                                            <th>العنوان</th>
+                                            <th>عنوان الدفع</th>
+                                            <th>عنوان التوصيل</th>
                                         </thead>
                                         <tbody>
                                             @foreach($addresses as $key => $address)
@@ -94,7 +89,7 @@
                         @if(!is_null($rates))
                             <div class="row">
                                 <div class="col-md-12">
-                                    <legend><i class="fa fa-truck"></i> Courier</legend>
+                                    <legend><i class="fa fa-truck"></i> التوصيل</legend>
                                     <ul class="list-unstyled">
                                         @foreach($rates as $rate)
                                             <li class="col-md-4">
@@ -111,13 +106,13 @@
                         @endif
                         <div class="row">
                             <div class="col-md-12">
-                                <legend><i class="fa fa-credit-card"></i> Payment</legend>
+                                <legend><i class="fa fa-credit-card"></i> الدفع</legend>
                                 @if(isset($payments) && !empty($payments))
                                     <table class="table table-striped">
                                         <thead>
-                                        <th class="col-md-4">Name</th>
-                                        <th class="col-md-4">Description</th>
-                                        <th class="col-md-4 text-right">Choose payment</th>
+                                        <th class="col-md-4">الاسم</th>
+                                        <th class="col-md-4">الوصف</th>
+                                        <th class="col-md-4 text-right">اختار وسيله دفع</th>
                                         </thead>
                                         <tbody>
                                         @foreach($payments as $payment)
@@ -131,14 +126,14 @@
                             </div>
                         </div>
                     @else
-                        <p class="alert alert-danger"><a href="{{ route('customer.address.create', [$customer->id]) }}">No address found. You need to create an address first here.</a></p>
+                        <p class="alert alert-danger"><a href="{{ route('customer.address.create', [$customer->id]) }}">لم يتم ايجاد عناوين عليك انشاء عنوان اولا !</a></p>
                     @endif
                 </div>
             </div>
         @else
             <div class="row">
                 <div class="col-md-12">
-                    <p class="alert alert-warning">No products in cart yet. <a href="{{ route('home') }}">Show now!</a></p>
+                    <p class="alert alert-warning"><a href="{{ route('home') }}">تسوق الان!</a> لم يتم ايجاد منتجات </p>
                 </div>
             </div>
         @endif

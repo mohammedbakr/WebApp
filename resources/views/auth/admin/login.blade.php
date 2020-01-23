@@ -19,7 +19,7 @@
         <!-- /.login-logo -->
         @include('layouts.errors-and-messages')
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">برجاء تسجيل الدخول</p>
 
             <form action="{{ route('admin.login') }}" method="post">
                 {{ csrf_field() }}
@@ -42,9 +42,8 @@
                     <!-- /.col -->
                 </div>
             </form>
-
             <div class="social-auth-links text-center">
-                <p>- OR -</p>
+                <p>- او -</p>
                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
                     Facebook</a>
                 <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
@@ -52,8 +51,8 @@
             </div>
             <!-- /.social-auth-links -->
 
-            <a href="#">I forgot my password</a><br>
-            <a href="{{ url('/') }}" class="text-center">Register a new membership</a>
+            <a href="#">لقد نسيت كلمه المرور</a><br>
+            <a href="{{ url('/') }}" class="text-center">تسجيل عضويه</a>
 
         </div>
         <!-- /.login-box-body -->

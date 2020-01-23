@@ -1,11 +1,10 @@
 @extends('layouts.front.app')
-
 @section('content')
     <div class="container">
         <hr>
         <div class="row">
             <div class="category-top col-md-12">
-                <h2>Search Results</h2>
+                <h2>نتائج البحث</h2>
             </div>
         </div>
         <hr>

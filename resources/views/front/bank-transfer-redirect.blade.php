@@ -16,10 +16,10 @@
                         <h3>Review</h3>
                         <hr>
                         <ul class="list-unstyled">
-                            <li>Items: {{ config('cart.currency_symbol') }} {{ $subtotal }}</li>
+                            <li>Items: {{ config('cart.currency_symbol') }} {{ $newSubtotal }}</li>
                             <li>Tax: {{ config('cart.currency_symbol') }} {{ $tax }}</li>
                             <li>Shipping Fee: {{ config('cart.currency_symbol') }} {{ $shipping }}</li>
-                            <li>Total: {{ config('cart.currency_symbol') }} {{ $total }}</li>
+                            <li>Total: {{ config('cart.currency_symbol') }} {{ $newTotal }}</li>
                         </ul>
                     </div>
                     <div class="col-md-6">

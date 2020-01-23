@@ -4,9 +4,9 @@
             <div class="col-md-12 text-center">
 
                 <ul class="footer-menu">
-                    <li> <a href="{{ route('accounts', ['tab' => 'profile']) }}">Your account</a>  </li>
-                    <li> <a href="">Contact us</a>  </li>
-                    <li> <a href="">Terms of service</a>  </li>
+                    <li> <a href="{{ route('accounts', ['tab' => 'profile']) }}">حسابي</a>  </li>
+                    <li> <a href="">تواصل معنا</a>  </li>
+                    <li> <a href="">الشروط و الاحكام</a>  </li>
                 </ul>
 
                 <ul class="footer-social">
@@ -16,7 +16,7 @@
                     <li> <a href=""> <i class="fa fa-pinterest-p" aria-hidden="true"></i>  </a> </li>
                 </ul>
 
-                <p>&copy; <a href="{{ config('app.url') }}">{{ config('app.name') }}</a> | All Rights Reserved</p>
+                <p>vts&copy;جميع الحقوق محفوظه </p>
 
             </div>
         </div>
