@@ -14,8 +14,6 @@ use App\Shop\Products\Transformations\ProductTransformable;
 use Gloudemans\Shoppingcart\CartItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Gloudemans\Shoppingcart\Cart as GloudemansCart;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -70,18 +68,12 @@ class CartController extends Controller
         $courier = $this->courierRepo->findCourierById(request()->session()->get('courierId', 1));
         $shippingFee = $this->cartRepo->getShippingFee($courier);
 
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subTotal() - $discount);
-        $newTotal = $newSubtotal;
-
-        return view('front.carts.cart')->with([
+        return view('front.carts.cart', [
             'cartItems' => $this->cartRepo->getCartItemsTransformed(),
             'subtotal' => $this->cartRepo->getSubTotal(),
-            'discount' => $discount,
-            'newSubtotal' => $newSubtotal,
             'tax' => $this->cartRepo->getTax(),
             'shippingFee' => $shippingFee,
-            'newTotal' => $newTotal,
+            'total' => $this->cartRepo->getTotal(2, $shippingFee)
         ]);
     }
 
@@ -119,8 +111,6 @@ class CartController extends Controller
 
         $this->cartRepo->addToCart($product, $request->input('quantity'), $options);
 
-        session()->forget('coupon');
-
         return redirect()->route('cart.index')
             ->with('message', 'Add to cart successful');
     }
@@ -135,8 +125,6 @@ class CartController extends Controller
     public function update(UpdateCartRequest $request, $id)
     {
         $this->cartRepo->updateQuantityInCart($id, $request->input('quantity'));
-
-        session()->forget('coupon');
 
         request()->session()->flash('message', 'Update cart successful');
         return redirect()->route('cart.index');

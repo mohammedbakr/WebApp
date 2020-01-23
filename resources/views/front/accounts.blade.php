@@ -8,7 +8,7 @@
                 @include('layouts.errors-and-messages')
             </div>
             <div class="col-md-12">
-                <h2> <i class="fa fa-home"></i>حسابي</h2>
+                <h2> <i class="fa fa-home"></i> My Account</h2>
                 <hr>
             </div>
         </div>
@@ -17,10 +17,11 @@
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">الملف الشخصي</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">الطلبات</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab">العنوان</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">Orders</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab">Addresses</a></li>
                     </ul>
+
                     <!-- Tab panes -->
                     <div class="tab-content customer-order-list">
                         <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif" id="profile">
@@ -31,9 +32,9 @@
                                 <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td>التاريخ</td>
-                                    <td>الاجمالي</td>
-                                    <td>الحاله</td>
+                                    <td>Date</td>
+                                    <td>Total</td>
+                                    <td>Status</td>
                                 </tr>
                                 </tbody>
                                 <tbody>
@@ -53,10 +54,10 @@
                                                         <div class="modal-body">
                                                             <table class="table">
                                                                 <thead>
-                                                                    <th>العنوان</th>
-                                                                    <th>طريقه الدفع</th>
-                                                                    <th>الاجمالي</th>
-                                                                    <th>الحاله</th>
+                                                                    <th>Address</th>
+                                                                    <th>Payment Method</th>
+                                                                    <th>Total</th>
+                                                                    <th>Status</th>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
@@ -152,8 +153,8 @@
                                                     <div class="btn-group">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a href="{{ route('customer.address.edit', [auth()->user()->id, $address->id]) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> تعديل</a>
-                                                        <button onclick="return confirm('هل انت متاكد !؟')" type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> حذف</button>
+                                                        <a href="{{ route('customer.address.edit', [auth()->user()->id, $address->id]) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                                                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> Delete</button>
                                                     </div>
                                                 </form>
                                             </td>
@@ -162,7 +163,7 @@
                                 </tbody>
                             </table>
                             @else
-                                <br /> <p class="alert alert-warning">لا يوجد اي عناوين بعد !</p>
+                                <br /> <p class="alert alert-warning">No address created yet.</p>
                             @endif
                         </div>
                     </div>

@@ -19,7 +19,6 @@ use App\Shop\OrderStatuses\Repositories\OrderStatusRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Barryvdh\DomPDF\Facade as PDF;
 
 class OrderController extends Controller
 {
@@ -169,8 +168,9 @@ class OrderController extends Controller
             'payment' => $order->paymentMethod
         ];
 
-        $pdf = PDF::loadView('invoices.orders', $data);
-        return $pdf->download('invoice.pdf');
+        $pdf = app()->make('dompdf.wrapper');
+        $pdf->loadView('invoices.orders', $data)->stream();
+        return $pdf->stream();
     }
 
     /**

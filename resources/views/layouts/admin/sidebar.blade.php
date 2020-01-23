@@ -67,18 +67,6 @@
                     <li><a href="{{ route('admin.categories.create') }}"><i class="fa fa-plus"></i> Create category</a></li>
                 </ul>
             </li>
-            <li class="treeview @if(request()->segment(2) == 'coupons') active @endif">
-                <a href="#">
-                    <i class="fa fa-tag"></i> <span>Coupons</span>
-                    <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.coupons.index') }}"><i class="fa fa-circle-o"></i> List coupons</a></li>
-                    <li><a href="{{ route('admin.coupons.create') }}"><i class="fa fa-plus"></i> Create coupon</a></li>
-                </ul>
-            </li>
             <li class="treeview @if(request()->segment(2) == 'customers' || request()->segment(2) == 'addresses') active @endif">
                 <a href="#">
                     <i class="fa fa-user"></i> <span>Customers</span>

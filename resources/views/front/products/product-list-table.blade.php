@@ -5,17 +5,17 @@
         <div class="row hidden-xs hidden-sm" style="height: 40px;">
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>غطاء</b></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>Cover</b></div>
                 </div>
             </div>
 
             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
                 <div class="row">
-                    <div class="col-lg-5 col-md-5"><b>المنتج</b></div>
-                    <div class="col-lg-2 col-md-2"><b>الكميه</b></div>
-                    <div class="col-lg-1 col-md-1"><b>حذف</b></div>
-                    <div class="col-lg-2 col-md-2"><b>السعر</b></div>
-                    <div class="col-lg-2 col-md-2"><b>الاجمالي</b></div>
+                    <div class="col-lg-5 col-md-5"><b>Name</b></div>
+                    <div class="col-lg-2 col-md-2"><b>Quantity</b></div>
+                    <div class="col-lg-1 col-md-1"><b>Remove</b></div>
+                    <div class="col-lg-2 col-md-2"><b>Price</b></div>
+                    <div class="col-lg-2 col-md-2"><b>Total</b></div>
                 </div>
             </div>
         </div>
@@ -85,7 +85,6 @@
         @endforeach
     </div>
 </div>
-
 @endif
 <script type="text/javascript">
     $(document).ready(function () {

@@ -13,11 +13,11 @@
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="quantity" value="1" />
                                                 <input type="hidden" name="product" value="{{ $product->id }}">
-                                                <button id="add-to-cart-btn" type="submit" class="btn btn-info" data-toggle="modal" data-target="#cart-modal"> <i class="fa fa-cart-plus"></i> اضافه الي السله</button>
+                                                <button id="add-to-cart-btn" type="submit" class="btn btn-warning" data-toggle="modal" data-target="#cart-modal"> <i class="fa fa-cart-plus"></i> Add to cart</button>
                                             </form>
                                         </li>
-                                        <li>  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_{{ $product->id }}"> <i class="fa fa-eye"></i> عرض سريع</button>
-                                        <li>  <a class="btn btn-info product-btn" href="{{ route('front.get.product', str_slug($product->slug)) }}"> <i class="fa fa-link"></i> تفاصيل المنتج </a> </li>
+                                        <li>  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal_{{ $product->id }}"> <i class="fa fa-eye"></i> Quick View</button>
+                                        <li>  <a class="btn btn-default product-btn" href="{{ route('front.get.product', str_slug($product->slug)) }}"> <i class="fa fa-link"></i> Go to product</a> </li>
                                     </ul>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                         @if(isset($product->cover))
                             <img src="{{ asset("storage/$product->cover") }}" alt="{{ $product->name }}" class="img-bordered img-responsive">
                         @else
-                            <img src="https://st.hzcdn.com/simgs/a291d6c40947de69_4-4564/home-design.jpg" alt="{{ $product->name }}" class="img-bordered img-responsive" />
+                            <img src="https://placehold.it/263x330" alt="{{ $product->name }}" class="img-bordered img-responsive" />
                         @endif
                     </div>
 
@@ -36,7 +36,7 @@
                             @if(!is_null($product->attributes->where('default', 1)->first()))
                                 @if(!is_null($product->attributes->where('default', 1)->first()->sale_price))
                                     {{ number_format($product->attributes->where('default', 1)->first()->sale_price, 2) }}
-                                    <p class="text text-danger">تخفيضات !</p>
+                                    <p class="text text-danger">Sale!</p>
                                 @else
                                     {{ number_format($product->attributes->where('default', 1)->first()->price, 2) }}
                                 @endif
@@ -65,5 +65,5 @@
         @endif
     </ul>
 @else
-    <p class="alert alert-warning">لا يوجد منتجات حاليا</p>
+    <p class="alert alert-warning">No products yet.</p>
 @endif

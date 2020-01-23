@@ -10,19 +10,19 @@
                 <div class="box-body">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="alias">التميز <span class="text-danger">*</span></label>
+                        <label for="alias">Alias <span class="text-danger">*</span></label>
                         <input type="text" name="alias" id="alias" placeholder="Home or Office" class="form-control" value="{{ old('alias') }}">
                     </div>
                     <div class="form-group">
-                        <label for="address_1">العنوان   <span class="text-danger">*</span></label>
+                        <label for="address_1">Address 1 <span class="text-danger">*</span></label>
                         <input type="text" name="address_1" id="address_1" placeholder="Address 1" class="form-control" value="{{ old('address_1') }}">
                     </div>
                     <div class="form-group">
-                        <label for="address_2">تفاصيل العنوان </label>
+                        <label for="address_2">Address 2 </label>
                         <input type="text" name="address_2" id="address_2" placeholder="Address 2" class="form-control" value="{{ old('address_2') }}">
                     </div>
                     <div class="form-group">
-                        <label for="country_id">الدوله </label>
+                        <label for="country_id">Country </label>
                         <select name="country_id" id="country_id" class="form-control select2">
                             @foreach($countries as $country)
                                 <option @if(env('SHOP_COUNTRY_ID') == $country->id) selected="selected" @endif value="{{ $country->id }}">{{ $country->name }}</option>
@@ -32,11 +32,11 @@
                     <div id="provinces" class="form-group" style="display: none;"></div>
                     <div id="cities" class="form-group" style="display: none;"></div>
                     <div class="form-group">
-                        <label for="zip"> الرمز البريدي</label>
+                        <label for="zip">Zip Code </label>
                         <input type="text" name="zip" id="zip" placeholder="Zip code" class="form-control" value="{{ old('zip') }}">
                     </div>
                     <div class="form-group">
-                        <label for="phone"> رقم الموبيل </label>
+                        <label for="phone">Your Phone </label>
                         <input type="text" name="phone" id="phone" placeholder="Phone number" class="form-control" value="{{ old('phone') }}">
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="box-footer">
                     <div class="btn-group">
                         <a href="{{ route('accounts', ['tab' => 'address']) }}" class="btn btn-default">Back</a>
-                        <button type="submit" class="btn btn-primary">انشاء</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
                     </div>
                 </div>
             </form>
