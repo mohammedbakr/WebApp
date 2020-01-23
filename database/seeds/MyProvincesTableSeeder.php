@@ -732,6 +732,15 @@ class MyProvincesTableSeeder extends Seeder
                     'updated_at' => date('Y-m-d H:i:s'),
                     'status' => 1
                 ),
+            80 => 
+                array(
+                    'id' => 81,
+                    'country_id' => 63,
+                    'name' => 'Damietta',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'status' => 1
+                ),
         ));
     }
 }

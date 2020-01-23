@@ -23,10 +23,6 @@ return [
         "dashboard" => [
             "name" => "Dashboard",
             "icon" => "fa fa-home"
-        ],
-        'coupons' => [
-            'name' => 'Coupons',
-            'icon' => "fa fa-tag"
         ]
     ],
     "site" => []

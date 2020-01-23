@@ -82,19 +82,14 @@ class BankTransferController extends Controller
      */
     public function index()
     {
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subTotal() - $discount);
-        $newTotal = $newSubtotal;
-
-        return view('front.bank-transfer-redirect')->with([
+        return view('front.bank-transfer-redirect', [
             'subtotal' => $this->cartRepo->getSubTotal(),
-            'newSubtotal' => $newSubtotal,
-            'tax' => $this->cartRepo->getTax(),
             'shipping' => $this->shippingFee,
-            'newTotal' => $newTotal,
-            'shipmentObjId' => $this->shipmentObjId,
-            'billingAddress' => $this->billingAddress,
+            'tax' => $this->cartRepo->getTax(),
+            'total' => $this->cartRepo->getTotal(2, $this->shippingFee),
             'rateObjectId' => $this->rateObjectId,
+            'shipmentObjId' => $this->shipmentObjId,
+            'billingAddress' => $this->billingAddress
         ]);
     }
 
@@ -106,10 +101,6 @@ class BankTransferController extends Controller
      */
     public function store(Request $request)
     {
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subTotal() - $discount);
-        $newTotal = $newSubtotal;
-
         $checkoutRepo = new CheckoutRepository;
         $orderStatusRepo = new OrderStatusRepository(new OrderStatus);
         $os = $orderStatusRepo->findByName('ordered');
@@ -121,9 +112,9 @@ class BankTransferController extends Controller
             'address_id' => $request->input('billing_address'),
             'order_status_id' => $os->id,
             'payment' => strtolower(config('bank-transfer.name')),
-            'discounts' => $discount,
+            'discounts' => 0,
             'total_products' => $this->cartRepo->getSubTotal(),
-            'total' => $newTotal,
+            'total' => $this->cartRepo->getTotal(2, $this->shippingFee),
             'total_shipping' => $this->shippingFee,
             'total_paid' => 0,
             'tax' => $this->cartRepo->getTax()

@@ -32,7 +32,7 @@
                      src="{{ asset("storage/$product->cover") }}?w=400"
                      data-zoom="{{ asset("storage/$product->cover") }}?w=1200">
             @else
-                <img id="main-image" class="product-cover" src="https://placehold.it/300x300/"
+                <img id="main-image" class="product-cover" src="https://placehold.it/300x300"
                      data-zoom="{{ asset("storage/$product->cover") }}?w=1200" alt="{{ $product->name }}">
             @endif
         </figure>
@@ -77,7 +77,7 @@
                                    value="{{ old('quantity') }}" />
                             <input type="hidden" name="product" value="{{ $product->id }}" />
                         </div>
-                        <button type="submit" class="btn btn-default product-btn"><i class="fa fa-cart-plus"></i> اضافه الي السله
+                        <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> Add to cart
                         </button>
                     </form>
                 </div>
