@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\Front\ReviewsController;
+use App\Http\Controllers\CouponController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['employee'], 'as' => 'admin.
             Route::namespace('Customers')->group(function () {
                 Route::resource('customers', 'CustomerController');
                 Route::resource('customers.addresses', 'CustomerAddressController');
+            });
+            Route::namespace('Coupons')->group(function () {
+                Route::resource('coupons', 'CouponController');
             });
             Route::namespace('Categories')->group(function () {
                 Route::resource('categories', 'CategoryController');
@@ -102,6 +106,8 @@ Route::namespace('Front')->group(function () {
         Route::resource('customer.address', 'CustomerAddressController');
     });
     Route::resource('cart', 'CartController');
+    Route::post('/coupon', 'CouponController@store')->name('coupon.store');
+    Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
     Route::get("category/{slug}", 'CategoryController@getCategory')->name('front.category.slug');
     Route::get("search", 'ProductController@search')->name('search.product');
     Route::get("{product}", 'ProductController@show')->name('front.get.product');
