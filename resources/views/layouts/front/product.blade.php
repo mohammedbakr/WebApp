@@ -38,8 +38,14 @@
         </figure>
     </div>
     <div class="col-md-6">
+        @include('layouts.errors-and-messages')
         <div class="product-description">
             <h1>{{ $product->name }}
+                @if($product->reviews->count())
+                <small>Rating&nbsp;{{ number_format($product->reviews->avg('rating'), 2) }} / 5.00</small>
+                @else
+                <small>Be The First to Rate!</small>
+                @endif
                 <small>{{ config('cart.currency') }} {{ $product->price }}</small>
             </h1>
             <div class="description">{!! $product->description !!}</div>
@@ -48,7 +54,6 @@
             <hr>
             <div class="row">
                 <div class="col-md-12">
-                    @include('layouts.errors-and-messages')
                     <form action="{{ route('cart.store') }}" class="form-inline" method="post">
                         {{ csrf_field() }}
                         @if(isset($productAttributes) && !$productAttributes->isEmpty())

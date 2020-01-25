@@ -6,6 +6,7 @@ use App\Shop\Brands\Brand;
 use App\Shop\Categories\Category;
 use App\Shop\ProductAttributes\ProductAttribute;
 use App\Shop\ProductImages\ProductImage;
+use App\Shop\Reviews\Review;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -143,5 +144,9 @@ class Product extends Model implements Buyable
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function reviews(){
+        return $this->hasMany(Review::class);
     }
 }

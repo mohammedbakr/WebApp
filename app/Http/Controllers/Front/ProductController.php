@@ -58,11 +58,10 @@ class ProductController extends Controller
         $category = $product->categories()->first();
         $productAttributes = $product->attributes;
 
-        return view('front.products.product', compact(
-            'product',
-            'images',
-            'productAttributes',
-            'category'
+        return view('front.products.product', compact('product',
+        'images',
+        'productAttributes',
+        'category',
         ));
     }
 }

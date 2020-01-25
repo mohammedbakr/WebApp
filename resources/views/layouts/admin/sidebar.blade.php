@@ -53,6 +53,17 @@
                         <li><a href="{{ route('admin.brands.create') }}"><i class="fa fa-plus"></i> Create brand</a></li>
                     </ul>
                     </li>
+                    <li class="@if(request()->segment(2) == 'reviews') active @endif">
+                        <a href="#">
+                            <i class="fa fa-comment"></i> <span>Reviews</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('admin.reviews.index') }}"><i class="fa fa-circle-o"></i> List reviews</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="treeview @if(request()->segment(2) == 'categories') active @endif">
