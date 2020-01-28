@@ -8,22 +8,22 @@
         @if($addresses)
             <div class="box">
                 <div class="box-body">
-                    <h2>Addresses</h2>
+                    <h2>{{trans('main.address.Address')}}</h2>
                     @if(!$addresses->isEmpty())
                         <table class="table">
                         <tbody>
                         <tr>
-                            <td>Alias</td>
-                            <td>Address 1</td>
+                            <td>{{trans('main.address.Alias')}}</td>
+                            <td>{{trans('main.address.Address')}} 1</td>
                             @if(isset($address->province))
-                            <td>Province</td>
+                            <td>{{trans('main.address.Province')}}</td>
                             @endif
-                            <td>State</td>
-                            <td>City</td>
-                            <td>Zip Code</td>
-                            <td>Country</td>
-                            <td>Status</td>
-                            <td>Actions</td>
+                            <td>{{trans('main.address.State')}}</td>
+                            <td>{{trans('main.address.City')}}</td>
+                            <td>{{trans('main.address.Zip Code')}}</td>
+                            <td>{{trans('main.address.Country')}}</td>
+                            <td>{{trans('main.address.Status')}}</td>
+                            <td>{{trans('main.address.Actions')}}</td>
                         </tr>
                         </tbody>
                         <tbody>
@@ -44,8 +44,8 @@
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="delete">
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.addresses.edit', $address->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
+                                            <a href="{{ route('admin.addresses.edit', $address->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> {{trans('main.address.Edit')}}</a>
+                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> {{trans('main.address.Delete')}}</button>
                                         </div>
                                     </form>
                                 </td>
@@ -53,9 +53,9 @@
                         @endforeach
                         </tbody>
                     </table>
-                        <a href="{{ route('accounts', ['tab' => 'profile']) }}" class="btn btn-default">Back to My Account</a>
+                        <a href="{{ route('accounts', ['tab' => 'profile']) }}" class="btn btn-default">{{trans('main.address.Back')}}</a>
                     @else
-                        <p class="alert alert-warning">No address created yet. <a href="{{ route('customer.address.create', auth()->id()) }}">Create</a></p>
+                        <p class="alert alert-warning">{{trans('main.address.No address created yet')}}. <a href="{{ route('customer.address.create', auth()->id()) }}">{{trans('main.address.Create')}}</a></p>
                     @endif
                 </div>
                 <!-- /.box-body -->
@@ -63,7 +63,7 @@
             <!-- /.box -->
         @else
             <div class="box">
-                <div class="box-body"><p class="alert alert-warning">No addresses found.</p></div>
+                <div class="box-body"><p class="alert alert-warning">{{trans('main.address.No addresses found')}}.</p></div>
             </div>
         @endif
     </section>

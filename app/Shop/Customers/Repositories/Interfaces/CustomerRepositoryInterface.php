@@ -28,5 +28,5 @@ interface CustomerRepositoryInterface extends BaseRepositoryInterface
 
     public function searchCustomer(string $text) : Collection;
 
-    public function charge(int $amount, array $options);
+    public function charge(float $amount, array $options);
 }

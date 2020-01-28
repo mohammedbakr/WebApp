@@ -7,7 +7,6 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <title>{{ config('app.name') }}</title>
-
     <link rel="stylesheet" href="{{ asset('css/admin.min.css') }}">
     @yield('css')
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-icon-57x57.png')}}">

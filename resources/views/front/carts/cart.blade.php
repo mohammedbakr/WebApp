@@ -6,8 +6,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ol class="breadcrumb">
-                            <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
-                            <li class="active">Cart</li>
+                            <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> {{trans('main.cart.Home')}}</a></li>
+                            <li class="active">{{trans('main.cart.Cart')}}</li>
                         </ol>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                         <div class="box-body">
                             @include('layouts.errors-and-messages')
                         </div>
-                        <h3><i class="fa fa-cart-plus"></i> Shopping Cart</h3>
+                        <h3><i class="fa fa-cart-plus"></i> {{trans('main.cart.Shopping Cart')}}</h3>
                     </div>
                 </div>
 
@@ -29,17 +29,17 @@
                             
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                                 <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>Cover</b></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>{{trans('main.cart.Cover')}}</b></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
                                 <div class="row">
-                                    <div class="col-lg-5 col-md-5"><b>Name</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Quantity</b></div>
-                                    <div class="col-lg-1 col-md-1"><b>Remove</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Price</b></div>
-                                    <div class="col-lg-2 col-md-2"><b>Total</b></div>
+                                    <div class="col-lg-5 col-md-5"><b>{{trans('main.cart.Name')}}</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>{{trans('main.cart.Quantity')}}</b></div>
+                                    <div class="col-lg-1 col-md-1"><b>{{trans('main.cart.Remove')}}</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>{{trans('main.cart.Price')}}</b></div>
+                                    <div class="col-lg-2 col-md-2"><b>{{trans('main.cart.Total')}}</b></div>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@
                                                 <input type="hidden" name="_method" value="put">
                                                 <div class="input-group">
                                                     <input type="text" name="quantity" value="{{ $cartItem->qty }}" class="form-control input-sm" />
-                                                    <span class="input-group-btn"><button class="btn btn-default btn-sm">Update</button></span>
+                                                    <span class="input-group-btn"><button class="btn btn-default btn-sm">{{trans('main.cart.Update')}}</button></span>
                                                 </div>
                                             </form>
                                         </div>
@@ -98,11 +98,11 @@
                                             </form>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                            <span class="hidden-lg hidden-md"><small>Price: </span>
+                                            <span class="hidden-lg hidden-md"><small>{{trans('main.cart.Price')}}: </span>
                                             {{config('cart.currency')}} {{ number_format($cartItem->price, 2) }}</small>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                            <span class="hidden-lg hidden-md"><small>Total: </span>
+                                            <span class="hidden-lg hidden-md"><small>{{trans('main.cart.Total')}}: </span>
                                             {{config('cart.currency')}} {{ number_format(($cartItem->qty*$cartItem->price), 2) }}</small>
                                         </div>
 
@@ -123,7 +123,7 @@
                         <table class="table table-striped">
                             <tfoot>
                                 <tr>
-                                    <td class="bg-warning">Subtotal</td>
+                                    <td class="bg-warning">{{trans('main.cart.Subtotal')}}</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -131,7 +131,7 @@
                                 </tr>
                                 @if(isset($shippingFee) && $shippingFee != 0)
                                 <tr>
-                                    <td class="bg-warning">Shipping</td>
+                                    <td class="bg-warning">{{trans('main.cart.Shipping')}}</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -139,7 +139,7 @@
                                 </tr>
                                 @endif
                                 <tr>
-                                    <td class="bg-warning">Tax</td>
+                                    <td class="bg-warning">{{trans('main.cart.Tax')}}</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
@@ -147,13 +147,13 @@
                                 </tr>
                                 @if(session()->has('coupon'))
                                 <tr>
-                                    <td class="bg-warning">Discount:</td>
+                                    <td class="bg-warning">{{trans('main.cart.Discount')}}:</td>
                                     <td class="bg-warning">{{session()->get('coupon')['name']}}</td>
                                     <td class="bg-warning">
                                         <form action="{{route('coupon.destroy')}}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger muted">Remove</button>
+                                            <button type="submit" class="btn btn-danger muted">{{trans('main.cart.Remove')}}</button>
                                         </form>
                                     </td>
                                     <td class="bg-warning"></td>
@@ -161,14 +161,14 @@
                                 </tr>
                                 @endif
                                 <tr>
-                                    <td class="bg-warning">New Subtotal</td>
+                                    <td class="bg-warning">{{trans('main.cart.New Subtotal')}}</td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning"></td>
                                     <td class="bg-warning">{{config('cart.currency')}} {{ $newSubtotal}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="bg-success">Total</td>
+                                    <td class="bg-success">{{trans('main.cart.Total')}}</td>
                                     <td class="bg-success"></td>
                                     <td class="bg-success"></td>
                                     <td class="bg-success"></td>
@@ -179,11 +179,11 @@
                         <hr>
                         @if (!session()->has('coupon'))
                         <div class="row">
-                            <p>Have a code ?</p>
+                            <p>{{trans('main.cart.Have a code')}} ?</p>
                             <form action="{{route('coupon.store')}}" method="POST">
                                 @csrf
                                 <input type="text" name="couponCode" id="couponCode">
-                                <button type="submit" class="btn btn-primary">Apply</button>
+                                <button type="submit" class="btn btn-primary">{{trans('main.cart.Apply')}}</button>
                             </form>
                         </div>
                         <hr> 
@@ -192,8 +192,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="btn-group pull-right">
-                                    <a href="{{ route('home') }}" class="btn btn-default">Continue shopping</a>
-                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary">Go to checkout</a>
+                                    <a href="{{ route('home') }}" class="btn btn-default">{{trans('main.cart.Continue shopping')}}</a>
+                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary">{{trans('main.cart.Go to checkout')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
             @else
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="alert alert-warning">No products in cart yet. <a href="{{ route('home') }}">Shop now!</a></p>
+                        <p class="alert alert-warning">{{trans('main.cart.No products in cart yet')}}. <a href="{{ route('home') }}">{{trans('main.cart.Shop now')}}!</a></p>
                     </div>
                 </div>
             @endif

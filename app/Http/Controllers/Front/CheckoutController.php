@@ -119,14 +119,20 @@ class CheckoutController extends Controller
 
         $billingAddress = $customer->addresses()->first();
 
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subTotal() - $discount);
+        $newTotal = $newSubtotal;
+
         return view('front.checkout', [
             'customer' => $customer,
+            'discount' => $discount,
+            'newSubtotal' => $newSubtotal,
+            'newTotal' => $newTotal,
             'billingAddress' => $billingAddress,
             'addresses' => $customer->addresses()->get(),
             'products' => $this->cartRepo->getCartItems(),
             'subtotal' => $this->cartRepo->getSubTotal(),
             'tax' => $this->cartRepo->getTax(),
-            'total' => $this->cartRepo->getTotal(2),
             'payments' => $paymentGateways,
             'cartItems' => $this->cartRepo->getCartItemsTransformed(),
             'shipment_object_id' => $shipment_object_id,
@@ -148,6 +154,10 @@ class CheckoutController extends Controller
     {
         $shippingFee = 0;
 
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subTotal() - $discount);
+        $newTotal = $newSubtotal;
+
         switch ($request->input('payment')) {
             case 'paypal':
                 return $this->payPal->process($shippingFee, $request);
@@ -161,10 +171,12 @@ class CheckoutController extends Controller
 
                 $customer = $this->customerRepo->findCustomerById(auth()->id());
                 $customerRepo = new CustomerRepository($customer);
-                $customerRepo->charge($this->cartRepo->getTotal(2, $shippingFee), $details);
+                $customerRepo->charge($newTotal, $details);
                 break;
             default:
         }
+
+        Cart::destroy();
     }
 
     /**
@@ -197,9 +209,14 @@ class CheckoutController extends Controller
             $customer = $this->customerRepo->findCustomerById(auth()->id());
             $stripeRepo = new StripeRepository($customer);
 
+            $discount = session()->get('coupon')['discount'] ?? 0;
+            $newSubtotal = (Cart::subTotal() - $discount);
+            $newTotal = $newSubtotal;
+
+
             $stripeRepo->execute(
                 $request->all(),
-                Cart::total(),
+                $newTotal,
                 Cart::tax()
             );
             return redirect()->route('checkout.success')->with('message', 'Stripe payment successful!');
@@ -207,6 +224,7 @@ class CheckoutController extends Controller
             Log::info($e->getMessage());
             return redirect()->route('checkout.index')->with('error', 'There is a problem processing your request.');
         }
+        Cart::destroy();
     }
 
     /**

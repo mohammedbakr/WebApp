@@ -159,7 +159,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
      * @return \Stripe\Charge
      * @throws CustomerPaymentChargingErrorException
      */
-    public function charge(int $amount, array $options)
+    public function charge(float $amount, array $options)
     {
         try {
             return $this->model->charge($amount * 100, $options);

@@ -1,0 +1,78 @@
+<?php
+
+return [
+
+    "front" => [
+        'My Account' => 'صفحتي',
+        'Logout' => 'تسجيل الخروج',
+        'Login' => 'تسجيل الدخول',
+        'Register' => 'اضافة حساب',
+        'Search' => 'البحث',
+        'I forgot my password' => 'لقد نسيت كلمة المرور الخاصة بي',
+        'Email' => 'الايميل',
+        'Password' => 'كلمة المرور',
+        'Confirm Password' => 'تأكيد كلمة المرور',
+    ],
+
+    "footer" => [
+        'Your account' => 'صفحتك',
+        'Contact us' => 'النواصل معنا',
+        'Terms of service' => 'حقوق النشر',
+        'All Rights Reserved' => 'جميع الحقوق محفوظة',
+    ],
+
+    "product" => [
+        'Rating' => 'التقييم',
+        'Be The First to Rate!' => 'كن اول شخص يقيم المنتج',
+        'Add to cart' => 'اضف الي العربة',
+        'Choose Combination' => 'اختر ما يناسبك',
+        'Quantity' => 'الكمية',
+    ],
+
+    "cart" => [
+        'Home' => 'الصفحة الرئيسية',
+        'Cart' => 'العربة',
+        'Shopping Cart' => 'عربة التسوق',
+        'Cover' => 'الخلفية',
+        'Name' => 'اسم المنتج',
+        'Quantity' => 'الكمية',
+        'Remove' => 'الغاء',
+        'Price' => 'السعر',
+        'Total' => 'المبلغ الكلي',
+        'Update' => 'تحديث',
+        'Price' => 'السعر',
+        'Subtotal' => 'السعر قبل الخصم',
+        'Shipping' => 'التوصيل',
+        'Tax' => 'الضرائب',
+        'Discount' => 'الخصم',
+        'New Subtotal' => 'السعر بعد الخصم',
+        'Apply' => 'تفعيل',
+        'Go to checkout' => 'استكمال الدفع',
+        'Continue shopping' => 'استكمال التسوق',
+        'Have a code' => 'هل لديك كود للخصومات',
+        'No products in cart yet' => 'لا توجد منتجات في العربة الي الان',
+        'Shop now' => 'تسوق الان',
+    ],
+
+    "address" => [
+        'Alias' => 'الاسم المستعار',
+        'Address' => 'العنوان',
+        'Home or Office' => 'بيت او مكتب',
+        'Country' => 'الدولة',
+        'Province' => 'المحافظة',
+        'City' => 'المدينة',
+        'Zip Code' => 'الرمز البريدي',
+        'Status' => 'الحالة',
+        'Disable' => 'غير مفعل',
+        'Enable' => 'مفعل',
+        'Back' => 'الرجوع',
+        'Create' => 'انشاء',
+        'Your Phone' => 'رقم الجوال',
+        'Actions' => 'الحدث',
+        'No addresses found' => 'لا يوجد عنوان',
+        'No address created yet' => 'لم يتم اضافة عنوان الي الان',
+        'Delete' => 'حذف',
+        'Edit' => 'تعديل',
+        'Update' => 'تحديث',
+    ],
+];

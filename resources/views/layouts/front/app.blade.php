@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS') }}"></script>
@@ -18,8 +18,11 @@
     <meta name="description" content="Modern open-source e-commerce framework for free">
     <meta name="tags" content="modern, opensource, open-source, e-commerce, framework, free, laravel, php, php7, symfony, shop, shopping, responsive, fast, software, blade, cart, test driven, adminlte, storefront">
     <meta name="author" content="Jeff Simons Decena">
+    @if (app()->getLocale() == 'ar')
+    <link href="{{asset('css/rtl.css')}}" rel="stylesheet">
+    @else
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-
+    @endif
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,12 +66,15 @@
             <div class="pull-right">
                 <ul class="nav navbar-nav navbar-right">
                     @if(auth()->check())
-                        <li><a href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home"></i> My Account</a></li>
-                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        <li><a href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home"></i> {{trans('main.front.My Account')}}</a></li>
+                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> {{trans('main.front.Logout')}}</a></li>
                     @else
-                        <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> Login</a></li>
-                        <li><a href="{{ route('register') }}"> <i class="fa fa-sign-in"></i> Register</a></li>
+                        <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> {{trans('main.front.Login')}}</a></li>
+                        <li><a href="{{ route('register') }}"> <i class="fa fa-sign-in"></i> {{trans('main.front.Register')}}</a></li>
                     @endif
+                    @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
+                    <li><a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a></li>                      
+                    @endforeach                    
                     <li id="cart" class="menubar-cart">
                         <a href="{{ route('cart.index') }}" title="View Cart" class="awemenu-icon menu-shopping-cart">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>

@@ -42,9 +42,9 @@
         <div class="product-description">
             <h1>{{ $product->name }}
                 @if($product->reviews->count())
-                <small>Rating&nbsp;{{ number_format($product->reviews->avg('rating'), 2) }} / 5.00</small>
+                <small>{{trans('main.product.Rating')}}&nbsp;{{ number_format($product->reviews->avg('rating'), 2) }} / 5.00</small>
                 @else
-                <small>Be The First to Rate!</small>
+                <small>{{trans('main.product.Be The First to Rate!')}}</small>
                 @endif
                 <small>{{ config('cart.currency') }} {{ $product->price }}</small>
             </h1>
@@ -58,7 +58,7 @@
                         {{ csrf_field() }}
                         @if(isset($productAttributes) && !$productAttributes->isEmpty())
                             <div class="form-group">
-                                <label for="productAttribute">Choose Combination</label> <br />
+                                <label for="productAttribute">{{trans('main.product.Choose Combination')}}</label> <br />
                                 <select name="productAttribute" id="productAttribute" class="form-control select2">
                                     @foreach($productAttributes as $productAttribute)
                                         <option value="{{ $productAttribute->id }}">
@@ -78,11 +78,11 @@
                                    class="form-control"
                                    name="quantity"
                                    id="quantity"
-                                   placeholder="Quantity"
+                                   placeholder="{{trans('main.product.Quantity')}}"
                                    value="{{ old('quantity') }}" />
                             <input type="hidden" name="product" value="{{ $product->id }}" />
                         </div>
-                        <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> Add to cart
+                        <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> {{trans('main.product.Add to cart')}}
                         </button>
                     </form>
                 </div>

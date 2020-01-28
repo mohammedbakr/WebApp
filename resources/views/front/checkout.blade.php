@@ -116,7 +116,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($payments as $payment)
-                                            @include('layouts.front.payment-options', compact('payment', 'total', 'shipment_object_id'))
+                                            @include('layouts.front.payment-options', compact('payment', 'newTotal', 'shipment_object_id'))
                                         @endforeach
                                         </tbody>
                                     </table>
@@ -142,9 +142,9 @@
 @section('js')
     <script type="text/javascript">
 
-        function setTotal(total, shippingCost) {
-            let computed = +shippingCost + parseFloat(total);
-            $('#total').html(computed.toFixed(2));
+        function setnewTotal(newTotal, shippingCost) {
+            let computed = +shippingCost + parseFloat(newTotal);
+            $('#newTotal').html(computed.toFixed(2));
         }
 
         function setShippingFee(cost) {
@@ -186,21 +186,21 @@
             let courier = 'input[name="courier"]';
             $(courier).on('change', function () {
                 let shippingCost = $(this).data('cost');
-                let total = $('#total').data('total');
+                let newTotal = $('#newTotal').data('newTotal');
 
                 setCourierDetails($(this).val());
                 setShippingFee(shippingCost);
-                setTotal(total, shippingCost);
+                setnewTotal(newTotal, shippingCost);
             });
 
             if ($(courier).is(':checked')) {
                 let shippingCost = $(courier + ':checked').data('cost');
                 let courierId = $(courier + ':checked').val();
-                let total = $('#total').data('total');
+                let newTotal = $('#newTotal').data('newTotal');
 
                 setShippingFee(shippingCost);
                 setCourierDetails(courierId);
-                setTotal(total, shippingCost);
+                setnewTotal(newTotal, shippingCost);
             }
         });
     </script>

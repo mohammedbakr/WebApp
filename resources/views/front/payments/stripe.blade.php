@@ -35,16 +35,16 @@
                 token: function(token) {
                     // You can access the token ID with `token.id`.
                     // Get the token ID to your server-side code for use.
-                    console.log(token.id);
+                    // console.log(token.id);
                     $('input[name="stripeToken"]').val(token.id);
                     $('#stripeForm').submit();
                 }
             });
 
             document.getElementById('paywithstripe').addEventListener('click', function(e) {
-                let total = parseFloat("{{ $total }}");
+                let newTotal = parseFloat("{{ $newTotal }}");
                 let shipping = parseFloat($('#shippingFeeC').val());
-                let amount = total + shipping;
+                let amount = newTotal + shipping;
                 // Open Checkout with further options:
                 handler.open({
                     name: "{{ config('stripe.name') }}",
