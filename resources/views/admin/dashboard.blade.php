@@ -19,12 +19,51 @@
             <div class="box-body">
                 Start creating your amazing application!
             </div>
+        </div>
+        <div class="box box-solid">
+
+            <div class="box-header">
+                <h3 class="box-title">Sales Graph</h3>
+            </div>
+            <div class="box-body border-radius-none">
+                <div class="chart" id="line-chart" style="height: 250px;"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        
+@push('scripts')
+
+<script>
+
+    //line chart
+    var line = new Morris.Line({
+        element: 'line-chart',
+        resize: true,
+        data: [
+            @foreach ($sales_data as $data)
+            {
+                ym: "{{ $data->year }}-{{ $data->month }}", sum: "{{ $data->sum}}"
+            },
+            @endforeach
+        ],
+        xkey: 'ym',
+        ykeys: ['sum'],
+        labels: ['Total Profit'],
+        lineWidth: 2,
+        hideHover: 'auto',
+        gridStrokeWidth: 0.4,
+        pointSize: 4,
+        gridTextFamily: 'Open Sans',
+        gridTextSize: 10
+    });
+</script>
+
+@endpush
             <!-- /.box-body -->
             <div class="box-footer">
                 Footer
             </div>
             <!-- /.box-footer-->
-        </div>
         <!-- /.box -->
 
     </section>
