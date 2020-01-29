@@ -8,7 +8,7 @@
                 @include('layouts.errors-and-messages')
             </div>
             <div class="col-md-12">
-                <h2> <i class="fa fa-home"></i> My Account</h2>
+                <h2> <i class="fa fa-home"></i> {{trans('main.front.My Account')}}</h2>
                 <hr>
             </div>
         </div>
@@ -17,9 +17,9 @@
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">Orders</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab">Addresses</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{trans('main.front.Profile')}}</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">{{trans('main.order.Orders')}}</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab">{{trans('main.address.Address')}}</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -32,9 +32,9 @@
                                 <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td>Date</td>
-                                    <td>Total</td>
-                                    <td>Status</td>
+                                    <td>{{trans('main.order.Date')}}</td>
+                                    <td>{{trans('main.cart.Total')}}</td>
+                                    <td>{{trans('main.address.Status')}}</td>
                                 </tr>
                                 </tbody>
                                 <tbody>
@@ -49,15 +49,15 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title" id="myModalLabel">Reference #{{$order['reference']}}</h4>
+                                                            <h4 class="modal-title" id="myModalLabel">{{trans('main.order.Reference')}} #{{$order['reference']}}</h4>
                                                         </div>
                                                         <div class="modal-body">
                                                             <table class="table">
                                                                 <thead>
-                                                                    <th>Address</th>
-                                                                    <th>Payment Method</th>
-                                                                    <th>Total</th>
-                                                                    <th>Status</th>
+                                                                    <th>{{trans('main.order.Address')}}</th>
+                                                                    <th>{{trans('main.order.Payment Method')}}</th>
+                                                                    <th>{{trans('main.cart.Total')}}</th>
+                                                                    <th>{{trans('main.address.Status')}}</th>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
@@ -74,13 +74,12 @@
                                                                 </tbody>
                                                             </table>
                                                             <hr>
-                                                            <p>Order details:</p>
+                                                            <p>{{trans('main.order.Order details')}}:</p>
                                                             <table class="table">
-                                                              <thead>
-                                                                  <th>Name</th>
-                                                                  <th>Quantity</th>
-                                                                  <th>Price</th>
-                                                                  <th>Cover</th>
+                                                                  <th>{{trans('main.product.Name')}}</th>
+                                                                  <th>{{trans('main.order.Quantity')}}</th>
+                                                                  <th>{{trans('main.cart.Price')}}</th>
+                                                                  <th>{{trans('main.cart.Cover')}}</th>
                                                               </thead>
                                                               <tbody>
                                                               @foreach ($order['products'] as $product)
@@ -95,7 +94,7 @@
                                                             </table>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">{{trans('main.front.Close')}}</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,30 +108,30 @@
                             </table>
                                 {{ $orders->links() }}
                             @else
-                                <p class="alert alert-warning">No orders yet. <a href="{{ route('home') }}">Shop now!</a></p>
+                                <p class="alert alert-warning">{{trans('main.order.No orders yet')}}. <a href="{{ route('home') }}">{{trans('main.cart.Shop now')}}!</a></p>
                             @endif
                         </div>
                         <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'address')active @endif" id="address">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="{{ route('customer.address.create', auth()->user()->id) }}" class="btn btn-primary">Create your address</a>
+                                    <a href="{{ route('customer.address.create', auth()->user()->id) }}" class="btn btn-primary">{{trans('main.address.Create your address')}}</a>
                                 </div>
                             </div>
                             @if(!$addresses->isEmpty())
                                 <table class="table">
                                 <thead>
-                                    <th>Alias</th>
-                                    <th>Address 1</th>
-                                    <th>Address 2</th>
-                                    <th>City</th>
-                                    @if(isset($address->province))
-                                    <th>Province</th>
-                                    @endif
-                                    <th>State</th>
-                                    <th>Country</th>
-                                    <th>Zip</th>
-                                    <th>Phone</th>
-                                    <th>Actions</th>
+                                    <th>{{trans('main.address.Alias')}}</th>
+                                    <th>{{trans('main.address.Address')}} 1</th>
+                                    <th>{{trans('main.address.Address')}} 2</th>
+                                    {{-- <th>{{trans('main.address.City')}}</th> --}}
+                                    {{-- @if(isset($address->province)) --}}
+                                    {{-- <th>{{trans('main.address.Province')}}</th> --}}
+                                    {{-- @endif --}}
+                                    {{-- <th>{{trans('main.address.State')}}</th> --}}
+                                    <th>{{trans('main.address.Country')}}</th>
+                                    <th>{{trans('main.address.Zip Code')}}</th>
+                                    <th>{{trans('main.address.Your Phone')}}</th>
+                                    <th>{{trans('main.address.Actions')}}</th>
                                 </thead>
                                 <tbody>
                                     @foreach($addresses as $address)
@@ -140,11 +139,11 @@
                                             <td>{{$address->alias}}</td>
                                             <td>{{$address->address_1}}</td>
                                             <td>{{$address->address_2}}</td>
-                                            <td>{{$address->city}}</td>
-                                            @if(isset($address->province))
-                                            <td>{{$address->province->name}}</td>
-                                            @endif
-                                            <td>{{$address->state_code}}</td>
+                                            {{-- <td>{{$address->city}}</td> --}}
+                                            {{-- @if(isset($address->province)) --}}
+                                            {{-- <td>{{$address->province->name}}</td> --}}
+                                            {{-- @endif --}}
+                                            {{-- <td>{{$address->state_code}}</td> --}}
                                             <td>{{$address->country->name}}</td>
                                             <td>{{$address->zip}}</td>
                                             <td>{{$address->phone}}</td>
@@ -153,8 +152,8 @@
                                                     <div class="btn-group">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a href="{{ route('customer.address.edit', [auth()->user()->id, $address->id]) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                                                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> Delete</button>
+                                                        <a href="{{ route('customer.address.edit', [auth()->user()->id, $address->id]) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> {{trans('main.address.Edit')}}</a>
+                                                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> {{trans('main.address.Delete')}}</button>
                                                     </div>
                                                 </form>
                                             </td>
@@ -163,7 +162,7 @@
                                 </tbody>
                             </table>
                             @else
-                                <br /> <p class="alert alert-warning">No address created yet.</p>
+                                <br /> <p class="alert alert-warning">{{trans('main.address.No address created yet')}}.</p>
                             @endif
                         </div>
                     </div>

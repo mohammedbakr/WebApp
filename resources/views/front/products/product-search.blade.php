@@ -5,7 +5,7 @@
         <hr>
         <div class="row">
             <div class="category-top col-md-12">
-                <h2>Search Results</h2>
+                <h2>{{trans('main.cart.Search Results')}}</h2>
             </div>
         </div>
         <hr>

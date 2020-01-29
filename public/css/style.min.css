@@ -3371,27 +3371,27 @@ fieldset[disabled] .btn-info.focus {
 }
 .btn-warning {
   color: #fff;
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #19afd0;
+  border-color: #19afd0;
 }
 .btn-warning:focus,
 .btn-warning.focus {
   color: #fff;
-  background-color: #ec971f;
-  border-color: #985f0d;
+  background-color: #19afd0;
+  border-color: #19afd0;
 }
 .btn-warning:hover {
   color: #fff;
-  background-color: #ec971f;
-  border-color: #d58512;
+  background-color: #19afd0;
+  border-color: #19afd0;
 }
 .btn-warning:active,
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
   color: #fff;
-  background-color: #ec971f;
+  background-color: #19afd0;
   background-image: none;
-  border-color: #d58512;
+  border-color: #19afd0;
 }
 .btn-warning:active:hover,
 .btn-warning.active:hover,
@@ -3403,8 +3403,8 @@ fieldset[disabled] .btn-info.focus {
 .btn-warning.active.focus,
 .open > .dropdown-toggle.btn-warning.focus {
   color: #fff;
-  background-color: #d58512;
-  border-color: #985f0d;
+  background-color: #19afd0;
+  border-color: #19afd0;
 }
 .btn-warning.disabled:hover,
 .btn-warning[disabled]:hover,
@@ -3415,11 +3415,11 @@ fieldset[disabled] .btn-warning:focus,
 .btn-warning.disabled.focus,
 .btn-warning[disabled].focus,
 fieldset[disabled] .btn-warning.focus {
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #19afd0;
+  border-color: #19afd0;
 }
 .btn-warning .badge {
-  color: #f0ad4e;
+  color: #19afd0;
   background-color: #fff;
 }
 .btn-danger {
@@ -4972,11 +4972,11 @@ a.label:focus {
   background-color: #31b0d5;
 }
 .label-warning {
-  background-color: #f0ad4e;
+  background-color: #19afd0;
 }
 .label-warning[href]:hover,
 .label-warning[href]:focus {
-  background-color: #ec971f;
+  background-color: #19afd0;
 }
 .label-danger {
   background-color: #d9534f;
@@ -5254,7 +5254,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-warning {
-  background-color: #f0ad4e;
+  background-color: #19afd0;
 }
 .progress-striped .progress-bar-warning {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -9696,11 +9696,11 @@ body {
 }
 ::-moz-selection {
     background: #222;
-    color: #d89522;
+    color: #19afd0;
 }
 ::selection {
     background: #222;
-    color: #d89522;
+    color: #19afd0;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Droid Serif', serif;
@@ -9718,13 +9718,13 @@ p {
     margin-top: 0px;
 }
 a {
-    color: #d89522;
+    color: #19afd0;
     cursor: pointer;
     text-decoration: none;
     transition: .3s;
 }
 a:hover {
-    color: #d89522;
+    color: #19afd0;
     text-decoration: none;
 }
 
@@ -9733,7 +9733,7 @@ a:hover {
 }
 
 li.active a {
-    color: #d89522;
+    color: #19afd0;
     background: #eee;
 }
 ul.sidebar-menu li a {
@@ -9746,7 +9746,7 @@ ul.sidebar-category-sub li {
 }
 
 ul.navbar-nav > li.active > a {
-    color: #d89522 !important;
+    color: #19afd0 !important;
 }
 
 .t100 {
@@ -9758,7 +9758,7 @@ ul.navbar-nav > li.active > a {
 .btn-default:hover {
     color: #222;
     background-color: #fff;
-    border-color: #d89522;
+    border-color: #19afd0;
     transition: .3s
 }
 
@@ -9805,7 +9805,7 @@ ul.navbar-nav li a{
 }
 
 ul.navbar-nav li a:hover {
-    color: #d89522 !important
+    color: #19afd0 !important
 }
 
 
@@ -9824,7 +9824,7 @@ li.menubar-cart a {
 }
 .cart-number {
     color: #fff;
-    background: #d89522;
+    background: #19afd0;
     font-size: 10px;
     font-weight: bold;
     text-align: center;
@@ -9848,13 +9848,6 @@ li.menubar-cart a {
 /* ************************
         HERO AREA
 ************************** */
-.top-area {
-    background: #fff url('../images/banner.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 760px;
-    position: relative;
-}
 .hero-title {
     font-size: 80px;
     line-height: 100px;
@@ -9871,7 +9864,7 @@ li.menubar-cart a {
 }
 .btn-hero {
     font-family: 'Lora', serif;
-    background: #d89522;
+    background: #19afd0;
     color: #fff;
     font-size: 20px;
     padding: 10px;
@@ -9880,13 +9873,13 @@ li.menubar-cart a {
     width: 185px;
     height: 50px;
     transition: .3s;
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
 
 }
 .btn-hero:hover {
     color: #222;
     background-color: #fff;
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
 }
 .hero-content {
     position: relative;
@@ -9950,7 +9943,7 @@ li.menubar-cart a {
 .product-btn {
     border-radius: 3px;
     font-size: 14px;
-    background: #d89522;
+    background: #19afd0;
     color: #fff;
     border: 0px;
     margin-top: 10px;
@@ -9969,7 +9962,7 @@ li.menubar-cart a {
     margin: 0;
 }
 .product-text p span{
-    color: #d89522;
+    color: #19afd0;
     font-weight: bold;
     margin: 5px 0 0;
 }
@@ -9984,7 +9977,7 @@ li.menubar-cart a {
     font-size: 14px;
     text-transform: uppercase;
     color: #919191;
-    border-color: #d89522;
+    border-color: #19afd0;
     border-radius: 3px;
     font-family: 'Lora', serif;
 }
@@ -10080,7 +10073,7 @@ li.menubar-cart a {
 }
 .read-more .glyphicon {
     font-size: 10px;
-    color: #d89522
+    color: #19afd0
 }
 
 .media{
@@ -10137,9 +10130,9 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea, select {
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
     background: #fff;
-    border-radius: 3px !important;
+    border-radius: 3px;
     color: #c4c4c4;
     outline: none;
     font-size: 15px;
@@ -10157,14 +10150,14 @@ textarea, select {
     font-size: 15px;
     height: 40px;
     width: 125px;
-    background: #d89522;
+    background: #19afd0;
     color: #fff;
     margin-left: 10px;
     transition: .3s
 }
 .btn-subscribe:hover {
     background: #fff;
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
     color: #222;
 }
 
@@ -10204,7 +10197,7 @@ textarea, select {
     color: #FFFFFF
 }
 .footer-menu a:hover, .footer-social a:hover {
-    color: #d89522
+    color: #19afd0
 }
 .footer-social li {
     display: inline-block;
@@ -10226,7 +10219,7 @@ textarea, select {
 }
 
 a:hover img {
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
 }
 
 .customer-order-list .tab-pane {
@@ -10241,9 +10234,9 @@ a:hover img {
     top:11px;
 }
 .form-inline #search-btn {
-    border-top: 1px solid #d89522;
-    border-right: 1px solid #d89522;
-    border-bottom: 1px solid #d89522;
+    border-top: 1px solid #19afd0;
+    border-right: 1px solid #19afd0;
+    border-bottom: 1px solid #19afd0;
     border-left: 1px solid #d8cab2;
 }
 
@@ -10307,7 +10300,7 @@ a:hover img {
 }
 
 #thumbnails li a:hover img {
-    border: 1px solid #d89522;
+    border: 1px solid #19afd0;
 }
 #productAttribute {
     width: 312px;

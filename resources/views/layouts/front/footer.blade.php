@@ -16,7 +16,7 @@
                     <li> <a href=""> <i class="fa fa-pinterest-p" aria-hidden="true"></i>  </a> </li>
                 </ul>
 
-                <p>&copy; <a href="{{ config('app.url') }}">{{ config('app.name') }}</a> | {{trans('main.footer.All Rights Reserved')}}</p>
+                <p>&copy; <a href="{{ config('app.url') }}">VTS</a> | {{trans('main.footer.All Rights Reserved')}}</p>
 
             </div>
         </div>

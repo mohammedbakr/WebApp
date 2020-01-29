@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Order Invoice</title>
+    <title>{{trans('main.invoice.Invoice')}}</title>
     <style type="text/css">
         table { border-collapse: collapse;}
     </style>
@@ -14,28 +14,28 @@
 <body>
     <section class="row">
         <div class="pull-left">
-            Invoice to: <strong>{{$customer->name}}</strong> <br />
-            Deliver to: <strong>{{ $address->alias }}</strong><br />
+            {{trans('main.invoice.Invoice To')}}: <strong>{{$customer->name}}</strong> <br />
+            {{trans('main.invoice.Deliver To')}}: <strong>{{ $address->alias }}</strong><br />
             {{ $address->address_1 }} {{ $address->address_2 }} <br />
             {{ $address->city }} {{ $address->province }} <br />
             {{ $address->country }} {{ $address->zip }}
         </div>
         <div class="pull-right">
-            From: {{config('app.name')}}
+            {{trans('main.invoice.From')}}: {{config('app.name')}}
         </div>
         <hr width="100%" color="#CCC"/>
     </section>
     <section class="row">
         <div class="col-md-12">
-            <h2>Details</h2>
+            <h2>{{trans('main.product.Details')}}</h2>
             <table class="table table-striped" width="100%" border="0.3" cellspacing="10" cellpadding="10" style="border:1px solid #CCC;">
                 <thead style="background-color:#DDD;">
                     <tr>
-                        <th>SKU</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
+                        <th>{{trans('main.product.SKU')}}</th>
+                        <th>{{trans('main.product.Name')}}</th>
+                        <th>{{trans('main.product.Description')}}</th>
+                        <th>{{trans('main.product.Quantity')}}</th>
+                        <th>{{trans('main.cart.Price')}}</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -57,7 +57,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>Subtotal:</td>
+                        <td>{{trans('main.cart.Subtotal')}}:</td>
                         <td>{{$order->total_products}}</td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>Discounts:</td>
+                        <td>{{trans('main.cart.Discount')}}:</td>
                         <td>{{$order->discounts}}</td>
                     </tr>
                     <tr>
@@ -73,7 +73,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>Tax:</td>
+                        <td>{{trans('main.cart.Tax')}}:</td>
                         <td>{{$order->tax}}</td>
                     </tr>
                     <tr>
@@ -81,7 +81,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><strong>Total:</strong></td>
+                        <td><strong>{{trans('main.cart.Total')}}:</strong></td>
                         <td><strong>{{$order->total}}</strong></td>
                     </tr>
                 </tfoot>

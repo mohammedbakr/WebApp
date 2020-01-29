@@ -12,6 +12,9 @@ return [
         'Email' => 'Email',
         'Password' => 'Password',
         'Confirm Password' => 'Confirm Password',
+        'Customer Name' => 'Customer Name',
+        'Profile' => 'Profile',
+        'Close' => 'Close',
     ],
 
     "footer" => [
@@ -19,6 +22,8 @@ return [
         'Contact us' => 'Contact us',
         'Terms of service' => 'Terms of service',
         'All Rights Reserved' => 'All Rights Reserved',
+        'Your email address' => 'Your email address',
+        'Subscribe' => 'Subscribe',
     ],
 
     "product" => [
@@ -27,6 +32,17 @@ return [
         'Add to cart' => 'Add to cart',
         'Choose Combination' => 'Choose Combination',
         'Quantity' => 'Quantity',
+        'Product' => 'Product',
+        'you must log in first to make a review' => 'you must log in first to make a review',
+        'Make a Review' => 'Make a Review',
+        'Leave Your Comment' => 'Leave Your Comment',
+        'Votes' => 'Votes',
+        'Review' => 'Review',
+        'Name' => 'Name',
+        'browse all items' => 'browse all items',
+        'Details' => 'Details',
+        'SKU' => 'SKU',
+        'Description' => 'Description',
     ],
 
     "cart" => [
@@ -40,7 +56,6 @@ return [
         'Price' => 'Price',
         'Total' => 'Total',
         'Update' => 'Update',
-        'Price' => 'Price',
         'Subtotal' => 'Subtotal',
         'Shipping' => 'Shipping',
         'Tax' => 'Tax',
@@ -52,6 +67,11 @@ return [
         'Have a code' => 'Have a code',
         'No products in cart yet' => 'No products in cart yet',
         'Shop now' => 'Shop now',
+        'Quick View' => 'Quick View',
+        'Go to product' => 'Go to product',
+        'Sale' => 'Sale',
+        'No products yet' => 'No products yet',
+        'Search Results' => 'Search Results',
     ],
 
     "address" => [
@@ -73,6 +93,23 @@ return [
         'No address created yet' => 'No address created yet',
         'Delete' => 'Delete',
         'Edit' => 'Edit',
-        'Update' => 'Update'
+        'Update' => 'Update',
+        'Create your address' => 'Create your address',
+        'State' => 'State',
     ],
+
+    "order" => [
+        'My orders' => 'My orders',
+        'Orders' => 'Orders',
+        'Date' => 'Date',
+        'Reference' => 'Reference',
+        'Order details' => 'Order details',
+        'No orders yet' => 'No orders yet',
+    ],
+
+    "invoice" => [
+        'Invoice to' => 'Invoice to',
+        'Deliver to' => 'Deliver to',
+        'From' => 'From',
+    ]
 ];

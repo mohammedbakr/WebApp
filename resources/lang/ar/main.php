@@ -3,7 +3,7 @@
 return [
 
     "front" => [
-        'My Account' => 'صفحتي',
+        'My Account' => 'حسابي',
         'Logout' => 'تسجيل الخروج',
         'Login' => 'تسجيل الدخول',
         'Register' => 'اضافة حساب',
@@ -12,6 +12,9 @@ return [
         'Email' => 'الايميل',
         'Password' => 'كلمة المرور',
         'Confirm Password' => 'تأكيد كلمة المرور',
+        'Customer Name' => 'اسم العميل',
+        'Profile' => 'الصفحة الرئيسية',
+        'Close' => 'اغلاق',
     ],
 
     "footer" => [
@@ -19,6 +22,8 @@ return [
         'Contact us' => 'النواصل معنا',
         'Terms of service' => 'حقوق النشر',
         'All Rights Reserved' => 'جميع الحقوق محفوظة',
+        'Your email address' => 'البريد الالكتروني',
+        'Subscribe' => 'اشتراك',
     ],
 
     "product" => [
@@ -27,6 +32,17 @@ return [
         'Add to cart' => 'اضف الي العربة',
         'Choose Combination' => 'اختر ما يناسبك',
         'Quantity' => 'الكمية',
+        'Product' => 'المنتج',
+        'you must log in first to make a review' => 'يجب عليك تسجيل الدخول اولا لاضافة تعليق',
+        'Make a Review' => 'اضافة تعليق',
+        'Leave Your Comment' => 'اترك تعليقك',
+        'Votes' => 'عدد الاصوات',
+        'Review' => 'التعليق',
+        'Name' => 'Name',
+        'browse all items' => 'عرض كل المنتجات',
+        'Details' => 'التفاصيل',
+        'SKU' => 'الباركود',
+        'Description' => 'الوصف',
     ],
 
     "cart" => [
@@ -40,7 +56,6 @@ return [
         'Price' => 'السعر',
         'Total' => 'المبلغ الكلي',
         'Update' => 'تحديث',
-        'Price' => 'السعر',
         'Subtotal' => 'السعر قبل الخصم',
         'Shipping' => 'التوصيل',
         'Tax' => 'الضرائب',
@@ -52,6 +67,11 @@ return [
         'Have a code' => 'هل لديك كود للخصومات',
         'No products in cart yet' => 'لا توجد منتجات في العربة الي الان',
         'Shop now' => 'تسوق الان',
+        'Quick View' => 'نظرة سريعة',
+        'Go to product' => 'الذهاب الي المنتج',
+        'Sale' => 'خصم',
+        'No products yet' => 'لا توجد منتجات الي الان',
+        'Search Results' => 'نتائج البحث',
     ],
 
     "address" => [
@@ -74,5 +94,22 @@ return [
         'Delete' => 'حذف',
         'Edit' => 'تعديل',
         'Update' => 'تحديث',
+        'Create your address' => 'ادخل عنوانك',
+        'State' => 'الولاية',
     ],
+
+    "order" => [
+        'My orders' => 'طلبياتي',
+        'Orders' => 'الطلبيات',
+        'Date' => 'التاريخ',
+        'Reference' => 'المرجع',
+        'Order details' => 'تفاصيل الطلب',
+        'No orders yet' => 'لا توجد طلبيات الي الان',
+    ],
+
+    "invoice" => [
+        'Invoice to' => 'مرسلة الي',
+        'Deliver to' => 'العنوان',
+        'From' => 'من',
+    ]
 ];
