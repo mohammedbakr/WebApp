@@ -15,6 +15,12 @@ return [
         'Customer Name' => 'اسم العميل',
         'Profile' => 'الصفحة الرئيسية',
         'Close' => 'اغلاق',
+        'No account? Register here' => 'ليس لديك حساب؟ سجل الان',
+        'Login to your account' => 'الدخول الي حسابك',
+        'Sign In' => 'تسجيل الدخول',
+        'Name' => 'الاسم',
+        'Reset Password' => 'اعادة تعيين كلمة المرور',
+        'Send Password Reset Link' => 'احصل علي لينك اعادة تعيين كلمة المرور',
     ],
 
     "footer" => [
@@ -111,5 +117,23 @@ return [
         'Invoice to' => 'مرسلة الي',
         'Deliver to' => 'العنوان',
         'From' => 'من',
+    ],
+
+    "message" => [
+        'Add to cart successful' => 'المنتج اضيف الي العربة بنجاح',
+        'Update cart successful' => 'تم تحديث العربة بنجاح',
+        'Removed to cart successful' => 'تمت ازالته من العربة بنجاح',
+        'Invalid Coupon Code, Please try again' => 'كوبون خاظئ, حاول مرة اخري من فضلك',
+        'Coupon has been added successfully' => 'تمت اضافة الكوبون بنجاح',
+        'Coupon has been removed, can\'t be used anymore!' => 'تم انتهاء صلاحية الكوبون',
+        'Coupon has been removed' => 'تمت ازالة الكوبون',
+        'Address creation successful' => 'تم انشاء العنوان بنجاح',
+        'Address update successful' => 'تم تحديث العنوان بنجاح',
+        'Address delete successful' => 'تمت ازالة العنوان بنحاج',
+        'Review Added Successfully' => 'تمت اضافة التعليق بنجاح',
+        'Stripe payment successful!' => 'تم الدفع بنجاح',
+        'There is a problem processing your request' => 'هناك مشكلة خلال المراجعة برجاء المحاولة مرة اخري',
+        'There is an error in the shipment details. Check logs' => 'هناك مشكلة في التوصيل برجاء التواصل مع الادمن',
+        'Order successful!' => 'الطلب تم بنجاح',
     ]
 ];

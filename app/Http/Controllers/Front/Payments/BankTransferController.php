@@ -146,7 +146,7 @@ class BankTransferController extends Controller
 
             if ($transaction['status'] != 'SUCCESS'){
                 Log::error($transaction['messages']);
-                return redirect()->route('checkout.index')->with('error', 'There is an error in the shipment details. Check logs.');
+                return redirect()->route('checkout.index')->with('error', trans('main.message.There is an error in the shipment details. Check logs'));
             }
 
             $orderRepo = new OrderRepository($order);
@@ -159,6 +159,6 @@ class BankTransferController extends Controller
 
         Cart::destroy();
 
-        return redirect()->route('accounts', ['tab' => 'orders'])->with('message', 'Order successful!');
+        return redirect()->route('accounts', ['tab' => 'orders'])->with('message', trans('main.message.Order successful!'));
     }
 }

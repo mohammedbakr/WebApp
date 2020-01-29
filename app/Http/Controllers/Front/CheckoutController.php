@@ -219,10 +219,10 @@ class CheckoutController extends Controller
                 $newTotal,
                 Cart::tax()
             );
-            return redirect()->route('checkout.success')->with('message', 'Stripe payment successful!');
+            return redirect()->route('checkout.success')->with('message', trans('main.message.Stripe payment successful!'));
         } catch (StripeChargingErrorException $e) {
             Log::info($e->getMessage());
-            return redirect()->route('checkout.index')->with('error', 'There is a problem processing your request.');
+            return redirect()->route('checkout.index')->with('error', trans('main.message.There is a problem processing your request'));
         }
         Cart::destroy();
     }

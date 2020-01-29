@@ -15,6 +15,12 @@ return [
         'Customer Name' => 'Customer Name',
         'Profile' => 'Profile',
         'Close' => 'Close',
+        'No account? Register here' => 'No account? Register here',
+        'Login to your account' => 'Login to your account',
+        'Sign In' => 'Sign In',
+        'Name' => 'Name',
+        'Reset Password' => 'Reset Password',
+        'Send Password Reset Link' => 'Send Password Reset Link',
     ],
 
     "footer" => [
@@ -111,5 +117,23 @@ return [
         'Invoice to' => 'Invoice to',
         'Deliver to' => 'Deliver to',
         'From' => 'From',
+    ],
+
+    "message" => [
+        'Add to cart successful' => 'Add to cart successful',
+        'Update cart successful' => 'Update cart successful',
+        'Removed to cart successful' => 'Removed to cart successful',
+        'Invalid Coupon Code, Please try again' => 'Invalid Coupon Code, Please try again',
+        'Coupon has been added successfully' => 'Coupon has been added successfully',
+        'Coupon has been removed, can\'t be used anymore!' => 'Coupon has been removed, can\'t be used anymore!',
+        'Coupon has been removed' => 'Coupon has been removed',
+        'Address creation successful' => 'Address creation successful',
+        'Address update successful' => 'Address update successful',
+        'Address delete successful' => 'Address delete successful',
+        'Review Added Successfully' => 'Review Added Successfully',
+        'Stripe payment successful!' => 'Stripe payment successful!',
+        'There is a problem processing your request' => 'There is a problem processing your request',
+        'There is an error in the shipment details. Check logs' => 'There is an error in the shipment details. Check logs',
+        'Order successful!' => 'Order successful!',
     ]
 ];

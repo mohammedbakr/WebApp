@@ -38,6 +38,6 @@ class ReviewController extends Controller
 
         $reviewRepo = new ReviewRepository($review);
 
-        return back()->with('message', 'Added Successfully');
+        return back()->with('message', trans('main.message.Review Added Successfully'));
     }
 }

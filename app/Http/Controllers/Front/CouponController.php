@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Front\CartController;
-use App\Shop\Cart\Requests\CartCheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use App\Shop\Carts\Repositories\CartRepository;
-use App\Shop\Carts\Repositories\Interfaces\CartRepositoryInterface;
 use App\Shop\Coupons\Coupon;
 
 class CouponController extends Controller
@@ -27,7 +23,7 @@ class CouponController extends Controller
         $coupon = Coupon::where('code', $request->input('couponCode'))->first();
 
         if(!$coupon){
-            return redirect()->route('cart.index')->withErrors('Invalid Coupon Code, Please try again');
+            return redirect()->route('cart.index')->withErrors(trans('main.message.Invalid Coupon Code, Please try again'));
         }
 
         if( $coupon->status == 1){
@@ -37,10 +33,10 @@ class CouponController extends Controller
                 'discount' => $coupon->discount(Cart::subtotal()),
             ]);
 
-            return redirect()->route('cart.index')->withErrors('Coupon has been added successfully');
+            return redirect()->route('cart.index')->with('message', trans('main.message.Coupon has been added successfully'));
             
         }else {
-            return redirect()->route('cart.index')->withErrors('Coupon has been removed, can\'t be used anymore!');
+            return redirect()->route('cart.index')->withErrors(trans('main.message.Coupon has been removed, can\'t be used anymore!'));
         }
 
         
@@ -55,6 +51,6 @@ class CouponController extends Controller
     {
         session()->forget('coupon');
 
-        return redirect()->route('cart.index')->withErrors('Coupon has been removed');
+        return redirect()->route('cart.index')->withErrors(trans('main.message.Coupon has been removed'));
     }
 }

@@ -7,14 +7,9 @@ use App\Shop\Carts\Requests\UpdateCartRequest;
 use App\Shop\Carts\Repositories\Interfaces\CartRepositoryInterface;
 use App\Shop\Couriers\Repositories\Interfaces\CourierRepositoryInterface;
 use App\Shop\ProductAttributes\Repositories\ProductAttributeRepositoryInterface;
-use App\Shop\Products\Product;
 use App\Shop\Products\Repositories\Interfaces\ProductRepositoryInterface;
-use App\Shop\Products\Repositories\ProductRepository;
 use App\Shop\Products\Transformations\ProductTransformable;
-use Gloudemans\Shoppingcart\CartItem;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Gloudemans\Shoppingcart\Cart as GloudemansCart;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
@@ -122,7 +117,7 @@ class CartController extends Controller
         session()->forget('coupon');
 
         return redirect()->route('cart.index')
-            ->with('message', 'Add to cart successful');
+            ->with('message', trans('main.message.Add to cart successful'));
     }
 
     /**
@@ -138,7 +133,7 @@ class CartController extends Controller
 
         session()->forget('coupon');
 
-        request()->session()->flash('message', 'Update cart successful');
+        request()->session()->flash('message',  trans('main.message.Update cart successful'));
         return redirect()->route('cart.index');
     }
 
@@ -152,7 +147,7 @@ class CartController extends Controller
     {
         $this->cartRepo->removeToCart($id);
 
-        request()->session()->flash('message', 'Removed to cart successful');
+        request()->session()->flash('message', trans('main.message.Removed to cart successful'));
         return redirect()->route('cart.index');
     }
 }
