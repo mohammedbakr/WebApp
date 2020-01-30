@@ -32,7 +32,7 @@
   opacity: 0.95;
   overflow-y: scroll; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition:all 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
@@ -42,7 +42,7 @@
   font-size: 25px;
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition:all 0.3s ease-in-out;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -87,6 +87,7 @@
   text-align: left;
   cursor: pointer;
   outline: none;
+  transition: all .3s ease-in-out;
 }
 
 /* On mouse-over */
