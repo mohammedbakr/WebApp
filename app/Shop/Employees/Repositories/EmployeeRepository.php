@@ -97,6 +97,18 @@ class EmployeeRepository extends BaseRepository implements EmployeeRepositoryInt
     {
         return $this->model->roles()->get();
     }
+//
+//* @return Collection
+//*/
+    public function listTypes(): Collection
+    {
+        return $this->model->types()->get();
+    }
+
+    public function syncTypes(array $typeIds)
+    {
+        $this->model->types()->sync($typeIds);
+    }
 
     /**
      * @param string $roleName

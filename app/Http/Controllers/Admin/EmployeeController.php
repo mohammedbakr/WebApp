@@ -7,8 +7,10 @@ use App\Shop\Admins\Requests\UpdateEmployeeRequest;
 use App\Shop\Employees\Repositories\EmployeeRepository;
 use App\Shop\Employees\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Shop\Roles\Repositories\RoleRepositoryInterface;
+use App\Shop\Types\Repositories\TypeRepositoryInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+
 
 class EmployeeController extends Controller
 {
@@ -21,6 +23,8 @@ class EmployeeController extends Controller
      */
     private $roleRepo;
 
+    private $typeRepo;
+
     /**
      * EmployeeController constructor.
      *
@@ -29,10 +33,12 @@ class EmployeeController extends Controller
      */
     public function __construct(
         EmployeeRepositoryInterface $employeeRepository,
-        RoleRepositoryInterface $roleRepository
+        RoleRepositoryInterface $roleRepository,
+        TypeRepositoryInterface $typeRepository
     ) {
         $this->employeeRepo = $employeeRepository;
         $this->roleRepo = $roleRepository;
+        $this->typeRepo = $typeRepository;
     }
 
     /**
@@ -57,8 +63,11 @@ class EmployeeController extends Controller
     public function create()
     {
         $roles = $this->roleRepo->listRoles();
+        $types = $this->typeRepo->listTypes();
 
-        return view('admin.employees.create', compact('roles'));
+
+
+        return view('admin.employees.create', compact('roles','types'));
     }
 
     /**
@@ -71,11 +80,13 @@ class EmployeeController extends Controller
     public function store(CreateEmployeeRequest $request)
     {
         $employee = $this->employeeRepo->createEmployee($request->all());
-
-        if ($request->has('role')) {
+        if ($request->has('role')){
             $employeeRepo = new EmployeeRepository($employee);
             $employeeRepo->syncRoles([$request->input('role')]);
         }
+        $employeeRepo->syncTypes([$request->input('type')]);
+
+
 
         return redirect()->route('admin.employees.index');
     }
@@ -92,7 +103,7 @@ class EmployeeController extends Controller
         $employee = $this->employeeRepo->findEmployeeById($id);
         return view('admin.employees.show', ['employee' => $employee]);
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *

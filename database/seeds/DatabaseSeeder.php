@@ -26,5 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BrandsTableSeeder::class);
         $this->call(AttributeTableSeeder::class);
         // $this->call(CouponTableSeeder::class);
+        $this->call(TypesTableSeeder::class);
+
+        
     }
 }

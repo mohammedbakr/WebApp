@@ -8,6 +8,7 @@
             <form action="{{ route('admin.employees.store') }}" method="post" class="form">
                 <div class="box-body">
                     {{ csrf_field() }}
+
                     <div class="form-group">
                         <label for="name">Name <span class="text-danger">*</span></label>
                         <input type="text" name="name" id="name" placeholder="Name" class="form-control" value="{{ old('name') }}">
@@ -29,6 +30,16 @@
                             <option></option>
                             @foreach($roles as $role)
                                 <option value="{{ $role->id }}">{{ ucfirst($role->name) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Type </label>
+                        <select name="type" id="type" class="form-control select2">
+                            <option></option>
+                            @foreach($types as $type)
+                                <option value="{{ $type->id }}">{{ ucfirst($type->type) }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -10,9 +10,10 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td class="col-md-4">ID</td>
-                            <td class="col-md-4">Name</td>
-                            <td class="col-md-4">Email</td>
+                            <td class="col-md-1">ID</td>
+                            <td class="col-md-2">Name</td>
+                            <td class="col-md-1">Type</td>
+                            <td class="col-md-2">Email</td>
                             <td class="col-md-4">Roles</td>
                         </tr>
                     </tbody>
@@ -20,6 +21,7 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
+                        <td>{{ $employee->types[0]->type }}</td>
                         <td>{{ $employee->email }}</td>
                         <td>
                             {{ $employee->roles()->get()->implode('name', ', ') }}

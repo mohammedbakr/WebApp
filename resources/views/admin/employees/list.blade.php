@@ -14,9 +14,10 @@
                     <thead>
                         <tr>
                             <td class="col-md-1">ID</td>
-                            <td class="col-md-3">Name</td>
-                            <td class="col-md-3">Email</td>
-                            <td class="col-md-1">Status</td>
+                            <td class="col-md-2">Name</td>
+                            <td class="col-md-1">Type</td>
+                            <td class="col-md-2">Email</td>
+                            <td class="col-md-2">Status</td>
                             <td class="col-md-4">Actions</td>
                         </tr>
                     </thead>
@@ -25,6 +26,7 @@
                         <tr>
                             <td>{{ $employee->id }}</td>
                             <td>{{ $employee->name }}</td>
+                             <td>{{ $employee->types[0]->type }}</td>
                             <td>{{ $employee->email }}</td>
                             <td>@include('layouts.status', ['status' => $employee->status])</td>
                             <td>
@@ -32,7 +34,7 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="delete">
                                     <div class="btn-group">
-                                        <a href="{{ route('admin.employees.show', $employee->id) }}" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Show</a>
+                                      <a href="{{ route('admin.employees.show', $employee->id) }}" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Show</a>
                                         <a href="{{ route('admin.employees.edit', $employee->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
                                     </div>
