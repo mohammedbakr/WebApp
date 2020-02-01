@@ -124,8 +124,7 @@ class EmployeeController extends Controller
                 'roles' => $roles,
                 'isCurrentUser' => $isCurrentUser,
                 'selectedIds' => $employee->roles()->pluck('role_id')->all()
-            ]
-        );
+            ]);
     }
 
     /**
