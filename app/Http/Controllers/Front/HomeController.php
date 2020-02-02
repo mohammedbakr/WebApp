@@ -27,7 +27,7 @@ class HomeController
     public function index()
     {
         $cat1 = $this->categoryRepo->findCategoryById(2);
-        $cat2 = $this->categoryRepo->findCategoryById(3);
+        $cat2 = $this->categoryRepo->findCategoryById(5);
 
         return view('front.index', compact('cat1',
         'cat2',

@@ -114,8 +114,9 @@ return [
     ],
 
     "invoice" => [
-        'Invoice to' => 'Invoice to',
-        'Deliver to' => 'Deliver to',
+        'Invoice' => 'Invoice',
+        'Invoice To' => 'Invoice To',
+        'Deliver To' => 'Deliver To',
         'From' => 'From',
     ],
 

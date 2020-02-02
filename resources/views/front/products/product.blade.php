@@ -2,8 +2,13 @@
 
 @section('og')
     <meta property="og:type" content="product"/>
+    @if (app()->getLocale() == 'ar')
+    <meta property="og:title" content="{{ $product->name_ar }}"/>
+    <meta property="og:description" content="{{ strip_tags($product->description_ar) }}"/>
+    @else
     <meta property="og:title" content="{{ $product->name }}"/>
     <meta property="og:description" content="{{ strip_tags($product->description) }}"/>
+    @endif
     @if(!is_null($product->cover))
         <meta property="og:image" content="{{ asset("storage/$product->cover") }}"/>
     @endif
@@ -15,8 +20,14 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> {{trans('main.cart.Home')}}</a></li>
+                    @if (app()->getLocale() == 'ar')
+                    @if(isset($category))
+                    <li><a href="{{ route('front.category.slug', $category->slug) }}">{{ $category->name_ar }}</a></li>
+                    @endif
+                    @else
                     @if(isset($category))
                     <li><a href="{{ route('front.category.slug', $category->slug) }}">{{ $category->name }}</a></li>
+                    @endif
                     @endif
                     <li class="active">{{trans('main.product.Product')}}</li>
                 </ol>

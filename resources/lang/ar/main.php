@@ -114,8 +114,9 @@ return [
     ],
 
     "invoice" => [
-        'Invoice to' => 'مرسلة الي',
-        'Deliver to' => 'العنوان',
+        'Invoice' => 'الفاتورة',
+        'Invoice To' => 'مرسلة الي',
+        'Deliver To' => 'العنوان',
         'From' => 'من',
     ],
 

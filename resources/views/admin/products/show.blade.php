@@ -12,17 +12,21 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <td class="col-md-2">Name</td>
+                            <td class="col-md-1">Name</td>
+                            <td class="col-md-1">Name In Arabic</td>
                             <td class="col-md-3">Description</td>
+                            <td class="col-md-3">Description In Arabic</td>
                             <td class="col-md-3">Cover</td>
-                            <td class="col-md-2">Quantity</td>
-                            <td class="col-md-2">Price</td>
+                            <td class="col-md-1">Quantity</td>
+                            <td class="col-md-1">Price</td>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{{ $product->name }}</td>
+                                <td>{{ $product->name_ar }}</td>
                                 <td>{{ $product->description }}</td>
+                                <td>{{ $product->description_ar }}</td>
                                 <td>
                                     @if(isset($product->cover))
                                         <img src="{{ asset("storage/$product->cover") }}" class="img-responsive" alt="">
