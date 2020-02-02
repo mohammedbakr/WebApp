@@ -5,21 +5,21 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
-                    <li class="active">Shopping Cart</li>
+                    <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> {{trans('main.cart.Home')}}</a></li>
+                    <li class="active">{{trans('main.cart.Shopping Cart')}}</li>
                 </ol>
             </div>
             <div class="col-md-12">
                 <form action="{{ route('bank-transfer.store') }}" class="form-horizontal" method="post">
                     {{ csrf_field() }}
                     <div class="col-md-6">
-                        <h3>Review</h3>
+                        <h3>{{trans('main.product.Details')}}</h3>
                         <hr>
                         <ul class="list-unstyled">
-                            <li>Items: {{ config('cart.currency_symbol') }} {{ $newSubtotal }}</li>
-                            <li>Tax: {{ config('cart.currency_symbol') }} {{ $tax }}</li>
-                            <li>Shipping Fee: {{ config('cart.currency_symbol') }} {{ $shipping }}</li>
-                            <li>Total: {{ config('cart.currency_symbol') }} {{ $newTotal }}</li>
+                            <li>{{trans('main.product.Items')}}: {{ config('cart.currency_symbol') }} {{ $newSubtotal }}</li>
+                            <li>{{trans('main.cart.Tax')}}: {{ config('cart.currency_symbol') }} {{ $tax }}</li>
+                            <li>{{trans('main.cart.Shipping Fee')}}: {{ config('cart.currency_symbol') }} {{ $shipping }}</li>
+                            <li>{{trans('main.cart.Total')}}: {{ config('cart.currency_symbol') }} {{ $newTotal }}</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
@@ -33,8 +33,8 @@
                             <p><small class="text-warning text">* {{ config('bank-transfer.note') }}</small></p>
                             <hr>
                             <div class="btn-group">
-                                <a href="{{ route('checkout.index') }}" class="btn btn-default">Back</a>
-                                <button onclick="return confirm('Are you sure?')" class="btn btn-primary">Pay now with Bank Transfer</button>
+                                <a href="{{ route('checkout.index') }}" class="btn btn-default">{{trans('main.address.Back')}}</a>
+                                <button onclick="return confirm('Are you sure?')" class="btn btn-primary">{{trans('main.cart.Pay now with Bank Transfer')}}</button>
                                 <input type="hidden" id="billing_address" name="billing_address" value="{{ $billingAddress }}">
                                 <input type="hidden" name="shipment_obj_id" value="{{ $shipmentObjId }}">
                                 <input type="hidden" name="rate" value="{{ $rateObjectId }}">

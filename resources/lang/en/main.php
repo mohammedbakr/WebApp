@@ -49,6 +49,7 @@ return [
         'Details' => 'Details',
         'SKU' => 'SKU',
         'Description' => 'Description',
+        'Items' => 'Items',
     ],
 
     "cart" => [
@@ -78,6 +79,8 @@ return [
         'Sale' => 'Sale',
         'No products yet' => 'No products yet',
         'Search Results' => 'Search Results',
+        'Shipping Fee' => 'Shipping Fee',
+        'Pay now with Bank Transfer' => 'Pay now with Bank Transfer',
     ],
 
     "address" => [
@@ -102,6 +105,15 @@ return [
         'Update' => 'Update',
         'Create your address' => 'Create your address',
         'State' => 'State',
+        'Billing Address' => 'Billing Address',
+        'Delivery Address' => 'Delivery Address',
+        'Same as billing' => 'Same as billing',
+        'Courier' => 'Courier',
+        'Payment' => 'Payment',
+        'Show now' => 'Show now',
+        'No address found. You need to create an address first here' => 'No address found. You need to create an address first here',
+        'No payment method set' => 'No payment method set',
+        'Choose payment' => 'Choose payment',
     ],
 
     "order" => [
@@ -111,6 +123,9 @@ return [
         'Reference' => 'Reference',
         'Order details' => 'Order details',
         'No orders yet' => 'No orders yet',
+        'Your order is under way!' => 'Your order is under way!',
+        'Show more' => 'Show more',
+        'You have cancelled your order. Maybe you want to' => 'You have cancelled your order. Maybe you want to',
     ],
 
     "invoice" => [

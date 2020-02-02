@@ -44,11 +44,12 @@ return [
         'Leave Your Comment' => 'اترك تعليقك',
         'Votes' => 'عدد الاصوات',
         'Review' => 'التعليق',
-        'Name' => 'Name',
+        'Name' => 'الاسم',
         'browse all items' => 'عرض كل المنتجات',
         'Details' => 'التفاصيل',
         'SKU' => 'الباركود',
         'Description' => 'الوصف',
+        'Items' => 'المنتجات',
     ],
 
     "cart" => [
@@ -78,6 +79,8 @@ return [
         'Sale' => 'خصم',
         'No products yet' => 'لا توجد منتجات الي الان',
         'Search Results' => 'نتائج البحث',
+        'Shipping Fee' => 'مصاريف الشحن',
+        'Pay now with Bank Transfer' => 'ادفع الان عن طريق البنك',
     ],
 
     "address" => [
@@ -102,6 +105,15 @@ return [
         'Update' => 'تحديث',
         'Create your address' => 'ادخل عنوانك',
         'State' => 'الولاية',
+        'Billing Address' => 'عنوان الدفع',
+        'Delivery Address' => 'عنوان التوصيل',
+        'Same as billing' => 'مثل عنوان الدفع',
+        'Courier' => 'الشحن',
+        'Payment' => 'وسيلة الدفع',
+        'Show now' => 'اعرض الان',
+        'No address found. You need to create an address first here' => 'لايوجد عنوان, انت تحتاج الي عنوان اولا',
+        'No payment method set' => 'لم تحدد طريقة الدقع بعد',
+        'Choose payment' => 'اختر طريقة الدقع',
     ],
 
     "order" => [
@@ -111,6 +123,9 @@ return [
         'Reference' => 'المرجع',
         'Order details' => 'تفاصيل الطلب',
         'No orders yet' => 'لا توجد طلبيات الي الان',
+        'Your order is under way!' => 'الطلب الخاص بك قد خرج للتوصيل',
+        'Show more' => 'اعرض منتجات اكثر',
+        'You have cancelled your order. Maybe you want to' => 'لقد قمت بالغاء الطلب, من المرجح انك تريد'
     ],
 
     "invoice" => [
