@@ -40,4 +40,8 @@ class Employee extends Authenticatable
     public function types(){
         return $this->belongsToMany(Type::class);
     }
+
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
 }

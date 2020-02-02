@@ -87,4 +87,10 @@ class Company extends Authenticatable
     public function reviews(){
         return $this->hasMany(Review::class);
     }
+
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

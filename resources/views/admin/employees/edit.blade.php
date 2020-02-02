@@ -32,6 +32,19 @@
                             @endforeach
                         </select>
                     </div>
+
+
+
+                    <div class="form-group">
+                        <label for="types">Type </label>
+                        <select name="types[]" id="types" class="form-control select2" multiple="multiple">
+                            @foreach($types as $type)
+                                <option @if(in_array($type->id, $selectedTypesIds))selected="selected" @endif value="{{ $type->id }}">{{ $type->type }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                     @include('admin.shared.status-select', ['status' => $employee->status])
                 </div>
 
