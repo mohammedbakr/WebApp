@@ -111,6 +111,8 @@ return [
         'Reference' => 'المرجع',
         'Order details' => 'تفاصيل الطلب',
         'No orders yet' => 'لا توجد طلبيات الي الان',
+        'Cancel Order' => 'الغاء الطلب',
+        'Submit' => 'احفظ',
     ],
 
     "invoice" => [

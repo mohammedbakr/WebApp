@@ -111,6 +111,8 @@ return [
         'Reference' => 'Reference',
         'Order details' => 'Order details',
         'No orders yet' => 'No orders yet',
+        'Cancel Order' => 'Cancel Order',
+        'Submit' => 'Submit',
     ],
 
     "invoice" => [

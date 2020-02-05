@@ -37,15 +37,17 @@
                         id="orders">
                         @if(!$orders->isEmpty())
                         <table class="table">
-                            <tbody>
+                            <thead>
                                 <tr>
                                     <td>{{trans('main.order.Date')}}</td>
                                     <td>{{trans('main.cart.Total')}}</td>
                                     <td>{{trans('main.address.Status')}}</td>
+                                    <td>{{trans('main.order.Cancel Order')}}</td>
                                 </tr>
-                            </tbody>
+                            </thead>
                             <tbody>
                                 @foreach ($orders as $order)
+                                @if($order['status']->color !== 'yellow' && $order['status']->color !== 'red')
                                 <tr>
                                     <td>
                                         <a data-toggle="modal" data-target="#order_modal_{{$order['id']}}"
@@ -132,7 +134,11 @@
                                             style="color: #ffffff; background-color: {{ $order['status']->color }}">
                                             {{ $order['status']->name }}</p>
                                     </td>
+                                    <td>
+                                        <a href="{{route('cancelorder.edit', $order['id'])}}">{{trans('main.order.Cancel Order')}}</a>
+                                    </td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
