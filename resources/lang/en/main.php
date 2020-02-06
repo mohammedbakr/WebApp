@@ -126,11 +126,14 @@ return [
         'Your order is under way!' => 'Your order is under way!',
         'Show more' => 'Show more',
         'You have cancelled your order. Maybe you want to' => 'You have cancelled your order. Maybe you want to',
+        'Cancel Order' => 'Cancel Order',
+        'Submit' => 'Submit',
     ],
 
     "invoice" => [
-        'Invoice to' => 'Invoice to',
-        'Deliver to' => 'Deliver to',
+        'Invoice' => 'Invoice',
+        'Invoice To' => 'Invoice To',
+        'Deliver To' => 'Deliver To',
         'From' => 'From',
     ],
 

@@ -37,7 +37,11 @@
                 <div class="col-lg-10 col-md-10 col-sm-9 col-xs-8">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            @if (app()->getLocale() == 'ar')
+                            <h4 style="margin-bottom:5px;">{{ $cartItem->name_ar }}</h4>
+                            @else
                             <h4 style="margin-bottom:5px;">{{ $cartItem->name }}</h4>
+                            @endif
                             @if($cartItem->options->has('combination'))
                                 <div style="margin-bottom:5px;">
                                 @foreach($cartItem->options->combination as $option)
@@ -46,7 +50,11 @@
                                 </div>
                             @endif
                             <!-- <div class="product-description"> -->
+                                @if (app()->getLocale() == 'ar')
                                 {!! $cartItem->product->description !!}
+                                @else
+                                {!! $cartItem->product->description !!}
+                                @endif
                             <!-- </div> -->
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-8">

@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{trans('main.invoice.Invoice')}}</title>
     <style type="text/css">
+        * { font-family: DejaVu Sans, sans-serif; }
         table { border-collapse: collapse;}
     </style>
 </head>

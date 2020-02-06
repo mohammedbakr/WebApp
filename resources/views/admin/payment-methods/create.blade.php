@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" rows="10" class="form-control ckeditor">{{ old('description') }}</textarea>
+                    <textarea name="description" id="description" rows="10" class="form-control">{{ old('description') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="account_id">Account ID</label>

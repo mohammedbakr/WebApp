@@ -13,15 +13,19 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <td class="col-md-4">Name</td>
-                            <td class="col-md-4">Description</td>
-                            <td class="col-md-4">Cover</td>
+                            <td>Name</td>
+                            <td>Name In Arabic</td>
+                            <td>Description</td>
+                            <td>Description In Arabic</td>
+                            <td>Cover</td>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->name_ar }}</td>
                                 <td>{{ $category->description }}</td>
+                                <td>{{ $category->description_ar }}</td>
                                 <td>
                                     @if(isset($category->cover))
                                         <img src="{{asset("storage/$category->cover")}}" alt="category image" class="img-thumbnail">

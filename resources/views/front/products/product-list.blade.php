@@ -22,15 +22,27 @@
                                 </div>
                             </div>
                         </div>
+                        @if (app()->getLocale() == 'ar')
+                        @if(isset($product->cover))
+                            <img src="{{ asset("storage/$product->cover") }}" alt="{{ $product->name_ar }}" class="img-bordered img-responsive">
+                        @else
+                            <img src="https://placehold.it/263x330" alt="{{ $product->name_ar }}" class="img-bordered img-responsive" />
+                        @endif
+                        @else
                         @if(isset($product->cover))
                             <img src="{{ asset("storage/$product->cover") }}" alt="{{ $product->name }}" class="img-bordered img-responsive">
                         @else
                             <img src="https://placehold.it/263x330" alt="{{ $product->name }}" class="img-bordered img-responsive" />
                         @endif
+                        @endif
                     </div>
 
                     <div class="product-text">
+                        @if (app()->getLocale() == 'ar')
+                        <h4>{{ $product->name_ar }}</h4>
+                        @else
                         <h4>{{ $product->name }}</h4>
+                        @endif
                         <p>
                             {{ config('cart.currency') }}
                             @if(!is_null($product->attributes->where('default', 1)->first()))

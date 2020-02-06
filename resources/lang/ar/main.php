@@ -125,12 +125,15 @@ return [
         'No orders yet' => 'لا توجد طلبيات الي الان',
         'Your order is under way!' => 'الطلب الخاص بك قد خرج للتوصيل',
         'Show more' => 'اعرض منتجات اكثر',
-        'You have cancelled your order. Maybe you want to' => 'لقد قمت بالغاء الطلب, من المرجح انك تريد'
+        'You have cancelled your order. Maybe you want to' => 'لقد قمت بالغاء الطلب, من المرجح انك تريد',
+        'Cancel Order' => 'الغاء الطلب',
+        'Submit' => 'احفظ',
     ],
 
     "invoice" => [
-        'Invoice to' => 'مرسلة الي',
-        'Deliver to' => 'العنوان',
+        'Invoice' => 'الفاتورة',
+        'Invoice To' => 'مرسلة الي',
+        'Deliver To' => 'العنوان',
         'From' => 'من',
     ],
 
