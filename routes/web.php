@@ -105,6 +105,7 @@ Route::group(
                 Route::post('checkout/execute', 'CheckoutController@charge')->name('checkout.execute');
                 Route::get('checkout/cancel', 'CheckoutController@cancel')->name('checkout.cancel');
                 Route::get('checkout/success', 'CheckoutController@success')->name('checkout.success');
+                Route::resource('cancelorder', 'CancelOrderController');
                 Route::resource('customer.address', 'CustomerAddressController');
             });
             Route::resource('cart', 'CartController');

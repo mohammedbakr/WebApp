@@ -20,7 +20,6 @@
                     <a href="{{ route('admin.coupons.show', $coupon->id) }}">{{ $coupon->name }}</a>
                 </td>
                 <td>{{ $coupon->code }}</td>
-                {{-- <td>@include('layouts.type', ['type' => $coupon->type])</td> --}}
                 <td>{{ $coupon->type }}</td>
                 <td>{{ $coupon->value }}</td>
                 <td>{{ $coupon->percent_off }}</td>
