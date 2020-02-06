@@ -51,7 +51,9 @@ class Product extends Model implements Buyable
     protected $fillable = [
         'sku',
         'name',
+        'name_ar',
         'description',
+        'description_ar',
         'cover',
         'quantity',
         'price',

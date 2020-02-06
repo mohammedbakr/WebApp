@@ -22,8 +22,16 @@
                         <input type="text" name="name" id="name" placeholder="Name" class="form-control" value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
+                        <label for="name_ar">Name In Arabic <span class="text-danger">*</span></label>
+                        <input type="text" name="name_ar" id="name_ar" placeholder="Name In Arabic" class="form-control" value="{{ old('name_ar') }}">
+                    </div>
+                    <div class="form-group">
                         <label for="description">Description </label>
-                        <textarea class="form-control ckeditor" name="description" id="description" rows="5" placeholder="Description">{{ old('description') }}</textarea>
+                        <textarea class="form-control" name="description" id="description" rows="5" placeholder="Description">{{ old('description') }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description_ar">Description In Arabic </label>
+                        <textarea class="form-control" name="description_ar" id="description_ar" rows="5" placeholder="Description In Arabic">{{ old('description_ar') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="cover">Cover </label>

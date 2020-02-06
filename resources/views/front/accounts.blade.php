@@ -106,7 +106,11 @@
                                                             <tbody>
                                                                 @foreach ($order['products'] as $product)
                                                                 <tr>
-                                                                    <td>{{$product['name']}}</td>
+                                                                    @if (app()->getLocale() == 'ar')
+                                                                    <td>{{$product['name_ar']}}</td>
+                                                                    @else
+                                                                    <td>{{$product['name']}}</td> 
+                                                                    @endif
                                                                     <td>{{$product['pivot']['quantity']}}</td>
                                                                     <td>{{$product['price']}}</td>
                                                                     <td><img src="{{ asset("storage/".$product['cover']) }}"

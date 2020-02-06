@@ -2,8 +2,13 @@
 
 @section('og')
     <meta property="og:type" content="category"/>
+    @if (app()->getLocale() == 'ar')
+    <meta property="og:title" content="{{ $category->name_ar }}"/>
+    <meta property="og:description" content="{{ $category->description_ar }}"/>
+    @else
     <meta property="og:title" content="{{ $category->name }}"/>
     <meta property="og:description" content="{{ $category->description }}"/>
+    @endif
     @if(!is_null($category->cover))
         <meta property="og:image" content="{{ asset("storage/$category->cover") }}"/>
     @endif
@@ -14,8 +19,13 @@
         <hr>
         <div class="row">
             <div class="category-top col-md-12">
+                @if (app()->getLocale() == 'ar')
+                <h2>{{ $category->name_ar }}</h2>
+                {!! $category->description_ar !!}
+                @else
                 <h2>{{ $category->name }}</h2>
                 {!! $category->description !!}
+                @endif
             </div>
         </div>
         <hr>

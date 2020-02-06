@@ -18,9 +18,11 @@ trait ProductTransformable
         $prod = new Product;
         $prod->id = (int) $product->id;
         $prod->name = $product->name;
+        $prod->name_ar = $product->name_ar;
         $prod->sku = $product->sku;
         $prod->slug = $product->slug;
         $prod->description = $product->description;
+        $prod->description_ar = $product->description_ar;
         $prod->cover = asset("storage/$product->cover");
         $prod->quantity = $product->quantity;
         $prod->price = $product->price;
