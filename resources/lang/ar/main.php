@@ -12,7 +12,8 @@ return [
         'Email' => 'الايميل',
         'Password' => 'كلمة المرور',
         'Confirm Password' => 'تأكيد كلمة المرور',
-        'Customer Name' => 'اسم العميل',
+        'By' => 'بواسطة',
+        'On' => 'بتاريخ',
         'Profile' => 'الصفحة الرئيسية',
         'Close' => 'اغلاق',
         'No account? Register here' => 'ليس لديك حساب؟ سجل الان',
@@ -33,6 +34,7 @@ return [
     ],
 
     "product" => [
+        'Custumer reviews' => 'تقييمات المستخدمين',
         'Rating' => 'التقييم',
         'Be The First to Rate!' => 'كن اول شخص يقيم المنتج',
         'Add to cart' => 'اضف الي العربة',
@@ -42,7 +44,7 @@ return [
         'you must log in first to make a review' => 'يجب عليك تسجيل الدخول اولا لاضافة تعليق',
         'Make a Review' => 'اضافة تعليق',
         'Leave Your Comment' => 'اترك تعليقك',
-        'Votes' => 'عدد الاصوات',
+        'Reviews' => ' تقييمات ',
         'Review' => 'التعليق',
         'Name' => 'الاسم',
         'browse all items' => 'عرض كل المنتجات',
@@ -153,5 +155,17 @@ return [
         'There is a problem processing your request' => 'هناك مشكلة خلال المراجعة برجاء المحاولة مرة اخري',
         'There is an error in the shipment details. Check logs' => 'هناك مشكلة في التوصيل برجاء التواصل مع الادمن',
         'Order successful!' => 'الطلب تم بنجاح',
-    ]
+    ],
+
+    "sidebarfront" => [
+        'Track Order' => 'مشترياتي',
+        'Categories' => 'الفئــات',
+        'Category' => 'الفــئه',
+        'Language' => 'اللــغة',
+    ],
+
+    "homeslider" => [
+        'Awtad' => 'اوتــاد',
+        'Sanitary' => 'مـتجر أدوات صحيـة',
+    ],
 ];
