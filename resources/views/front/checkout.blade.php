@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     @else
-                        <p class="alert alert-danger"><a href="{{ route('customer.address.create', [$customer->id]) }}">{{trans('main.address.No address found. You need to create an address first here')}}.</a></p>
+                        <p class="alert alert-danger"><a href="{{ route('customer.address.create', [$customer->id]) }}">{{trans('main.address.No address found, You need to create an address first here')}}.</a></p>
                     @endif
                 </div>
             </div>
