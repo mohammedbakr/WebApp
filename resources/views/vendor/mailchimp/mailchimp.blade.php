@@ -25,8 +25,8 @@
                 {{-- <p>This e-commerce app is licenced with MIT and can be forked in Github <i class="fa fa-heart text-danger"></i><br />So what are you waiting for? Set an online shop <strong>NOW!</strong></p> --}}
                 <form action="{{route('mailchimp.store')}}" class="form-inline form-field-section" method="post">
                     {{csrf_field()}}
-                    <input type="email" name="email" class="newsletter-input subscribe-form-control" placeholder="{{trans('main.footer.Your email address')}}" value="">
-                    <button type="submit" class="btn btn-subscribe">{{trans('main.footer.Subscribe')}}</button>
+                    <input id="a" type="email" name="email" class="newsletter-input subscribe-form-control" placeholder="{{trans('main.footer.Your email address')}}" value="">
+                    <button id="b" type="submit" class="btn btn-subscribe">{{trans('main.footer.Subscribe')}}</button>
                 </form>
             </div>
         </div>

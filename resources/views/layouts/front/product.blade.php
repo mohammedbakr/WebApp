@@ -92,7 +92,7 @@
                                    value="{{ old('quantity') }}" />
                             <input type="hidden" name="product" value="{{ $product->id }}" />
                         </div>
-                        <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> {{trans('main.product.Add to cart')}}
+                        <button onclick="validation()" type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> {{trans('main.product.Add to cart')}}
                         </button>
                     </form>
                 </div>

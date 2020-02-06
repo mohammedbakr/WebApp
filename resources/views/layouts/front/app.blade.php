@@ -60,6 +60,29 @@
     @yield('og')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}"></script>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+    
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+    
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #19afd0;
+            opacity:0.4;
+        }
+    
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #19afd0;
+            opacity:1;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,6 +98,7 @@
     <nav class="navbar navbar-default" style="display:block; position: relative;
     box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1); margin-bottom:0px;">
         <div class="container">
+            <span id="sideicon" onclick="openNav()">&#9776;</span>
             <div class="clearfix"></div>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -85,12 +109,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span id="sideicon" onclick="openNav()">&#9776;</span>
+                
                 <a class="navbar-brand" style="margin: 0px 10px 0px 50px;" href="{{ route('home') }}">
                     @if (app()->getLocale() == 'ar')
-                    <img id="brand" src="{{ asset('images/awtad_ar.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -12px 28px 0px 8px; width:60%;">
+                    <img id="brand" src="{{ asset('images/awtad_ar.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -6px 20px 0px 8px; width:60%;">
                     @else
-                    <img id="brand" src="{{ asset('images/awtad_en.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -12px 8px 0px -0px; width:70%;">
+                    <img id="brand" src="{{ asset('images/awtad_en.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -9px 8px 0px -0px; width:70%;">
                     @endif
                 </a> 
             </div>
@@ -114,7 +138,7 @@
                             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> {{trans('main.front.Logout')}}</a></li>
                         @else
                             <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> {{trans('main.front.Login')}}</a></li>
-                            <li><a href="{{ route('register') }}"> <i class="fa fa-sign-in"></i> {{trans('main.front.Register')}}</a></li>
+                            <li><a href="{{ route('register', ['tab' => 'Individual']) }}"> <i class="fa fa-sign-in"></i> {{trans('main.front.Register')}}</a></li>
                         @endif
                         @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
                         <li><a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a></li>                      
@@ -146,6 +170,7 @@
     <script src="{{ asset('js/front.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/modifiedjs.js') }}"></script>
 </body>
 
