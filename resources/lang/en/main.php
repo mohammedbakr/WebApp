@@ -12,7 +12,8 @@ return [
         'Email' => 'Email',
         'Password' => 'Password',
         'Confirm Password' => 'Confirm Password',
-        'Customer Name' => 'Customer Name',
+        'By' => 'By',
+        'On' => 'On',
         'Profile' => 'Profile',
         'Close' => 'Close',
         'No account? Register here' => 'No account? Register here',
@@ -33,6 +34,7 @@ return [
     ],
 
     "product" => [
+        'Custumer reviews' => 'CUSTOMER REVIEWS',
         'Rating' => 'Rating',
         'Be The First to Rate!' => 'Be The First to Rate!',
         'Add to cart' => 'Add to cart',
@@ -42,7 +44,7 @@ return [
         'you must log in first to make a review' => 'you must log in first to make a review',
         'Make a Review' => 'Make a Review',
         'Leave Your Comment' => 'Leave Your Comment',
-        'Votes' => 'Votes',
+        'Reviews' => 'Reviews',
         'Review' => 'Review',
         'Name' => 'Name',
         'browse all items' => 'browse all items',
@@ -135,5 +137,17 @@ return [
         'There is a problem processing your request' => 'There is a problem processing your request',
         'There is an error in the shipment details. Check logs' => 'There is an error in the shipment details. Check logs',
         'Order successful!' => 'Order successful!',
-    ]
+    ],
+
+    "sidebarfront" => [
+        'Track Order' => 'Track Order',
+        'Categories' => 'Categories',
+        'Category' => 'Category',
+        'Language' => 'Language',
+    ],
+
+    "homeslider" => [
+        'Awtad' => 'AWTAD',
+        'Sanitary' => 'Sanitary ware shop',
+    ],
 ];
