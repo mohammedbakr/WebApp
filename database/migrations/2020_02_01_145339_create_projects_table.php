@@ -16,8 +16,16 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('company_id')->unsigned()->nullable();
+            $table->float('budget', 8, 2);
+            $table->boolean('status')->default(1)->nullable();
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+
         });
+
+
     }
 
     /**
@@ -27,6 +35,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::drop('projects');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Shop\Admins\Requests\CreateEmployeeRequest;
 use App\Shop\Admins\Requests\UpdateEmployeeRequest;
+use App\Shop\Employees\Employee;
 use App\Shop\Employees\Repositories\EmployeeRepository;
 use App\Shop\Employees\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Shop\Roles\Repositories\RoleRepositoryInterface;
@@ -66,7 +67,6 @@ class EmployeeController extends Controller
         $types = $this->typeRepo->listTypes();
 
 
-
         return view('admin.employees.create', compact('roles','types'));
     }
 
@@ -79,13 +79,18 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
+        $request['type'] = $request['types'];
+
         $employee = $this->employeeRepo->createEmployee($request->all());
         if ($request->has('role')){
             $employeeRepo = new EmployeeRepository($employee);
             $employeeRepo->syncRoles([$request->input('role')]);
         }
-        $employeeRepo->syncTypes([$request->input('type')]);
 
+        if ($request->has('types')){
+            $employeeRepo = new EmployeeRepository($employee);
+            $employeeRepo->syncTypes([$request->input('type')]);
+        }
 
 
         return redirect()->route('admin.employees.index');
@@ -140,6 +145,9 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, $id)
     {
+        $request['type'] = $request['types'];
+
+
         $employee = $this->employeeRepo->findEmployeeById($id);
         $isCurrentUser = $this->employeeRepo->isAuthUser($employee);
 

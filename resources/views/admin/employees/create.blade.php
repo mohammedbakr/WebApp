@@ -35,13 +35,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="role">Type </label>
-                        <select name="type" id="type" class="form-control select2">
+                        <label for="types">Type </label>
+                        <select name="types" id="types" class="form-control select2">
                             <option></option>
                             @foreach($types as $type)
                                 <option value="{{ $type->id }}">{{ ucfirst($type->type) }}</option>
+
                             @endforeach
+
                         </select>
+                        <input type="hidden" value="" name="type" id="type">
+
                     </div>
                     @include('admin.shared.status-select', ['status' => 0])
                 </div>

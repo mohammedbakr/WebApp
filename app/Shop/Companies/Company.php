@@ -4,6 +4,7 @@ namespace App\Shop\Companies;
 
 use App\Shop\Addresses\Address;
 use App\Shop\Orders\Order;
+use App\Shop\Projects\Project;
 use App\Shop\Reviews\Review;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;

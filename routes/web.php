@@ -58,6 +58,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['employee'], 'as' => 'admin.
             Route::resource('attributes', 'Attributes\AttributeController');
             Route::resource('attributes.values', 'Attributes\AttributeValueController');
             Route::resource('brands', 'Brands\BrandController');
+
+            Route::namespace('Projects')->group(function () {
+                Route::resource('projects', 'ProjectController');
+            });
         });
         Route::group(['middleware' => ['role:admin|superadmin, guard:employee']], function () {
             Route::resource('employees', 'EmployeeController');

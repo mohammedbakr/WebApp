@@ -15,7 +15,7 @@ class CreateProjectRequest extends BaseFormRequest
     {
         return [
             'name' => ['required'],
-
+            'budget' => ['required']
         ];
     }
 }
