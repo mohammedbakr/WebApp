@@ -168,4 +168,20 @@ return [
         'Awtad' => 'AWTAD',
         'Sanitary' => 'Sanitary ware shop',
     ],
+
+    'topnav' => [
+        'Welcome' => 'Welcome to Worldwide',
+        'Store' => 'Store',
+        'Locator' => 'Store Locator',
+        'Track' => 'Track Your Order',
+    ],
+
+    'categorynav' => [
+        'Departments' => 'All Departments',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+    ],
 ];
