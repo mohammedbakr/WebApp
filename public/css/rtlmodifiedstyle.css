@@ -462,6 +462,11 @@ div#mySidenav.sidenav label:hover {
   }
 
   /* End Make a Review style */
+  /* Start Footer */
+  footer.footer {
+    height: 100px;
+  }
+  /* End Footer */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) { 
@@ -504,6 +509,9 @@ div#mySidenav.sidenav label:hover {
     display: block;
     margin: 5px auto;
   }
+  footer.footer {
+    height: 130px;
+  }
  }
 
  /* Small devices (landscape phones, 576px and up) */
@@ -542,6 +550,9 @@ div#mySidenav.sidenav label:hover {
   .scal {
     margin-top: 5px;
   }
+  footer.footer {
+    height: 100px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -561,6 +572,9 @@ div#mySidenav.sidenav label:hover {
     }
     .scal {
       margin-top: 5px;
+    }
+    footer.footer {
+      height: 100px;
     }
  }
 
