@@ -1,14 +1,30 @@
-/* Set the width of the side navigation to 250px */
+/* Set the left of the side navigation to 0px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.left = "0px";
 }
 
-/* Set the width of the side navigation to 0 */
+/* Set the left of the side navigation to -250px */
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("mySidenav").style.left = "-250px";
 }
+/* Side navigation bar button */
+$(document).ready(function(){
+  $("#sidebars").on('click', function() {
+    $("#mySidenav").toggleClass("open");
+    $("#xicon").toggleClass("fa-times");
+  });
+});
 
-// slid toggle for category side bar
+/* fade for search */
+$(document).ready(function(){
+  $("#fade").click(function() {
+    $("#fadetoggle").fadeToggle("normal", "swing");
+    $("#fadetoggle").toggleClass("slideInUp");
+    $("#icon").toggleClass("fa-times");
+  });
+});
+
+// slid Up & Down toggle for category side bar
 $(document).ready(function(){
   $("#dropdown-btn1").click(function(){
     $("#dropdown-container1").slideToggle("slow", function(){
@@ -59,3 +75,23 @@ function validation() {
   //   alert("You Can Have Maximum 99 Product");
   // }
 };
+
+
+// All Department Button slide 
+$(document).ready(function(){
+  $(".my-button").on('click', function() {
+    $(".departments").slideToggle('fast');
+  });
+});
+
+// Scroll
+$(document).ready(function(){
+  // Scroll for whole page
+  $(function() {  
+    $("body").niceScroll({
+      cursorcolor: "#19afd0",
+      cursorwidth: "10px",
+      cursorborder: "1px solid #19afd0",
+    });
+  });
+});
