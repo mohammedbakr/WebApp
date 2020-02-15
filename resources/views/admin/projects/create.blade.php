@@ -21,10 +21,12 @@
 
                     <div class="form-group">
                         <label for="company">Company <span class="text-danger">*</span></label>
-                        <select name="company_id" id="company_id" class="form-control">
-                            @foreach($companies as $company)
-                                <option value="{{$company->id}}" selected="selected"> {{$company->name}}</option>
-
+                        <select name="coc_id" id="coc_id" class="form-control">
+                            
+                            @foreach($customers as $customer)
+                            @if($customer->company == 1)
+                                <option value="{{$customer->id}}" selected="selected"> {{$customer->name}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>

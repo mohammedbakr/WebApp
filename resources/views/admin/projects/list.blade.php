@@ -31,9 +31,8 @@
                                     <td>{{ $project->id }}</td>
                                      <td>{{ $project->name }}</td>
                                     <td >{{ $project->budget }}</td>
-                                    @isset($project->company->name)
-                                     <td>{{ $project->company->name }}</td>
-                                    @endisset
+                                   <td>{{$project->customer->name}}</td>
+                                  
 
 
                                     <td>@include('layouts.status', ['status' => $project->status])</td>

@@ -20,12 +20,14 @@
 
                     <div class="form-group">
                         <label for="company">Company <span class="text-danger">*</span></label>
-                        <select name="company_id" id="company_id" class="form-control">
+                        <select name="coc_id" id="coc_id" class="form-control">
 
 
-                            @foreach($companies as $company)
-                             <option value="{{$company->id}}" {{$company->id == $project->company_id? 'selected' : ''}} > {{$company->name}}</option>
-                            @endforeach
+                            @foreach($customers as $customer)
+                                @if($customer->company == 1)
+                                     <option value="{{$customer->id}}" {{$customer->id == $project->coc_id? 'selected' : ''}} > {{$customer->name}}</option>
+                                @endif
+                             @endforeach
                         </select>
                     </div>
 
@@ -41,7 +43,6 @@
 
 
                         <select name="accountant" id="accountant" class="form-control">
-                            <option selected disabled>Choose :</option>
                         @foreach($employeesList as $emplist)
                                 @foreach($emplist->types as $type)
                                     @if($type->pivot->type_id == '3')
@@ -62,7 +63,6 @@
                             @endforeach
 
                         <select name="engineer" id="engineer" class="form-control">
-                            <option selected disabled>Choose :</option>
 
                         @foreach($employeesList as $emplist)
                                 @foreach($emplist->types as $type)
@@ -81,7 +81,6 @@
                             @if($p_emp->type == 4 ) <span class="bg-success">Your old Purchasing Manager was <b> {{$p_emp->name}} @endif</b></span>
                             @endforeach
                         <select name="PurchasingManager" id="PurchasingManager" class="form-control">
-                            <option selected disabled>Choose :</option>
 
                         @foreach($employeesList as $emplist)
                                 @foreach($emplist->types as $type)

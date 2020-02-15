@@ -4,6 +4,7 @@ namespace App\Shop\Projects;
 
 use App\Shop\Companies\Company;
 use App\Shop\Employees\Employee;
+use App\Shop\Customers\Customer;
 use App\Shop\Provinces\Province;
 use App\Shop\States\State;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ class Project extends Model
 
     protected $fillable = [
         'name',
+        'coc_id',
         'budget',
         'company_id',
         'status'
@@ -53,6 +55,11 @@ class Project extends Model
     public function states()
     {
         return $this->hasMany(State::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class,'coc_id');
     }
 
 

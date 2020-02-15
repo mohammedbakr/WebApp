@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Projects;
-
+use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Shop\Companies\Repositories\Interfaces\CompanyRepositoryInterface;
+use App\Shop\Customers\Customer;
 use App\Shop\Companies\Company;
 use App\Shop\Employees\Employee;
 use App\Shop\Projects\Repositories\ProjectRepository;
@@ -25,12 +26,14 @@ class ProjectController extends Controller
     private $employeeRepo;
     private $typeRepo;
     private $companyRepo;
+    private $customerRepo;
 
 
     public function __construct(
         ProjectRepositoryInterface $projectRepository,
         EmployeeRepositoryInterface $employeeRepository,
         CompanyRepositoryInterface $companyRepository,
+        CustomerRepositoryInterface $customerRepository,
         TypeRepositoryInterface $typeRepository
 )
     {
@@ -38,6 +41,7 @@ class ProjectController extends Controller
         $this->projectRepo = $projectRepository;
         $this->typeRepo = $typeRepository;
         $this->companyRepo = $companyRepository;
+        $this->customerRepo = $customerRepository;
 
 
     }
@@ -52,11 +56,12 @@ class ProjectController extends Controller
     {
         $list = $this->projectRepo->listProjects('created_at', 'desc');
         $list_employees = $this->employeeRepo->listEmployees('created_at', 'desc');
-
+        
 
         return view('admin.projects.list', [
             'projects' => $this->projectRepo->paginateArrayResults($list->all(), 10),
-            'employees' => $this->employeeRepo->paginateArrayResults($list_employees->all(), 10)
+            'employees' => $this->employeeRepo->paginateArrayResults($list_employees->all(), 10),
+           
         ]);
     }
 
@@ -69,11 +74,12 @@ class ProjectController extends Controller
     {
         $list = $this->employeeRepo->listEmployees('created_at', 'desc');
         $types = $this->typeRepo->listTypes();
-        $companies = $this->companyRepo->listCompanies();
+        // $companies = $this->companyRepo->listCompanies();
+         $customers = $this->customerRepo->listCustomers();
 
 
         return view('admin.projects.create',
-            ['employeesList' => $this->employeeRepo->paginateArrayResults($list->all()), 'types' => $types, 'companies' => $companies]);
+            ['employeesList' => $this->employeeRepo->paginateArrayResults($list->all()), 'types' => $types, 'customers' => $customers]);
 
 
     }
@@ -89,8 +95,6 @@ class ProjectController extends Controller
         $input = $request->all();
 
         Project::create($input);
-
-
 
         return redirect()->route('admin.projects.index');
     }
@@ -127,11 +131,12 @@ class ProjectController extends Controller
 
         $list = $this->employeeRepo->listEmployees('created_at', 'desc');
         $types = $this->typeRepo->listTypes();
-        $companies = $this->companyRepo->listCompanies();
+        // $companies = $this->companyRepo->listCompanies();
+        $customers = $this->customerRepo->listCustomers();
 
 
 
-        return view('admin.projects.edit', ['project' => $this->projectRepo->findProjectById($id), 'employeesList' => $this->employeeRepo->paginateArrayResults($list->all()), 'types' => $types, 'companies' =>$companies]);
+        return view('admin.projects.edit', ['project' => $this->projectRepo->findProjectById($id), 'employeesList' => $this->employeeRepo->paginateArrayResults($list->all()), 'types' => $types, 'customers' =>$customers]);
 
     }
 
@@ -153,17 +158,7 @@ class ProjectController extends Controller
 
           $project->employees()->sync([$request['accountant'],$request['engineer'],$request['PurchasingManager'] ]);
 
-//
-//        if ($request->has('accountant')) {
-//            $project->employees()->sync($request->input('employees'));
-//        }
-//
-//        if ($request->has('types') and !$isCurrentUser) {
-//            $employee->types()->sync($request->input('types'));
-//        } elseif (!$isCurrentUser) {
-//            $employee->types()->detach();
-//        }
-//
+
         return redirect()->route('admin.projects.show', $id)
             ->with('message', 'Update successful');
     }
