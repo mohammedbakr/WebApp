@@ -180,11 +180,11 @@
             <div class="container">
                     @if (app()->getLocale() == 'ar')
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/awtad_ar.jpeg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                        <img src="{{ asset('images/awtad_ar.jpg')}}" class="logo-brand" alt="Awtad" title="Awtad">
                     </a>
                     @else
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/awtad_en.jpeg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                        <img src="{{ asset('images/awtad_en.jpg')}}" class="logo-brand" alt="Awtad" title="Awtad">
                     </a>
                     @endif
                 <ul class="nav navbar-nav navbar-right items">

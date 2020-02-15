@@ -81,7 +81,7 @@
 }
 /* End Language Dropdown Style */
 /* End Top nav style */
-.logo-brand {border-radius: 50px;}
+.logo-brand {height: 100%;}
 .logo-brand:hover {
   text-decoration: none;
   transition: 155s;
@@ -166,6 +166,7 @@
   left: -600px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.28);
   border-radius: 10px;
+  background-clip: padding-box;
 }
 .fadetoggle .search-field {
   width: inherit;
@@ -467,6 +468,52 @@ div#mySidenav.sidenav label:hover {
     height: 100px;
   }
   /* End Footer */
+  /* Slider overlay */
+  .slider .carousel-inner .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+/* Slider overlay */
+
+/* Subscribe form */
+.subscribe-form-control {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn-subscribe {
+  width: 100%;
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1px;
+  font-weight: bold;
+}
+
+div.form {
+  border-radius: 5px;
+  background-color: #FFF;
+  padding: 15px;
+  width: 60%;
+  margin: auto;
+}
+div.btn-s {
+    width: 40%;
+    margin: auto;
+}
+/* Subscribe form */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) { 
@@ -501,17 +548,17 @@ div#mySidenav.sidenav label:hover {
   .category {
     display: none;
   }
-  .subscribe-form-control {
-    display: block;
-    margin: 5px auto;
+  a.carousel-control {
+    display: none;
   }
   .btn-subscribe {
-    display: block;
-    margin: 5px auto;
+    margin-left: 25%;
   }
   footer.footer {
     height: 130px;
   }
+  div.form {width: 80%;}
+  div.btn-s {width: 68%; margin: 0;}
  }
 
  /* Small devices (landscape phones, 576px and up) */
@@ -545,6 +592,9 @@ div#mySidenav.sidenav label:hover {
     top: -6px;
   }
   .category {
+    display: none;
+  }
+  a.carousel-control {
     display: none;
   }
   .scal {
