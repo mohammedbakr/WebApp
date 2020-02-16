@@ -77,7 +77,6 @@ function openNav() {
     // }
   };
   
-  
   // All Department Button slide 
   $(document).ready(function(){
     $(".my-button").on('click', function() {
@@ -96,3 +95,12 @@ $(document).ready(function(){
     });
   });
 });
+
+// Validation for Search
+function validateForm() {
+  var x = document.forms["myForm"]["q"].value;
+  if (x == "") {
+    alert("Product must be filled out");
+    return false;
+  }
+}

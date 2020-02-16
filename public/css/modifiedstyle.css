@@ -463,11 +463,7 @@ div#mySidenav.sidenav label:hover {
   }
 
   /* End Make a Review style */
-  /* Start Footer */
-  footer.footer {
-    height: 100px;
-  }
-  /* End Footer */
+  
   /* Slider overlay */
   .slider .carousel-inner .overlay {
     position: absolute;
@@ -554,9 +550,6 @@ div.btn-s {
   .btn-subscribe {
     margin-left: 25%;
   }
-  footer.footer {
-    height: 130px;
-  }
   div.form {width: 80%;}
   div.btn-s {width: 68%; margin: 0;}
  }
@@ -600,9 +593,6 @@ div.btn-s {
   .scal {
     margin-top: 5px;
   }
-  footer.footer {
-    height: 100px;
-  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -622,9 +612,6 @@ div.btn-s {
     }
     .scal {
       margin-top: 5px;
-    }
-    footer.footer {
-      height: 100px;
     }
  }
 
@@ -746,4 +733,8 @@ div.btn-s {
 
 .my-nav .departments a:hover {
   background-color: #ebebeb;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+

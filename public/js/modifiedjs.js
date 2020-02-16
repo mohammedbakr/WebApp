@@ -88,10 +88,19 @@ $(document).ready(function(){
 $(document).ready(function(){
   // Scroll for whole page
   $(function() {  
-    $("body").niceScroll({
+    $("html").niceScroll({
       cursorcolor: "#19afd0",
       cursorwidth: "10px",
       cursorborder: "1px solid #19afd0",
     });
   });
 });
+
+// Validation for Search
+function validateForm() {
+  var x = document.forms["myForm"]["q"].value;
+  if (x == "") {
+    alert("Product must be filled out");
+    return false;
+  }
+}

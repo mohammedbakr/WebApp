@@ -129,7 +129,7 @@
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath2.jpg') }}" alt="bath">
+          <img src="{{ asset('images/bath2.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
           <div class="carousel-caption">
             <h2>{{trans('main.homeslider.Awtad')}}</h2>
             <h4>{{trans('main.homeslider.Sanitary')}}</h4>
@@ -137,7 +137,7 @@
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath3.jpg') }}" alt="bath">
+          <img src="{{ asset('images/bath3.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
           <div class="carousel-caption">
             <h2>{{trans('main.homeslider.Awtad')}}</h2>
             <h4>{{trans('main.homeslider.Sanitary')}}</h4>
@@ -145,7 +145,7 @@
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath4.jpg') }}" alt="bath">
+          <img src="{{ asset('images/bath4.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
           <div class="carousel-caption">
             <h2>{{trans('main.homeslider.Awtad')}}</h2>
             <h4>{{trans('main.homeslider.Sanitary')}}</h4>
@@ -153,7 +153,7 @@
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath5.jpg') }}" alt="bath">
+          <img src="{{ asset('images/bath5.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
           <div class="carousel-caption">
             <h2>{{trans('main.homeslider.Awtad')}}</h2>
             <h4>{{trans('main.homeslider.Sanitary')}}</h4>
@@ -161,7 +161,7 @@
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath6.jpg') }}" alt="bath">
+          <img src="{{ asset('images/bath6.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
           <div class="carousel-caption">
             <h2>{{trans('main.homeslider.Awtad')}}</h2>
             <h4>{{trans('main.homeslider.Sanitary')}}</h4>

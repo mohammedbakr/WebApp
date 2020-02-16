@@ -89,12 +89,12 @@
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('images/awtad_en.jpeg')}}" class="logo-brand" alt="Awtad" title="Awtad">
                 </a>
-                @endif
+                @endif  
                 <ul class="nav navbar-nav items navbar-right">
                     <li class="nav-item">
                         <a id="fade" class="nav-link" href="#"><i id="icon" class="fa fa-search" aria-hidden="true" title="Search"></i></a>
                         <div id="fadetoggle" class="animated fadetoggle">
-                            <form class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}" method="GET">
+                            <form class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
                                 <div class="input-group">
                                     <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
                                         value="{!! request()->input('q') !!}">
@@ -139,12 +139,12 @@
             <div class="container">
                 <a class="navbar-brand intro" href="{{ route('home') }}">{{trans('main.topnav.Welcome')}} <span title="Awtad">{{trans('main.homeslider.Awtad')}}</span> {{trans('main.topnav.Store')}}</a>
                 <ul class="nav navbar-nav items">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> {{trans('main.topnav.Locator')}}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-truck" aria-hidden="true"></i> {{trans('main.topnav.Track')}}</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item language-dropdown">
                         <a class="nav-link" href="#"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{trans('main.sidebarfront.Language')}} <span class="symbol-down">&Hacek;</span>
                             <div class="language-menu">
@@ -201,7 +201,7 @@
                         <br />
                     </li>
                     <li class="nav-item">
-                        <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" method="GET">
+                        <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" onsubmit="return validateForm()" method="GET" name="myForm">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
                                 value="{!! request()->input('q') !!}">
@@ -220,7 +220,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <span title="Total Money">$1785.00</span>
+                        {{-- <span title="Total Money">$1785.00</span> --}}
                     </li>
                 </ul>
             </div>
