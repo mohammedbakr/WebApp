@@ -6,12 +6,11 @@ use App\Shop\Customers\Customer;
 use App\Http\Controllers\Controller;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Shop\Customers\Requests\CreateCustomerRequest;
-use App\Shop\Customers\Requests\RegisterCustomerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Shop\Customers\Requests\RegisterCustomerRequest;
 class RegisterController extends Controller
 {
     /*
@@ -32,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/accounts';
+    protected $redirectTo = '/accounts?tab=profile';
 
     private $customerRepo;
 
@@ -57,10 +56,7 @@ class RegisterController extends Controller
         return $this->customerRepo->createCustomer($data);
     }
 
-    /**
-     * @param RegisterCustomerRequest $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+
     public function register(RegisterCustomerRequest $request)
     {
         $customer = $this->create($request->except('_method', '_token'));

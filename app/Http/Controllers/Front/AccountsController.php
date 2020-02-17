@@ -6,8 +6,14 @@ use App\Shop\Couriers\Repositories\Interfaces\CourierRepositoryInterface;
 use App\Shop\Customers\Repositories\CustomerRepository;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Http\Controllers\Controller;
+use App\Shop\Customers\Customer;
 use App\Shop\Orders\Order;
 use App\Shop\Orders\Transformers\OrderTransformable;
+
+use App\Shop\Customers\Requests\CreateCustomerRequest;
+use App\Shop\Customers\Requests\UpdateCustomerRequest;
+use App\Shop\Customers\Requests\UpdateCompanyRequest;
+use App\Shop\Customers\Transformations\CustomerTransformable;
 
 class AccountsController extends Controller
 {
@@ -58,4 +64,31 @@ class AccountsController extends Controller
             'addresses' => $addresses
         ]);
     }
+
+
+    public function edit($id)
+    {
+    return view('front.companies.edit', ['customer' => $this->customerRepo->findCustomerById($id)]);
+    }
+
+
+    public function update(UpdateCustomerRequest $request, $id)
+    {
+        $customer = $this->customerRepo->findCustomerById($id);
+
+        $update = new CustomerRepository($customer);
+        $data = $request->except('_method', '_token', 'password');
+
+        if ($request->has('password')) {
+            $data['password'] = bcrypt($request->input('password'));
+        }
+
+        $update->updateCustomer($data);
+
+        $request->session()->flash('message', 'Update successful');
+        return redirect()->route('accounts');
+    }
+
+
+
 }
