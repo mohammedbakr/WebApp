@@ -201,7 +201,7 @@
                         <br />
                     </li>
                     <li class="nav-item">
-                        <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" onsubmit="return validateForm()" method="GET" name="myForm">
+                        <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
                                 value="{!! request()->input('q') !!}">
