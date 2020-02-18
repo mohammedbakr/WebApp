@@ -62,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="{{trans('main.product.Leave Your Comment')}}..."></textarea>
+                                <textarea name="comment" class="comment" cols="30" rows="10" placeholder="{{trans('main.product.Leave Your Comment')}}..."></textarea>
                             </div>
                             <input type="submit" class="btn btn-warning" value="Add Review">
                         </form>
@@ -81,7 +81,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             @if ($product->reviews->count())
-                            <h3 id="reviews"><span>(</span>{{$product->reviews->count()}}<span>)</span> {{trans('main.product.Reviews')}}</h3>
+                            <h3 class="reviews"><span>(</span>{{$product->reviews->count()}}<span>)</span> {{trans('main.product.Reviews')}}</h3>
                             @endif
                             <ul>
                             @foreach ($product->reviews as $review)

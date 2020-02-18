@@ -18,7 +18,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
-    {{-- <title>Laracom - Laravel FREE E-Commerce Software</title> --}}
     <meta name="description" content="Modern open-source e-commerce framework for free">
     <meta name="tags"
         content="modern, opensource, open-source, e-commerce, framework, free, laravel, php, php7, symfony, shop, shopping, responsive, fast, software, blade, cart, test driven, adminlte, storefront">
@@ -30,6 +29,8 @@
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/modifiedstyle.css') }}" rel="stylesheet">
     @endif
+    {{-- Animate --}}
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -61,27 +62,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}"></script>
     <style>
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-    
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-    
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #19afd0;
-            opacity:0.4;
-        }
-    
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #19afd0;
-            opacity:1;
-        }
     </style>
 </head>
 
@@ -92,69 +72,161 @@
             <a href="https://www.enable-javascript.com/" target="_blank">Read more</a>
         </p>
     </noscript>
-
-    <div>
-    <!-- Start NavBar -->
-    <nav class="navbar navbar-default" style="display:block; position: relative;
-    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1); margin-bottom:0px;">
-        <div class="container">
-            <span id="sideicon" onclick="openNav()">&#9776;</span>
-            <div class="clearfix"></div>
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                <a class="navbar-brand" style="margin: 0px 10px 0px 50px;" href="{{ route('home') }}">
-                    @if (app()->getLocale() == 'ar')
-                    <img id="brand" src="{{ asset('images/awtad_ar.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -6px 20px 0px 8px; width:60%;">
-                    @else
-                    <img id="brand" src="{{ asset('images/awtad_en.jpeg')}}" alt="awtad" style="border-radius: 35px; margin: -9px 8px 0px -0px; width:70%;">
-                    @endif
-                </a> 
+    <header>
+        <!-- Start Mobile NavBar -->
+        <nav class="mobile-nav navbar navbar-default">
+            <div class="container">
+                <ul class="nav navbar-nav items navbar-left">
+                    <li class="nav-item">
+                        <span id="sideicon" onclick="openNav()">&#9776;</span>
+                    </li>
+                </ul>
+                @if (app()->getLocale() == 'ar')
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('images/awtad_ar.jpeg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                </a>
+                @else
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('images/awtad_en.jpeg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                </a>
+                @endif  
+                <ul class="nav navbar-nav items navbar-right">
+                    <li class="nav-item">
+                        <a id="fade" class="nav-link" href="#"><i id="icon" class="fa fa-search" aria-hidden="true" title="Search"></i></a>
+                        <div id="fadetoggle" class="animated fadetoggle">
+                            <form class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
+                                <div class="input-group">
+                                    <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
+                                        value="{!! request()->input('q') !!}">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default btn-search" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item register-dropdown">
+                        <a class="nav-link" href=""><i id="ico" class="fa fa-user" title="Sign in or Register"></i>
+                            <div class="register-menu">
+                                @if(auth()->check())
+                                    <a class="nav-link reg" href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home" aria-hidden="true"></i> {{trans('main.front.My Account')}}</a>
+                                
+                                    <a class="nav-link reg" href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> {{trans('main.front.Logout')}}</a>
+                                @else
+                                    <a class="nav-link reg" href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> {{trans('main.front.Login')}}</a>
+                                
+                                    <a class="nav-link reg" href="{{ route('register', ['tab' => 'Individual']) }}"><i class="fa fa-user-plus" aria-hidden="true"></i> {{trans('main.front.Register')}}</a>
+                                @endif
+                            </div>
+                        </a>
+                    </li>
+                    <li id="cart" class="menubar-cart nav-item">
+                        <a href="{{ route('cart.index') }}" title="View Cart" class="awemenu-icon menu-shopping-cart">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="cart-number">{{ $cartCount }}</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form id="search" class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}"
-                        method="GET" style="width:300px; border:none; margin-top:12px;">
+        </nav>
+        <!-- End Mobile NavBar -->
+
+
+        <!-- Start Top NavBar -->
+        <nav class="top-nav navbar navbar-default">
+            <div class="container">
+                <a class="navbar-brand intro" href="{{ route('home') }}">{{trans('main.topnav.Welcome')}} <span title="Awtad">{{trans('main.homeslider.Awtad')}}</span> {{trans('main.topnav.Store')}}</a>
+                <ul class="nav navbar-nav items">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> {{trans('main.topnav.Locator')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-truck" aria-hidden="true"></i> {{trans('main.topnav.Track')}}</a>
+                    </li> --}}
+                    <li class="nav-item language-dropdown">
+                        <a class="nav-link" href="#"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{trans('main.sidebarfront.Language')}} <span class="symbol-down">&Hacek;</span>
+                            <div class="language-menu">
+                            @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
+                            <a class="lang" href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a>                
+                            @endforeach 
+                            </div>
+                        </a>
+                    </li>
+                    @if(auth()->check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home" aria-hidden="true"></i> {{trans('main.front.My Account')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> {{trans('main.front.Logout')}}</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> {{trans('main.front.Login')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register', ['tab' => 'Individual']) }}"><i class="fa fa-user-plus" aria-hidden="true"></i> {{trans('main.front.Register')}}</a>
+                    </li>
+                    @endif
+                </ul>
+            </div>
+        </nav>
+        <!-- End Top NavBar -->
+
+
+        <!-- Start Middle NavBar -->
+        <nav class="middle-navbar navbar navbar-default">
+            <div class="container">
+                    @if (app()->getLocale() == 'ar')
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('images/awtad_ar.jpg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                    </a>
+                    @else
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('images/awtad_en.jpg')}}" class="logo-brand" alt="Awtad" title="Awtad">
+                    </a>
+                    @endif
+                <ul class="nav navbar-nav navbar-right items">
+                    <li class="nav-item">
+                        <span class="nav-link" id="sidebars"><i id="xicon" class="fa fa-bars" aria-hidden="true" title="Side Bar"></i></span>
+                    </li>
+                    <li>
+                        <br />
+                    </li>
+                    <li>
+                        <br />
+                    </li>
+                    <li>
+                        <br />
+                    </li>
+                    <li class="nav-item">
+                        <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
                         <div class="input-group">
-                            <input id="q" type="text" name="q" class="form-control" placeholder="{{trans('main.front.Search')}}..."
+                            <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
                                 value="{!! request()->input('q') !!}">
                             <div class="input-group-btn">
-                                <button id="btnsearch" class="btn btn-default" type="submit">
+                                <button class="btn btn-default btn-search" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        @if(auth()->check())
-                            <li><a href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home"></i> {{trans('main.front.My Account')}}</a></li>
-                            <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> {{trans('main.front.Logout')}}</a></li>
-                        @else
-                            <li><a href="{{ route('login') }}"> <i class="fa fa-lock"></i> {{trans('main.front.Login')}}</a></li>
-                            <li><a href="{{ route('register', ['tab' => 'Individual']) }}"> <i class="fa fa-sign-in"></i> {{trans('main.front.Register')}}</a></li>
-                        @endif
-                        @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
-                        <li><a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a></li>                      
-                        @endforeach                    
-                        <li id="cart" class="menubar-cart">
-                            <a href="{{ route('cart.index') }}" title="View Cart" class="awemenu-icon menu-shopping-cart">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="cart-number">{{ $cartCount }}</span>
-                            </a>
-                        </li>
-                    </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- End NavBar -->
-</div>
+                        </form>
+                    </li>
+                    <li id="cart" class="menubar-cart nav-item">
+                        <a href="{{ route('cart.index') }}" title="View Cart" class="awemenu-icon menu-shopping-cart">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="cart-number">{{ $cartCount }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        {{-- <span title="Total Money">$1785.00</span> --}}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End Middle NavBar -->
+    </header>
 @include('layouts.front.sidebarFront')
                 <div class="col-md-8">
                     @include('layouts.front.header-cart')
@@ -171,7 +243,12 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    @if (app()->getLocale() == 'ar')
+    <script src="{{ asset('js/modifiedjsrlt.js') }}"></script>
+    @else
     <script src="{{ asset('js/modifiedjs.js') }}"></script>
+    @endif
+    <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
 </body>
-
 </html>

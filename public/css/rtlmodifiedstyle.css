@@ -1,5 +1,216 @@
-/* Side icon button */
-#sideicon {
+/* Start Top nav style */
+.top-nav {
+  padding: 0px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.top-nav .intro {
+  color: #7c7c7c;
+  font-size: 14px;
+  letter-spacing: normal;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.top-nav .intro > span {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #19afd0;
+  letter-spacing: 0.05cm;
+}
+.top-nav .intro:hover {
+  color: #334141;
+}
+.top-nav .items {
+  float: left;
+}
+.top-nav .items li a {
+  font-weight: 400;
+  font-size: 14px;
+  color: #7c7c7c !important;
+}
+.top-nav .items li {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.top-nav .items li:after {
+  content: " |";
+  color: #cad5d5;
+  position: absolute;
+  top: 11px;
+}
+.top-nav .items li:first-child:after {
+  content: " ";
+}
+.top-nav .items .nav-item .nav-link > .symbol-down {
+  font-size: 35px;
+  position: absolute;
+  top: 26px;
+  margin-right: 2px;
+}
+/* Start Language Dropdown Style */
+.language-dropdown div.language-menu > .lang {
+  display: block;
+  color: #333e48 !important;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: right;
+  float: right;
+  border-bottom: 1px solid #e8e8e8;
+}
+.language-dropdown div.language-menu > .lang:hover {color: #19afd0}
+.language-dropdown div.language-menu > .lang:last-child {border: none;}
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.language-menu {
+  display: none;
+  position: absolute;
+  top: 42px;
+  right: 10px;
+  background-color: #FFF;
+  min-width: 120px;
+  padding: 10px 12px;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+  border: 0 solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+.language-dropdown:hover .language-menu {
+  display: block;
+}
+/* End Language Dropdown Style */
+/* End Top nav style */
+.logo-brand {height: 100%;}
+.logo-brand:hover {
+  text-decoration: none;
+  transition: 155s;
+  transform: scale(0.99);
+}
+/* Start Middle navbar */
+.middle-navbar {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.middle-navbar .navbar-brand span:first-child {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+.middle-navbar .navbar-brand span:last-child {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #19afd0;
+  border-radius: 50%;
+  position: relative;
+  right: -1px;
+  top: 1px;
+}
+.middle-navbar .items li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.middle-navbar .items .nav-item:last-child {
+  font-weight: bold;
+  position: relative;
+  top: 12px;
+}
+/* End Middle navbar */
+
+/* Start Mobile Nav-Bar */
+.mobile-nav {
+  background-color: #19afd0 !important;
+  color: #333e48;
+  border-radius: 0;
+}
+.mobile-nav .items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-basis: auto;
+  align-items: center;
+}
+.mobile-nav .items .nav-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-basis: auto;
+  align-items: center;
+}
+.mobile-nav a.intro {
+  margin: 0; 
+  padding: 0;
+  position: relative;
+  right: 80px;
+  top: 18px;
+}
+.mobile-nav .items .nav-item .nav-link #ico,
+.mobile-nav .items .nav-item .nav-link #icon {
+  font-size: 20px !important;
+  color: #222 !important;
+}
+.mobile-nav .items .menubar-cart .cart-number {
+  background-color: #000;
+}
+/* End Mobile Nav-Bar */
+/* Start Search input button in mobile navbar */
+.fadetoggle {
+  background: #FFF !important;
+  padding: 0px 15px;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  top: 70px;
+  right: -600px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+.fadetoggle .search-field {
+  width: inherit;
+  border: none;
+}
+/* End Search input button in mibile navbar */
+
+/* Start Register Dropdown Style */
+.register-dropdown div.register-menu > .reg {
+  display: block;
+  color: #333e48 !important;
+  padding: 6px 25px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: right;
+  float: right;
+  border-bottom: 1px solid #e8e8e8;
+}
+.register-dropdown div.register-menu > .reg:hover {color: #19afd0}
+.register-dropdown div.register-menu > .reg:last-child {border: none;}
+.register-dropdown {
+  position: relative;
+  display: block;
+}
+.register-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: -100px;
+  background-color: #FFF;
+  min-width: 160px;
+  padding: 10px 2px;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+  border: 0 solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+.register-dropdown:hover .register-menu {
+  display: block;
+}
+/* End Register Dropdown Style */
+
+/* Side icon button for navbar */
+#sideicon, #sidebars {
   -webkit-font-size:30px;
   -moz-font-size:30px;
   -o-font-size:30px;
@@ -32,81 +243,87 @@
 }
 
 /* Style search input */
-#q {
-    width:300px;
-    border-radius:30px;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%
+.navbar-form .input-group .search-field {
+  width:650px;
+  border-radius:30px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border: 2px solid #19afd0;
+  height: 45px;
 }
 
-#btnsearch {
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: 1px solid #19afd0;
+.btn-search {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border: 2px solid #19afd0;
+  height: 45px;
+  background-color: #19afd0;
+  color: #000;
 }
 
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 999; /* Stay on top */
-    top: 0; /* Stay at the top */
-    right: 0;
-    background-color: #333; /* Black*/
-    opacity: 0.95;
-    overflow-y: scroll; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 4px 8px 4px 4px;
-    text-decoration: none;
-    font-size: 20px;
-    color: rgba(255,255,255,.7);
-    border: 0;
-    border-bottom: 1px solid #262626;
-    display: block;
-    transition:all 0.3s ease-in-out;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    background-color: rgba(255,255,255,.7);
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    left: 25px;
-    font-size: 36px;
-    margin-right: 50px;
-  }
+  height: 100%; /* 100% Full-height */
+  width: 250px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: -250px;
+  background-color: #333; /* Black*/
+  opacity: 0.95;
+  overflow-y: scroll; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition:all 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
+}
+.open {right: 0px;}
+/* .close {left: -250px;} */
 
-  .sidenav .closebtn:hover {
-    color: rgba(255,255,255,.7) !important;
-    background: none;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
-    transition: margin-right .5s;
-    padding: 20px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+/* The navigation menu links */
+.sidenav a {
+  padding: 4px 8px 4px 4px;
+  text-decoration: none;
+  font-size: 18px;
+  color: rgba(255,255,255,.7);
+  border: 0;
+  border-bottom: 1px solid #262626;
+  display: block;
+  transition:all 0.3s ease-in-out;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  background-color: rgba(255,255,255,.7);
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+  margin-right: 50px;
+}
+
+.sidenav .closebtn:hover {
+  color: rgba(255,255,255,.7) !important;
+  background: none;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-right .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
 
-
-  /* label */
-  div#mySidenav.sidenav label {
+/* label */
+div#mySidenav.sidenav label {
   background: #444;
   border-top: 1px solid #5e5e5e;
   color: #999;
@@ -124,30 +341,30 @@ div#mySidenav.sidenav label:hover {
 
 
 
-  /* Style the sidenav links and the dropdown button */
-  .dropdown-btn, .dropdown-container {
-    padding: 6px 16px 6px 8px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #818181;
-    border: none;
-    border-bottom: 1px solid #262626;
-    background: none;
-    width: 100%;
-    text-align: right;
-    cursor: pointer;
-    outline: none;
-  }
-  .dropdown-btn:hover {
-      color: #f1f1f1;
-  }
+/* Style the sidenav links and the dropdown button */
+.dropdown-btn, .dropdown-container {
+  padding: 6px 16px 6px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  border: none;
+  border-bottom: 1px solid #262626;
+  background: none;
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-btn:hover {
+  color: #f1f1f1;
+}
 
-  .dropdown-container {
-    padding: 0;
-    display: none;
-    background-color: #111;
-  }
-
+.dropdown-container {
+  padding: 0;
+  display: none;
+  background-color: #111;
+  border-right: 2px solid #DDD;
+}
 
 /* Optional: Style the caret down icon */
 .fa-caret-down {
@@ -158,72 +375,81 @@ div#mySidenav.sidenav label:hover {
 
 
 /* -------------------------------------------- */
-  
-  
-  
-  /* Dropdown Button */
-  .dropd {
-    padding: 5px;
+
+
+
+/* Dropdown Button */
+.dropd {
+  padding: 5px;
+}
+
+.dropbtn {
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    color: #FFF;
   }
-  
-  .dropbtn {
-      background-color: #19afd5;
-      margin: 15px 0px;
-      opacity: 0.7;
-      padding: 5px 15px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 25px;
-      color: #FFF;
-    }
-  
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-  
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #EEE;
-      min-width: 150px;
-      min-height: 188px;
-      transform: translateX(-15px);
-      border-radius: 10px;
-      box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-  
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      opacity: 0.9;
-      padding: 10px 14px;
-      border-radius: inherit;
-      text-decoration: none;
-      display: block;
-    }
-  
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #ddd;}
-  
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {display: block;}
-  
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {background-color: #19afd0; opacity: 1;}
-  
-    .navbar-default .navbar-toggle {
-      margin-top: 12px;
-    }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    padding: 25px 20px;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 888px;
+    min-height: 560px;
+    transform: translateX(175px);
+    z-index: 33;
+    border-top: 2px solid #19afd0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+    overflow-x: hidden;
+  }
+
+  .my-nav .dropdown-content .sub-menu span {
+    display: block;
+    color: #1e2022;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .my-nav .dropdown-content .sub-menu ul li {
+    list-style: none;
+    padding-bottom: 5px;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    opacity: 0.9;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {text-decoration: underline; opacity: 1;}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .navbar-default .navbar-toggle {
+    margin-top: 12px;
+  }
 
 
-  /* Make a Review style */
+  /* Start Make a Review style */
 
-  #comment {
+  .comment {
     width: 100%;
     height: 90px;
     resize: none;
@@ -232,79 +458,279 @@ div#mySidenav.sidenav label:hover {
     border-radius: 5px;
   }
 
-  #reviews {
+  .reviews {
     margin-right: 40px;
   }
 
-  /* Make a Review style */
+  /* End Make a Review style */
 
+  /* Slider overlay */
+  .slider .carousel-inner .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+/* Slider overlay */
+
+/* Subscribe form */
+.subscribe-form-control {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn-subscribe {
+  width: 100%;
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1px;
+  font-weight: bold;
+}
+
+div.form {
+  border-radius: 5px;
+  background-color: #FFF;
+  padding: 15px;
+  width: 60%;
+  margin: auto;
+}
+div.btn-s {
+    width: 40%;
+    margin: auto;
+}
+/* Subscribe form */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) { 
-  #Category {
+  .mobile-nav .navbar-right {
+    float: left;
+    position: relative;
+    top: -7px;
+    right: -12px;
+  }
+  .mobile-nav a.intro {
+    right: 50px !important;
+    top: 13px !important;
+  }
+  .fadetoggle {
+    right: -160px !important; 
+  }
+  .input-group .search-field{
+    width: 240px !important;
+  }
+  .navbar-form {border: none;}
+  .top-nav {
     display: none;
   }
-  #main-slider {
-    margin-top: 15px;
+  .middle-navbar {
+    display: none;
   }
-  .navbar-default .navbar-brand {
-    margin-left: 0px;
+  .logo-brand {
+    position: relative;
+    right: 30px;
+    top: -6px;
   }
-  #search, #q {
-    width: 233px;
+  .category {
+    display: none;
   }
-  #brand {
-    margin: -9px 8px 0px 8px;
-    width: 60%;
+  a.carousel-control {
+    display: none;
   }
-  #a {
-    display: block;
-    margin: 5px auto;
+  .btn-subscribe {
+    margin-right: 25%;
   }
-  #b {
-    display: block;
-    margin: 5px auto;
-  }
+  div.form {width: 80%;}
+  div.btn-s {width: 68%; margin: 0;}
  }
 
  /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767px) { 
-  .navbar-default .navbar-brand {
-  margin-left: -25px;
+@media (min-width: 576px) and (max-width: 767px) {
+  .mobile-nav .navbar-right {
+    float: left;
+    position: relative;
+    top: -7px;
+    right: -12px;
+  }
+  .mobile-nav a.intro {
+    right: 50px !important;
+    top: 13px !important;
+  }
+  .fadetoggle {
+    right: -385px !important; 
+  }
+  .input-group .search-field{
+    width: 400px !important;
+  }
+  .navbar-form {border: none;}
+  .top-nav {
+    display: none;
+  }
+  .middle-navbar {
+    display: none;
+  }
+  .logo-brand {
+    position: relative;
+    right: 50px;
+    top: -6px;
+  }
+  .category {
+    display: none;
+  }
+  a.carousel-control {
+    display: none;
   }
   .scal {
     margin-top: 5px;
-  } 
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991px) { 
-  .navbar-default .navbar-brand {
-    margin-left: -25px;
+@media (min-width: 768px) and (max-width: 991px) {
+    .top-nav {
+      display: none;
+    }
+    .middle-navbar {
+      display: none;
+    }
+    .logo-brand {
+      position: relative;
+      right: 50px;
+    }
+    .category {
+      display: none;
     }
     .scal {
       margin-top: 5px;
-    } 
+    }
  }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199px) { 
-  .navbar-default .navbar-brand {
-    margin-left: -25px;
+@media (min-width: 992px) and (max-width: 1199px) {
+    .category {
+      display: none;
+    }
+    .carousel {
+      margin-top: 10px;
+    }
+    .navbar-default .navbar-brand {
+      margin-left: -25px;
     }
     .scal {
       margin-top: 5px;
-    } 
+    }
+    a.closebtn {
+      display: none;
+    }
+    .mobile-nav {
+      display: none;
+    }
+    .input-group .search-field{
+      width: 470px !important;
+    }
  }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-  .navbar-default .navbar-brand {
-    margin-left: -25px;
-    }
     .scal {
       margin-top: 5px;
-    } 
+    }
+    a.closebtn {
+      display: none;
+    }
+    .mobile-nav {
+      display: none;
+    }
  }
-    
+
+
   
+/* add more */
+
+.my-nav {
+  margin-top: 20px;
+  min-height: 0px;
+  margin-bottom: 0px;
+  border: none;
+}
+
+.my-nav .my-button {
+  background-color: #19afd0;
+  border: 1px solid #19afd0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-weight: bold;
+  padding: 7px 20px 7px 80px;
+}
+
+.my-nav .button-s {
+  background: none;
+  border: none;
+  font-weight: bold;
+  color: #19afd0;
+  margin-right: 30px;
+}
+.my-nav .button-s:hover {
+  color: #198da7;
+  text-decoration: underline;
+}
+
+.my-nav .nav-link {
+  font-weight: bold;
+  color: #516475;
+  padding: 0px 20px;
+}
+
+.my-nav .navbar-text {
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.my-nav .nav-link:hover {
+  color: #333e48;
+}
+
+.my-nav .departments {
+  display: none;
+  z-index: 1;
+  max-width: 236px;
+  max-height: 490px;
+  background-color: #FFF;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+  position: absolute;
+  transform: translateY(0%);
+  overflow: hidden;
+}
+
+.my-nav .departments a {
+  display: block;
+  padding: 5px 10px;
+  margin: 10px;
+  min-height: 25px;
+  max-width: 236px;
+  line-height: 24px;
+  color: #333e48;
+  font-weight: bold;
+  width: 215px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.my-nav .departments a:last-child {
+  border: none;
+}
+
+.my-nav .departments a:hover {
+  background-color: #ebebeb;
+}

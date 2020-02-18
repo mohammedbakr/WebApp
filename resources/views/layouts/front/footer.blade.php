@@ -15,9 +15,9 @@
                     <li> <a href=""> <i class="fa fa-instagram" aria-hidden="true"></i>  </a> </li>
                     <li> <a href=""> <i class="fa fa-pinterest-p" aria-hidden="true"></i>  </a> </li>
                 </ul>
-
-                <p>&copy; <a href="{{ config('app.url') }}">VTS</a> | {{trans('main.footer.All Rights Reserved')}}</p>
-
+            </div>
+            <div class="col-md-12 text-center">
+                <p>&copy; <a href="http://visionalization.com" target="_blank">VTS</a> | {{trans('main.footer.All Rights Reserved')}}</p>
             </div>
         </div>
     </div>
