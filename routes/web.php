@@ -104,7 +104,7 @@ Route::group(
         
                 Route::get('accounts', 'AccountsController@index')->name('accounts');
                 Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');
-                Route::post('accounts/{accounts}/update', 'AccountsController@update')->name('accounts.update');
+                Route::put('accounts/{id}', 'AccountsController@update')->name('accounts.update');
                 Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
                 Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
                 Route::get('checkout/execute', 'CheckoutController@executePayPalPayment')->name('checkout.execute');

@@ -6,15 +6,9 @@ use App\Shop\Couriers\Repositories\Interfaces\CourierRepositoryInterface;
 use App\Shop\Customers\Repositories\CustomerRepository;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Shop\Customers\Customer;
 use App\Shop\Orders\Order;
 use App\Shop\Orders\Transformers\OrderTransformable;
-
-use App\Shop\Customers\Requests\CreateCustomerRequest;
 use App\Shop\Customers\Requests\UpdateCustomerRequest;
-use App\Shop\Customers\Requests\UpdateCompanyRequest;
-use App\Shop\Customers\Transformations\CustomerTransformable;
-
 class AccountsController extends Controller
 {
     use OrderTransformable;
@@ -74,7 +68,40 @@ class AccountsController extends Controller
 
     public function update(UpdateCustomerRequest $request, $id)
     {
+        $request->validate([
+            'identity_card' => 'required|file',
+            'commerical_register' => 'required|file',
+            'undertaking' => 'required|file'
+        ]);
+
         $customer = $this->customerRepo->findCustomerById($id);
+
+        if($request->hasFile('identity_card')){
+            $file = $request->file('identity_card');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move(public_path('uploads/identity_cards/'), $filename);
+            $customer->identity_card = $filename;
+ 
+        }
+
+        if($request->hasFile('commerical_register')){
+            $file = $request->file('commerical_register');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move(public_path('uploads/commerical_registers/'), $filename);
+            $customer->commerical_register = $filename;
+ 
+        }
+
+        if($request->hasFile('undertaking')){
+            $file = $request->file('undertaking');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move(public_path('uploads/undertakings/'), $filename);
+            $customer->undertaking = $filename;
+ 
+        }
 
         $update = new CustomerRepository($customer);
         $data = $request->except('_method', '_token', 'password');

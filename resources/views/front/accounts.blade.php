@@ -34,11 +34,10 @@
                         @if($customer->company == 0)
                         {{$customer->name}} <br /><small>{{$customer->email}}</small>
                         @else
+                        @if($customer->identity_card)
                         <div class="box">
                             <div class="box-body">
-            
                                 <h2>Projects</h2>
-            
                                 <table class="table center table-hover table-striped">
                                     <thead>
                                         <tr>
@@ -57,9 +56,6 @@
                                                 <td>{{ $project->id }}</td>
                                                  <td>{{ $project->name }}</td>
                                                 <td >{{ $project->budget }}</td>
-                                              
-            
-
                                                 @foreach($project->employees as $employee)
                                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Accountant' )
                                                     <td>
@@ -73,8 +69,6 @@
                 
                                                 @endif
                                             @endforeach
-                
-                
                                              @foreach($project->employees as $employee)
                                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Engineer' )
                                                     <td>
@@ -88,8 +82,6 @@
                                                     </td>
                                                 @endif
                                             @endforeach
-                
-                
                                              @foreach($project->employees as $employee)
                                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Purchasing Manager' )
                                                     <td>
@@ -101,15 +93,8 @@
                                                         @endif
                                                     </td>
                                                 @endif
-
                                             @endforeach
-
-            
                                             <td>@include('layouts.status', ['status' => $project->status])</td>
-
-            
-            
-            
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -118,6 +103,10 @@
                             <!-- /.box-body -->
                         </div>
                         <!-- /.box -->
+                        @else
+                        <p>One step ahead to complete registeration, u must upload some files!</p>
+                        <a href="{{route('accounts.edit', $customer->id)}}">Continue registeration</a>
+                        @endif
                         @endif
                     </div>
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'orders')active @endif"
