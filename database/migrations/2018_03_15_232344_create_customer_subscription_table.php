@@ -23,6 +23,7 @@ class CreateCustomerSubscriptionTable extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('company_id');
             $table->string('name');
             $table->string('stripe_id');
             $table->string('stripe_plan');

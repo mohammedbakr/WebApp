@@ -14,11 +14,11 @@
                     <thead>
                         <tr>
                             <td class="col-md-1">ID</td>
-                            <td class="col-md-2">Name</td>
+                            <td class="col-md-1">Name</td>
                             <td class="col-md-1">Type</td>
                             <td class="col-md-2">Email</td>
                             <td class="col-md-2">Status</td>
-                            <td class="col-md-4">Actions</td>
+                            <td class="col-md-5">Actions</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +26,11 @@
                         <tr>
                             <td>{{ $employee->id }}</td>
                             <td>{{ $employee->name }}</td>
-                             <td>{{ $employee->types[0]->type }}</td>
+                                @if(isset($employee->types[0]))
+                                      <td>{{ $employee->types[0]->type }}</td>
+                                @else
+                                     <td>No Type</td>
+                                 @endif
                             <td>{{ $employee->email }}</td>
                             <td>@include('layouts.status', ['status' => $employee->status])</td>
                             <td>

@@ -31,7 +31,94 @@
                 <div class="tab-content customer-order-list">
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
+                        @if($customer->company == 0)
                         {{$customer->name}} <br /><small>{{$customer->email}}</small>
+                        @else
+                        <div class="box">
+                            <div class="box-body">
+            
+                                <h2>Projects</h2>
+            
+                                <table class="table center table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Project Name</th>
+                                            <th>Budget</th>
+                                            <th>Accountant</th>
+                                            <th>Engineer</th>
+                                            <th>Purchasing Manager</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        @foreach ($customer->projects as $project)
+                                            <tr>
+                                                <td>{{ $project->id }}</td>
+                                                 <td>{{ $project->name }}</td>
+                                                <td >{{ $project->budget }}</td>
+                                              
+            
+
+                                                @foreach($project->employees as $employee)
+                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Accountant' )
+                                                    <td>
+                                                        {{$employee->name}}
+                                                        @if($employee->status == 0 )
+                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
+                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
+                                                            </a>
+                                                        @endif
+                                                    </td>
+                
+                                                @endif
+                                            @endforeach
+                
+                
+                                             @foreach($project->employees as $employee)
+                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Engineer' )
+                                                    <td>
+                                                        {{$employee->name}}
+                                                        @if($employee->status == 0 )
+            
+                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
+                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
+                                                            </a>
+                                                        @endif
+                                                    </td>
+                                                @endif
+                                            @endforeach
+                
+                
+                                             @foreach($project->employees as $employee)
+                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Purchasing Manager' )
+                                                    <td>
+                                                        {{$employee->name}}
+                                                        @if($employee->status == 0 )
+                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
+                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
+                                                            </a>
+                                                        @endif
+                                                    </td>
+                                                @endif
+
+                                            @endforeach
+
+            
+                                            <td>@include('layouts.status', ['status' => $project->status])</td>
+
+            
+            
+            
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                        @endif
                     </div>
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'orders')active @endif"
                         id="orders">

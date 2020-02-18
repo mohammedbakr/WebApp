@@ -56,6 +56,8 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
+        $types = $this->typeRepo->listTypes('created_at', 'desc');
+
         return view('admin.countries.edit', ['country' => $this->countryRepo->findCountryById($id)]);
     }
 
