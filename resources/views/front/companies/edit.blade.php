@@ -32,29 +32,31 @@
                             <label for="password">Password <span class="text-danger">*</span></label>
                             <input type="password" name="password" id="password" placeholder="xxxxx" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-4 control-label">identity_card <i class="fa fa-upload"></i></label>
+                        @if($customer->company == 1)
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">identity_card <i class="fa fa-upload"></i></label>
 
-                            <div class="col-md-8">
-                                <input id="" type="file" class="form-control" name="identity_card" value="identity_card" placeholder="Upload Your identity_card">
+                                <div class="col-md-8">
+                                    <input id="" type="file" class="form-control" name="identity_card" value="identity_card" placeholder="Upload Your identity_card">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="" class="col-md-4 control-label">commerical_register <i class="fa fa-upload"></i></label>
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">commerical_register <i class="fa fa-upload"></i></label>
 
-                            <div class="col-md-8">
-                                <input id="" type="file" class="form-control" name="commerical_register" value="commerical_register" placeholder="Upload Your commerical_register">
+                                <div class="col-md-8">
+                                    <input id="" type="file" class="form-control" name="commerical_register" value="commerical_register" placeholder="Upload Your commerical_register">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="" class="col-md-4 control-label">undertaking <i class="fa fa-upload"></i></label>
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">undertaking <i class="fa fa-upload"></i></label>
 
-                            <div class="col-md-8">
-                                <input id="" type="file" class="form-control" name="undertaking" value="undertaking" placeholder="Upload Your undertaking">
+                                <div class="col-md-8">
+                                    <input id="" type="file" class="form-control" name="undertaking" value="undertaking" placeholder="Upload Your undertaking">
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
