@@ -26,41 +26,9 @@ $(document).ready(function(){
 
 // slid Up & Down toggle for category side bar
 $(document).ready(function(){
-  $("#dropdown-btn1").click(function(){
-    $("#dropdown-container1").slideToggle("slow", function(){
+  $("#dropdown-btn").click(function(){
+    $("#dropdown-container").slideToggle("slow", function(){
       $('#side1').toggleClass("fa-caret-up");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $("#dropdown-btn2").click(function(){
-    $("#dropdown-container2").slideToggle("slow", function(){
-      $('#side2').toggleClass("fa-caret-up");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $("#dropdown-btn3").click(function(){
-    $("#dropdown-container3").slideToggle("slow", function(){
-      $('#side3').toggleClass("fa-caret-up");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $("#dropdown-btn4").click(function(){
-    $("#dropdown-container4").slideToggle("slow", function(){
-      $('#side4').toggleClass("fa-caret-up");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $("#dropdown-btn5").click(function(){
-    $("#dropdown-container5").slideToggle("slow", function(){
-      $('#side5').toggleClass("fa-caret-up");
     });
   });
 });

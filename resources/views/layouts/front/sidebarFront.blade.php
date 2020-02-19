@@ -8,58 +8,19 @@
     @else
     <a href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i> {{trans('main.front.Login')}}</a>
     @endif
-    {{-- <a href="#"><i class="fa fa-address-card"></i> About Us</a>
-    <a href="#"><i class="fa fa-smile"></i> Services</a>
-    <a href="#"><i class="fa fa-user-friends"></i> Clients</a> --}}
-    <label for="category">{{trans('main.sidebarfront.Categories')}}</label>
-    <button id="dropdown-btn1" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
+    <label>{{trans('main.sidebarfront.Categories')}}</label>
+    <button id="dropdown-btn" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
         <i id="side1" class="fa fa-caret-down"></i>
     </button>
-    <div id="dropdown-container1" class="dropdown-container">
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
+    <div id="dropdown-container" class="dropdown-container">
+        @foreach ($categories as $category)
+        <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
+        @endforeach
     </div>
-    <button id="dropdown-btn2" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
-        <i id="side2" class="fa fa-caret-down"></i>
-    </button>
-    <div id="dropdown-container2" class="dropdown-container">
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
-    </div>
-    <button id="dropdown-btn3" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
-        <i id="side3" class="fa fa-caret-down"></i>
-    </button>
-    <div id="dropdown-container3" class="dropdown-container">
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
-    </div>
-    <button id="dropdown-btn4" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
-        <i id="side4" class="fa fa-caret-down"></i>
-    </button>
-    <div id="dropdown-container4" class="dropdown-container"> 
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
-    </div>
-    <button id="dropdown-btn5" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
-        <i id="side5" class="fa fa-caret-down"></i>
-    </button>
-    <div id="dropdown-container5" class="dropdown-container">
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
-    </div>
-    <label for="category">{{trans('main.sidebarfront.Language')}}</label>
+    <label>{{trans('main.sidebarfront.Language')}}</label>
     @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
-    <a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a>      @endforeach 
+    <a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a>
+    @endforeach 
 </div>
 <style>
     /* width */

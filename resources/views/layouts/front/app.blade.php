@@ -227,14 +227,7 @@
         </nav>
         <!-- End Middle NavBar -->
     </header>
-@include('layouts.front.sidebarFront')
-                <div class="col-md-8">
-                    @include('layouts.front.header-cart')
-                </div>
-            </div>
-        </nav>
-    </header>
-    </section>
+    @include('layouts.front.sidebarFront')
     @yield('content')
 
     @include('layouts.front.footer')

@@ -3,16 +3,9 @@
     <nav class="my-nav navbar navbar-default ml-auto category">
       <button class="my-button"><i class="fa fa-list-ul"></i> {{trans('main.categorynav.Departments')}}</button>
       <div class="departments">
-        <a href="#">{{trans('main.sidebarfront.Category')}} 1</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 2</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 3</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 4</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 5</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 6</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 7</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 8</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 9</a>
-        <a href="#">{{trans('main.sidebarfront.Category')}} 10</a>
+        @foreach ($categories as $category)
+        <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
+        @endforeach
       </div>
       <div class="dropdown">
         <button class="button-s dropbtn">Super Deals <i class="fa fa-sort-down"></i></button>

@@ -27,33 +27,37 @@ class HomeController
      */
     public function index()
     {
+        $list = $this->categoryRepo->rootCategories('created_at', 'desc');
+        $categories = $this->categoryRepo->paginateArrayResults($list->all());
+
         $cat1 = $this->categoryRepo->findCategoryById(2);
         $cat2 = $this->categoryRepo->findCategoryById(3);
 
         if(!Auth::user()){
             return view('front.index', compact('cat1',
-            'cat2'
+            'cat2',
+            'categories'
             ));
         }
 
         if(Auth::user()->company == 0){
 
             return view('front.index', compact('cat1',
-            'cat2'
+            'cat2', 
+            'categories'
             ));
 
         }else{
             if(Auth::user()->identity_card){
                 
                 return view('front.index', compact('cat1',
-            'cat2'
+            'cat2',
+            'categories'
             ));
 
             }else{
                 return redirect()->route('accounts')->withError('You must continue uploading your registeratopn files to continue shopping');
             }
-        }
-
-        
+        } 
     }
 }
