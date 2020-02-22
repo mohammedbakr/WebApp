@@ -8,6 +8,7 @@
 
 @section('content')
     @include('layouts.front.home-slider')
+    {{-- @include('layouts.front.sidebarFront') --}}
 
     @if($cat1->products->isNotEmpty())
         <section class="new-product t100 home">

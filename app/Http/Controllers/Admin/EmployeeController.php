@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Shop\Admins\Requests\CreateEmployeeRequest;
 use App\Shop\Admins\Requests\UpdateEmployeeRequest;
+use App\Shop\Employees\Employee;
 use App\Shop\Employees\Repositories\EmployeeRepository;
 use App\Shop\Employees\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Shop\Roles\Repositories\RoleRepositoryInterface;
@@ -66,7 +67,6 @@ class EmployeeController extends Controller
         $types = $this->typeRepo->listTypes();
 
 
-
         return view('admin.employees.create', compact('roles','types'));
     }
 
@@ -79,13 +79,18 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
+        $request['type'] = $request['types'];
+
         $employee = $this->employeeRepo->createEmployee($request->all());
         if ($request->has('role')){
             $employeeRepo = new EmployeeRepository($employee);
             $employeeRepo->syncRoles([$request->input('role')]);
         }
-        $employeeRepo->syncTypes([$request->input('type')]);
 
+        if ($request->has('types')){
+            $employeeRepo = new EmployeeRepository($employee);
+            $employeeRepo->syncTypes([$request->input('type')]);
+        }
 
 
         return redirect()->route('admin.employees.index');
@@ -115,6 +120,7 @@ class EmployeeController extends Controller
     {
         $employee = $this->employeeRepo->findEmployeeById($id);
         $roles = $this->roleRepo->listRoles('created_at', 'desc');
+        $types = $this->typeRepo->listTypes('created_at', 'desc');
         $isCurrentUser = $this->employeeRepo->isAuthUser($employee);
 
         return view(
@@ -122,10 +128,11 @@ class EmployeeController extends Controller
             [
                 'employee' => $employee,
                 'roles' => $roles,
+                'types' => $types,
                 'isCurrentUser' => $isCurrentUser,
-                'selectedIds' => $employee->roles()->pluck('role_id')->all()
-            ]
-        );
+                'selectedIds' => $employee->roles()->pluck('role_id')->all(),
+                'selectedTypesIds' => $employee->types()->pluck('type_id')->all()
+            ]);
     }
 
     /**
@@ -138,6 +145,9 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, $id)
     {
+        $request['type'] = $request['types'];
+
+
         $employee = $this->employeeRepo->findEmployeeById($id);
         $isCurrentUser = $this->employeeRepo->isAuthUser($employee);
 
@@ -153,6 +163,12 @@ class EmployeeController extends Controller
             $employee->roles()->sync($request->input('roles'));
         } elseif (!$isCurrentUser) {
             $employee->roles()->detach();
+        }
+
+        if ($request->has('types') and !$isCurrentUser) {
+            $employee->types()->sync($request->input('types'));
+        } elseif (!$isCurrentUser) {
+            $employee->types()->detach();
         }
 
         return redirect()->route('admin.employees.index', $id)

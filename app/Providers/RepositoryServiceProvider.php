@@ -49,6 +49,15 @@ use App\Shop\Coupons\Repositories\CouponRepository;
 use App\Shop\Types\Repositories\TypeRepositoryInterface;
 use App\Shop\Types\Repositories\TypeRepository;
 
+use App\Shop\Companies\Repositories\Interfaces\CompanyRepositoryInterface;
+use App\Shop\Companies\Repositories\CompanyRepository;
+
+
+
+
+use App\Shop\Projects\Repositories\ProjectRepository;
+use App\Shop\Projects\Repositories\Interfaces\ProjectRepositoryInterface;
+
 
 
 use Illuminate\Support\ServiceProvider;
@@ -115,6 +124,11 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            CompanyRepositoryInterface::class,
+            CompanyRepository::class
+        );
+
+        $this->app->bind(
             CategoryRepositoryInterface::class,
             CategoryRepository::class
         );
@@ -173,5 +187,14 @@ class RepositoryServiceProvider extends ServiceProvider
             ReviewRepositoryInterface::class,
             ReviewRepository::class
         );
+
+
+        $this->app->bind(
+            ProjectRepositoryInterface::class,
+            ProjectRepository::class
+        );
+
+
+
     }
 }

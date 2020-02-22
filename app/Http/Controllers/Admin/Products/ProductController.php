@@ -7,8 +7,6 @@ use App\Shop\AttributeValues\Repositories\AttributeValueRepositoryInterface;
 use App\Shop\Brands\Repositories\BrandRepositoryInterface;
 use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Shop\ProductAttributes\ProductAttribute;
-use App\Shop\Products\Exceptions\ProductInvalidArgumentException;
-use App\Shop\Products\Exceptions\ProductNotFoundException;
 use App\Shop\Products\Product;
 use App\Shop\Products\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Shop\Products\Repositories\ProductRepository;
@@ -20,7 +18,6 @@ use App\Shop\Tools\UploadableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller

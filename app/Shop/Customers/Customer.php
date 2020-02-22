@@ -4,6 +4,8 @@ namespace App\Shop\Customers;
 
 use App\Shop\Addresses\Address;
 use App\Shop\Orders\Order;
+use App\Shop\Projects\Project;
+use App\Shop\Employees\Employee;
 use App\Shop\Reviews\Review;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
@@ -24,7 +26,8 @@ class Customer extends Authenticatable
         'name',
         'email',
         'password',
-        'status'
+        'status',
+        'company'
     ];
 
     /**
@@ -80,4 +83,15 @@ class Customer extends Authenticatable
     public function reviews(){
         return $this->hasMany(Review::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'coc_id');
+    }
+    
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class);
+    }
+
 }

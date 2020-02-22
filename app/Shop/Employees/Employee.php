@@ -2,6 +2,8 @@
 
 namespace App\Shop\Employees;
 
+use App\Shop\Projects\Project;
+use App\Shop\Customers\Customer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,7 +23,8 @@ class Employee extends Authenticatable
         'name',
         'email',
         'password',
-        'status'
+        'status',
+        'type'
     ];
 
     /**
@@ -39,5 +42,14 @@ class Employee extends Authenticatable
 
     public function types(){
         return $this->belongsToMany(Type::class);
+    }
+
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
+
+    public function customers()
+    {
+        return $this->belongsToMany(Customer::class);
     }
 }

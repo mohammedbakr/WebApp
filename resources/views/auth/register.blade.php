@@ -74,6 +74,8 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder=" {{trans('main.front.Confirm Password')}}">
                                     </div>
                                 </div>
+
+                                <input type="hidden" value="0" name="company" />
         
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
@@ -152,39 +154,7 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder=" Confirm Password">
                                     </div>
                                 </div>
-
-
-
-                                {{-- Start add more inputes --}}
-                                <div class="form-group">
-                                    <label for="" class="col-md-4 control-label">Upload <i class="fa fa-upload"></i></label>
-        
-                                    <div class="col-md-6">
-                                        <input id="" type="file" class="form-control" name="" value="" placeholder="Upload Your File">
-        
-                                        @if ($errors->has('name'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="" class="col-md-4 control-label">Upload <i class="fa fa-upload"></i></label>
-        
-                                    <div class="col-md-6">
-                                        <input id="" type="file" class="form-control" name="" value="" placeholder="Upload Your File">
-        
-                                        @if ($errors->has('name'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                {{-- End add more inputes --}}
-
+                                <input type="hidden" value="1" name="company" />
 
         
                                 <div class="form-group">
