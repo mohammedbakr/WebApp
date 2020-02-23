@@ -99,7 +99,8 @@
       <a class="nav-link" href="#">Gift Cards</a>
     </nav>
   </div>
-  <div class="container-fluid" style="padding:0px;">
+  <!-- Start Slider -->
+  <div class="container-fluid slider" style="padding:0px;">
     <div id="main-slider" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -115,49 +116,61 @@
       <div class="carousel-inner">
         <div class="item active">
           <img src="{{ asset('images/bath1.jpg') }}" alt="bath">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath2.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <img src="{{ asset('images/bath2.jpg') }}" alt="bath">
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath3.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <img src="{{ asset('images/bath3.jpg') }}" alt="bath">
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath4.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <img src="{{ asset('images/bath4.jpg') }}" alt="bath">
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath5.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <img src="{{ asset('images/bath5.jpg') }}" alt="bath">
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
         <div class="item">
-          <img src="{{ asset('images/bath6.jpg') }}" alt="bath" style="background-size:cover; background-repeat: no-repeat;">
-          <div class="carousel-caption">
-            <h2>{{trans('main.homeslider.Awtad')}}</h2>
-            <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+          <img src="{{ asset('images/bath6.jpg') }}" alt="bath">
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <h2>{{trans('main.homeslider.Awtad')}}</h2>
+              <h4>{{trans('main.homeslider.Sanitary')}}</h4>
+            </div>
           </div>
         </div>
 
@@ -185,4 +198,5 @@
       </a>
     </div>
   </div>
+  <!-- End Slider -->
 </section>

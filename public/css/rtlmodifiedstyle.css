@@ -463,16 +463,38 @@ div#mySidenav.sidenav label:hover {
   }
 
   /* End Make a Review style */
-
+  
   /* Slider overlay */
-  .slider .carousel-inner .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2;
+  .slider .item {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.slider .carousel-inner .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.slider .carousel-inner .content {
+  position: relative;
+  color: #FFF;
+  font-size: 50px;
+  z-index: 3;
+  top: 50%;
+}
+.slider .carousel-inner .content h2,
+.slider .carousel-inner .content h4 {color: #cad5d5;}
+
+.slider .carousel-inner .content {
+  display: flow-root list-item;
+  align-items: center;
+  justify-content: center;
 }
 /* Slider overlay */
 
@@ -552,6 +574,9 @@ div.btn-s {
   }
   div.form {width: 80%;}
   div.btn-s {width: 68%; margin: 0;}
+  .slider .carousel-inner .content {top: 30%;}
+  .slider .carousel-inner .content h2,
+  .slider .carousel-inner .content h4 {font-size: 15px;}
  }
 
  /* Small devices (landscape phones, 576px and up) */
@@ -670,7 +695,8 @@ div.btn-s {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   font-weight: bold;
-  padding: 7px 20px 7px 80px;
+  padding: 7px 20px 7px 70px;
+  width: 236px;
 }
 
 .my-nav .button-s {
@@ -703,7 +729,7 @@ div.btn-s {
 .my-nav .departments {
   display: none;
   z-index: 1;
-  max-width: 236px;
+  max-width: 238px;
   max-height: 490px;
   background-color: #FFF;
   border-bottom-left-radius: 20px;
@@ -734,3 +760,5 @@ div.btn-s {
 .my-nav .departments a:hover {
   background-color: #ebebeb;
 }
+
+
