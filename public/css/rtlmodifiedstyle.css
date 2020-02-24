@@ -84,7 +84,7 @@
 .logo-brand {height: 100%;}
 .logo-brand:hover {
   text-decoration: none;
-  transition: 155s;
+  transition: 1555s;
   transform: scale(0.99);
 }
 /* Start Middle navbar */
@@ -124,6 +124,7 @@
   background-color: #19afd0 !important;
   color: #333e48;
   border-radius: 0;
+  margin-bottom: 0px;
 }
 .mobile-nav .items {
   display: flex;
@@ -478,7 +479,7 @@ div#mySidenav.sidenav label:hover {
   height: 100%;
   right: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
 .slider .carousel-inner .content {
@@ -495,6 +496,9 @@ div#mySidenav.sidenav label:hover {
   display: flow-root list-item;
   align-items: center;
   justify-content: center;
+}
+.slider .carousel-indicators {
+  bottom: 10px;
 }
 /* Slider overlay */
 
