@@ -26,10 +26,10 @@
                                 {{ csrf_field() }}
         
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-md-4 control-label">{{trans('main.front.Register')}} <i class="fa fa-user"></i></label>
+                                    <label for="name" class="col-md-4 control-label">{{trans('main.front.Name')}} <i class="fa fa-user"></i></label>
         
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus placeholder="{{trans('main.front.Register')}}">
+                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus placeholder="{{trans('main.front.Name')}}">
         
                                         @if ($errors->has('name'))
                                             <span class="help-block">
@@ -54,7 +54,7 @@
                                 </div>
         
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">{{trans('main.front.Confirm Password')}} <i class="fa fa-unlock"></i></label>
+                                    <label for="password" class="col-md-4 control-label">{{trans('main.front.Password')}} <i class="fa fa-unlock"></i></label>
         
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control" name="password" placeholder="xxxxxx">
@@ -100,16 +100,16 @@
 
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-building"></i> Register For Company</div>
+                        <div class="panel-heading"><i class="fa fa-building"></i> {{trans('main.front.Register For Company')}}</div>
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
         
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-md-4 control-label">Name <i class="fa fa-user"></i></label>
+                                    <label for="name" class="col-md-4 control-label">{{trans('main.front.Name')}} <i class="fa fa-user"></i></label>
         
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus placeholder="Full Name">
+                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus placeholder="{{trans('main.front.Name')}}">
         
                                         @if ($errors->has('name'))
                                             <span class="help-block">
@@ -120,7 +120,7 @@
                                 </div>
         
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">E-Mail Address <i class="fa fa-envelope"></i></label>
+                                    <label for="email" class="col-md-4 control-label">{{trans('main.front.Email')}} <i class="fa fa-envelope"></i></label>
         
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="example@example.com">
@@ -134,10 +134,10 @@
                                 </div>
         
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">Password <i class="fa fa-unlock"></i></label>
+                                    <label for="password" class="col-md-4 control-label">{{trans('main.front.Password')}} <i class="fa fa-unlock"></i></label>
         
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="xxxxxx">
         
                                         @if ($errors->has('password'))
                                             <span class="help-block">
@@ -148,10 +148,10 @@
                                 </div>
         
                                 <div class="form-group">
-                                    <label for="password-confirm" class="col-md-4 control-label">Confirm Password <i class="fa fa-unlock"></i></label>
+                                    <label for="password-confirm" class="col-md-4 control-label">{{trans('main.front.Confirm Password')}} <i class="fa fa-unlock"></i></label>
         
                                     <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder=" Confirm Password">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder=" {{trans('main.front.Confirm Password')}}">
                                     </div>
                                 </div>
                                 <input type="hidden" value="1" name="company">
@@ -160,7 +160,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary btn-block">
-                                            Register
+                                            {{trans('main.front.Register')}}
                                         </button>
                                     </div>
                                 </div>

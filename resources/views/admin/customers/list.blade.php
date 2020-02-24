@@ -7,8 +7,8 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" @if(request()->input('tab') == 'customer') class="active" @endif><a href="#customer"
                     aria-controls="customer" role="tab" data-toggle="tab">Customer</a></li>
-            <li role="presentation" @if(request()->input('tab') == 'Company') class="" @endif><a href="#Company"
-                    aria-controls="Company" role="tab" data-toggle="tab">Company</a></li>
+            <li role="presentation" @if(request()->input('tab') == 'company') class="" @endif><a href="#company"
+                    aria-controls="company" role="tab" data-toggle="tab">Company</a></li>
         </ul>
         <!-- Tab panes -->
 
@@ -72,16 +72,16 @@
             </div>
             {{-- End customer Form --}}
 
-            {{-- Start Company Form --}}
+            {{-- Start company Form --}}
 
-            <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'Company') active @endif" id="Company">
+            <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'company') active @endif" id="company">
 
                 @include('layouts.errors-and-messages')
                 <!-- Default box -->
                 @if($customers)
                 <div class="box">
                     <div class="box-body">
-                        <h2>Customers</h2>
+                        <h2>Companies</h2>
                         @include('layouts.search', ['route' => route('admin.customers.index')])
                         <table class="table" style="width: 100%;">
                             <thead>
@@ -132,7 +132,7 @@
 
             </div>
 
-            {{-- End Company Form --}}
+            {{-- End company Form --}}
 
         </div>
     </div>

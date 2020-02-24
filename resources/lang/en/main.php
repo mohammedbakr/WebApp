@@ -7,6 +7,7 @@ return [
         'Logout' => 'Logout',
         'Login' => 'Login',
         'Register' => 'Register',
+        'Register For Company' => 'Register For Company',
         'Search' => 'Search',
         'I forgot my password' => 'I forgot my password',
         'Email' => 'Email',

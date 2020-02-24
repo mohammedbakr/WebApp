@@ -7,6 +7,7 @@ return [
         'Logout' => 'تسجيل الخروج',
         'Login' => 'تسجيل الدخول',
         'Register' => 'اضافة حساب',
+        'Register For Company' => 'اضافة حساب للشركة',
         'Search' => 'البحث',
         'I forgot my password' => 'لقد نسيت كلمة المرور الخاصة بي',
         'Email' => 'الايميل',
