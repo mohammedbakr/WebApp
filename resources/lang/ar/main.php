@@ -8,6 +8,9 @@ return [
         'Login' => 'تسجيل الدخول',
         'Register' => 'اضافة حساب',
         'Register For Company' => 'اضافة حساب للشركة',
+        'identity_card' => 'البطاقة الشخصية',
+        'commerical_register' => 'السجل التجاري',
+        'undertaking' => 'السجل الضريبي',
         'Search' => 'البحث',
         'I forgot my password' => 'لقد نسيت كلمة المرور الخاصة بي',
         'Email' => 'الايميل',
@@ -23,6 +26,9 @@ return [
         'Name' => 'الاسم',
         'Reset Password' => 'اعادة تعيين كلمة المرور',
         'Send Password Reset Link' => 'احصل علي لينك اعادة تعيين كلمة المرور',
+        'You must continue uploading your registeration files to continue shopping' => 'يجب عليك رفع بعض الملفات لاستكمال اجرائات التسجيل للشركة',
+        'One step ahead to complete registeration, You must upload some files!' => 'تبقت لك خطوة واحدة لاستكمال التسجيل , عدد من الملفات يجب رفعها',
+        'Continue registeration' => 'استكمال التسجيل',
     ],
 
     "footer" => [

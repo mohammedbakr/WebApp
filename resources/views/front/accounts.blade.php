@@ -106,8 +106,8 @@
                         </div>
                         <!-- /.box -->
                         @else
-                        <p>One step ahead to complete registeration, u must upload some files!</p>
-                        <a href="{{route('accounts.edit', $customer->id)}}">Continue registeration</a>
+                        <p>{{trans('main.front.One step ahead to complete registeration, You must upload some files!')}}</p>
+                        <a href="{{route('accounts.edit', $customer->id)}}">{{trans('main.front.Continue registeration')}}</a>
                         @endif
                         @endif
                     </div>

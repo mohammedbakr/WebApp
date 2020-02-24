@@ -11,13 +11,14 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <td class="col-md-2">ID</td>
-                        <td class="col-md-2">Name</td>
-                        <td class="col-md-2">Email</td>
+                        <td class="col-md-1">ID</td>
+                        <td class="col-md-1">Name</td>
+                        <td class="col-md-1">Email</td>
                         @if ($customer->company == 1)
-                        <td class="col-md-2">identity_card</td>
-                        <td class="col-md-2">commerical_register</td>
-                        <td class="col-md-2">Undertaking</td>
+                        <td class="col-md-1">{{$customer->projects->count()}} projects</td>
+                        <td class="col-md-1">identity_card</td>
+                        <td class="col-md-1">commerical_register</td>
+                        <td class="col-md-1">Undertaking</td>
                         @endif
                     </tr>
                     </tbody>
@@ -27,6 +28,11 @@
                         <td>{{ $customer->name }}</td>
                         <td>{{ $customer->email }}</td>
                         @if ($customer->company == 1)
+                        <td>
+                            @foreach ($customer->projects as $project)
+                            <a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->name }}</a><br>
+                            @endforeach
+                        </td>
                         <td>
                             <a href="{{ asset('uploads/identity_card/'. $customer->identity_card) }}" download="{{ $customer->name }}'s identity_card">{{ $customer->identity_card }}</a>
                         </td>

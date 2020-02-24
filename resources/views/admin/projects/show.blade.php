@@ -13,7 +13,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Project Name</th>
-
                             <th>Accountant</th>
                             <th>Engineer</th>
                             <th>Purchasing Manager</th>
@@ -24,10 +23,6 @@
                         <tr>
                             <td>{{ $project->id }}</td>
                             <td>{{ $project->name }}</td>
-
-
-
-
                             @foreach($project->employees as $employee)
                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Accountant' )
                                     <td>
@@ -38,11 +33,8 @@
                                             </a>
                                         @endif
                                     </td>
-
                                 @endif
                             @endforeach
-
-
                              @foreach($project->employees as $employee)
                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Engineer' )
                                     <td>
@@ -55,8 +47,6 @@
                                     </td>
                                 @endif
                             @endforeach
-
-
                              @foreach($project->employees as $employee)
                                 @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Purchasing Manager' )
                                     <td>
@@ -69,8 +59,6 @@
                                     </td>
                                 @endif
                             @endforeach
-
-
                             <td>
                                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post" class="form-horizontal">
                                     {{ csrf_field() }}
@@ -85,9 +73,6 @@
                     </tbody>
                 </table>
             </div>
-            {{--<div class="box-body">--}}
-                {{--@include('admin.shared.provinces', ['country' => $country->id])--}}
-            {{--</div>--}}
             <!-- /.box-body -->
             <div class="box-footer">
                 <div class="btn-group">

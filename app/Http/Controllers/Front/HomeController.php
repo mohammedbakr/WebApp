@@ -56,7 +56,7 @@ class HomeController
             ));
 
             }else{
-                return redirect()->route('accounts')->withError('You must continue uploading your registeratopn files to continue shopping');
+                return redirect()->route('accounts.edit', Auth::user()->id)->withError(trans('main.front.You must continue uploading your registeration files to continue shopping'));
             }
         } 
     }

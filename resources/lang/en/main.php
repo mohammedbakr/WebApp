@@ -8,6 +8,9 @@ return [
         'Login' => 'Login',
         'Register' => 'Register',
         'Register For Company' => 'Register For Company',
+        'identity_card' => 'Identity Card',
+        'commerical_register' => 'Commerical Register',
+        'undertaking' => 'Undertaking',
         'Search' => 'Search',
         'I forgot my password' => 'I forgot my password',
         'Email' => 'Email',
@@ -23,6 +26,9 @@ return [
         'Name' => 'Name',
         'Reset Password' => 'Reset Password',
         'Send Password Reset Link' => 'Send Password Reset Link',
+        'You must continue uploading your registeration files to continue shopping' => 'You must continue uploading your registeration files to continue shopping',
+        'One step ahead to complete registeration, You must upload some files!' => 'One step ahead to complete registeration, You must upload some files!',
+        'Continue registeration' => 'Continue registeration',
     ],
 
     "footer" => [
