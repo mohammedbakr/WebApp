@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
 
-                                <input type="hidden" value="0" name="company" />
+                                <input type="hidden" value="0" name="company">
         
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
@@ -154,7 +154,7 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder=" Confirm Password">
                                     </div>
                                 </div>
-                                <input type="hidden" value="1" name="company" />
+                                <input type="hidden" value="1" name="company">
 
         
                                 <div class="form-group">

@@ -34,7 +34,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="btn-group">
-                        <a href="{{ route('admin.products.index') }}" class="btn btn-default">Back</a>
+                        <a href="{{ route('admin.customers.index', ['tab' => 'customer']) }}" class="btn btn-default">Back</a>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </div>
                 </div>
