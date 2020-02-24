@@ -34,7 +34,7 @@
                     </div>
                 </li>
                 <li class="nav-item register-dropdown">
-                    <a class="nav-link" href=""><i id="ico" class="fa fa-user" title="Sign in or Register"></i>
+                    <a class="nav-link" href="#"><i id="ico" class="fa fa-user" title="Sign in or Register"></i>
                         <div class="register-menu">
                             @if(auth()->check())
                                 <a class="nav-link reg" href="{{ route('accounts', ['tab' => 'profile']) }}"><i class="fa fa-home" aria-hidden="true"></i> {{trans('main.front.My Account')}}</a>
