@@ -178,7 +178,7 @@
 .register-dropdown div.register-menu > .reg {
   display: block;
   color: #333e48 !important;
-  padding: 6px 25px;
+  padding: 5px 10px;
   text-decoration: none;
   font-weight: 700;
   text-align: right;
@@ -197,11 +197,10 @@
   top: 40px;
   right: -100px;
   background-color: #FFF;
-  min-width: 160px;
-  padding: 10px 2px;
+  padding: 10px 20px;
   z-index: 10;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
-  border: 0 solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
 }
 .register-dropdown:hover .register-menu {
@@ -546,7 +545,7 @@ div.btn-s {
     top: 13px !important;
   }
   .fadetoggle {
-    right: -160px !important; 
+    right: -185px !important; 
   }
   .input-group .search-field{
     width: 240px !important;

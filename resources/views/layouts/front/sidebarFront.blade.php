@@ -10,14 +10,14 @@
         <a href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i> {{trans('main.front.Login')}}</a>
         @endif
         <label>{{trans('main.sidebarfront.Categories')}}</label>
-        {{-- <button id="dropdown-btn" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
+        <button id="dropdown-btn" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
             <i id="side1" class="fa fa-caret-down"></i>
-        </button> --}}
-        {{-- <div id="dropdown-container" class="dropdown-container"> --}}
+        </button>
+        <div id="dropdown-container" class="dropdown-container">
             @foreach ($categories as $category)
             <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
             @endforeach
-        {{-- </div> --}}
+        </div>
         <label>{{trans('main.sidebarfront.Language')}}</label>
         @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
         <a href="{{LaravelLocalization::getLocalizedUrl($key)}}">{{$value['native']}}</a>
