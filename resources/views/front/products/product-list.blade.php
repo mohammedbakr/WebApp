@@ -1,5 +1,5 @@
 @if(!empty($products) && !collect($products)->isEmpty())
-    <ul class="row text-center list-unstyled">
+    <ul class="row text-center list-unstyled my-prodstyle">
         @foreach($products as $product)
             <li class="col-md-3 col-sm-6 col-xs-12 product-list">
                 <div class="single-product">

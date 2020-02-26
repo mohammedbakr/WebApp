@@ -1,4 +1,4 @@
-<section id="sidebarFront">
+<section>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> {{trans('main.cart.Home')}}</a>
@@ -10,13 +10,35 @@
         <a href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i> {{trans('main.front.Login')}}</a>
         @endif
         <label>{{trans('main.sidebarfront.Categories')}}</label>
-        <button id="dropdown-btn" class="dropdown-btn">{{trans('main.sidebarfront.Categories')}}
+        <button id="dropdown-btn" class="dropdown-btn">
+            {{-- @foreach ($categories as $category)
+            <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
+            @endforeach --}}
+            {{trans('main.sidebarfront.Categories')}}
             <i id="side1" class="fa fa-caret-down"></i>
         </button>
         <div id="dropdown-container" class="dropdown-container">
-            @foreach ($categories as $category)
-            <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
-            @endforeach
+            <ul class="list-unstyled list-inline nav navbar-nav">
+                @foreach($categories as $category)
+                <li>
+                    @if (app()->getLocale() == 'ar')
+                    @if($category->children()->count() > 0)
+                    @include('layouts.front.category-sub', ['subs' => $category->children])
+                    @else
+                    <a @if(request()->segment(2) == $category->slug) class="active" @endif
+                        href="{{route('front.category.slug', $category->slug)}}">{{$category->name_ar}} </a>
+                    @endif
+                    @else
+                    @if($category->children()->count() > 0)
+                    @include('layouts.front.category-sub', ['subs' => $category->children])
+                    @else
+                    <a @if(request()->segment(2) == $category->slug) class="active" @endif
+                        href="{{route('front.category.slug', $category->slug)}}">{{$category->name}} </a>
+                    @endif
+                    @endif
+                </li>
+                @endforeach
+            </ul>
         </div>
         <label>{{trans('main.sidebarfront.Language')}}</label>
         @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)

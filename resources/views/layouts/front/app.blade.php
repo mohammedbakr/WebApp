@@ -73,7 +73,7 @@
         </p>
     </noscript>
     @include('layouts.front.navbar')
-    {{-- @include('layouts.front.sidebarFront') --}}
+    @include('layouts.front.sidebarFront')
 
     @yield('content')
 

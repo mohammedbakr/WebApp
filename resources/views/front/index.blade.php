@@ -7,13 +7,14 @@
 @endsection
 
 @section('content')
+    @include('layouts.front.category-nav')
     @include('layouts.front.home-slider')
     {{-- @include('layouts.front.sidebarFront') --}}
 
     @if($cat1->products->isNotEmpty())
-        <section class="new-product t100 home">
+        <section class="new-product t100 home product-style">
             <div class="container">
-                <div class="section-title b50">
+                <div class="section-title b50 prodstyle">
                     @if (app()->getLocale() == 'ar')
                     <h2>{{ $cat1->name_ar }}</h2>
                     @else
@@ -28,7 +29,7 @@
     <hr>
     @if($cat2->products->isNotEmpty())
         <div class="container">
-            <div class="section-title b100">
+            <div class="section-title b100 product-style">
                 @if (app()->getLocale() == 'ar')
                 <h2>{{ $cat2->name_ar }}</h2>
                 @else

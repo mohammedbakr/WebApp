@@ -153,4 +153,4 @@
     </nav>
     <!-- End Middle NavBar -->
 </header>
-@include('layouts.front.sidebarFront')
+{{-- @include('layouts.front.sidebarFront') --}}
