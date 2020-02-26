@@ -72,8 +72,8 @@
             <a href="https://www.enable-javascript.com/" target="_blank">Read more</a>
         </p>
     </noscript>
-    {{-- @include('layouts.front.sidebarFront') --}}
     @include('layouts.front.navbar')
+    @include('layouts.front.sidebarFront')
 
     @yield('content')
 
@@ -82,7 +82,6 @@
     <script src="{{ asset('js/front.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
     
     @if (app()->getLocale() == 'ar')
     <script src="{{ asset('js/modifiedjsrlt.js') }}"></script>

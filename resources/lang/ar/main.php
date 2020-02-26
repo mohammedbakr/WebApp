@@ -184,7 +184,7 @@ return [
     ],
 
     'categorynav' => [
-        'Departments' => 'كل الأقســـــام',
+        'Departments' => 'جميع الفئــات',
         '' => '',
         '' => '',
         '' => '',
