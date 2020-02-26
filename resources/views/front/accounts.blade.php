@@ -32,12 +32,14 @@
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
                         @if($customer->company == 0)
-                        {{$customer->name}} <br /><small>{{$customer->email}}</small>
+                        {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
+                        <a href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
                         @else
                         @if($customer->identity_card)
                         <div class="box">
                             <div class="box-body">
-                                <h2>Projects</h2>
+                                <h2 class="pull-left">Projects</h2>
+                                <a class="pull-right" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
                                 <table class="table center table-hover table-striped">
                                     <thead>
                                         <tr>
@@ -104,8 +106,8 @@
                         </div>
                         <!-- /.box -->
                         @else
-                        <p>One step ahead to complete registeration, u must upload some files!</p>
-                        <a href="{{route('accounts.edit', $customer->id)}}">Continue registeration</a>
+                        <p>{{trans('main.front.One step ahead to complete registeration, You must upload some files!')}}</p>
+                        <a href="{{route('accounts.edit', $customer->id)}}">{{trans('main.front.Continue registeration')}}</a>
                         @endif
                         @endif
                     </div>

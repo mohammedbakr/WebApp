@@ -92,13 +92,13 @@
             </li>
             <li class="treeview @if(request()->segment(2) == 'customers' || request()->segment(2) == 'addresses') active @endif">
                 <a href="#">
-                    <i class="fa fa-user"></i> <span>Customers</span>
+                    <i class="fa fa-user"></i> <span>Customers & Companies</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.customers.index') }}"><i class="fa fa-circle-o"></i> List customers</a></li>
+                    <li><a href="{{ route('admin.customers.index', ['tab' => 'customer']) }}"><i class="fa fa-circle-o"></i> customers & companies</a></li>
                     <li><a href="{{ route('admin.customers.create') }}"><i class="fa fa-plus"></i> Create customer</a></li>
                     <li class="@if(request()->segment(2) == 'addresses') active @endif">
                         <a href="#"><i class="fa fa-map-marker"></i> Addresses
@@ -137,7 +137,7 @@
                     <li><a href="{{ route('admin.order-statuses.create') }}"><i class="fa fa-plus"></i> Create order status</a></li>
                 </ul>
             </li>
-            <li class="header">DELIVERY</li>
+            {{-- <li class="header">DELIVERY</li>
             <li class="treeview @if(request()->segment(2) == 'couriers') active @endif">
                 <a href="#">
                     <i class="fa fa-truck"></i> <span>Couriers</span>
@@ -149,7 +149,7 @@
                     <li><a href="{{ route('admin.couriers.index') }}"><i class="fa fa-circle-o"></i> List couriers</a></li>
                     <li><a href="{{ route('admin.couriers.create') }}"><i class="fa fa-plus"></i> Create courier</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="header">Company</li>
             @if($user->hasRole('admin|superadmin'))
                 <li class="treeview @if(request()->segment(2) == 'employees' || request()->segment(2) == 'roles' || request()->segment(2) == 'permissions') active @endif">
@@ -218,7 +218,7 @@
 
 
 
-            <li class="treeview @if(request()->segment(2) == 'countries' || request()->segment(2) == 'provinces') active @endif">
+            {{-- <li class="treeview @if(request()->segment(2) == 'countries' || request()->segment(2) == 'provinces') active @endif">
                 <a href="#">
                     <i class="fa fa-flag"></i> <span>Countries</span>
                     <span class="pull-right-container">
@@ -228,7 +228,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('admin.countries.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </section>
     <!-- /.sidebar -->

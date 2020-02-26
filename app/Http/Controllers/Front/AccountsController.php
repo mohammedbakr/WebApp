@@ -68,14 +68,18 @@ class AccountsController extends Controller
 
     public function update(UpdateCustomerRequest $request, $id)
     {
-        $request->validate([
-            'identity_card' => 'required|file',
-            'commerical_register' => 'required|file',
-            'undertaking' => 'required|file'
-        ]);
-
         $customer = $this->customerRepo->findCustomerById($id);
 
+        if($customer->company == 1){
+            if(!$customer->identity_card){
+                $request->validate([
+                    'identity_card' => 'required|file',
+                    'commerical_register' => 'required|file',
+                    'undertaking' => 'required|file'
+                ]);
+            }
+        }
+        
         if($request->hasFile('identity_card')){
             $file = $request->file('identity_card');
             $extension = $file->getClientOriginalExtension();
@@ -104,7 +108,7 @@ class AccountsController extends Controller
         }
 
         $update = new CustomerRepository($customer);
-        $data = $request->except('_method', '_token', 'password');
+        $data = $request->except('_method', '_token', 'password', 'identity_card', 'commerical_register', 'undertaking');
 
         if ($request->has('password')) {
             $data['password'] = bcrypt($request->input('password'));
@@ -115,7 +119,5 @@ class AccountsController extends Controller
         $request->session()->flash('message', 'Update successful');
         return redirect()->route('accounts');
     }
-
-
 
 }

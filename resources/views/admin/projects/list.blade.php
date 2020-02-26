@@ -22,24 +22,18 @@
                                 <th>Company</th>
                                 <th>Status</th>
                                 <th>Actions</th>
-
                             </tr>
                         </thead>
                         <tbody >
                             @foreach ($projects as $project)
                                 <tr>
                                     <td>{{ $project->id }}</td>
-                                     <td>{{ $project->name }}</td>
+                                    <td>{{ $project->name }}</td>
                                     <td >{{ $project->budget }}</td>
-                                   <td>{{$project->customer->name}}</td>
-                                  
-
-
+                                   <td>
+                                       <a href="{{ route('admin.customers.show', $project->customer['id']) }}">{{$project->customer->name}}</a>
+                                    </td>
                                     <td>@include('layouts.status', ['status' => $project->status])</td>
-
-
-
-
                                     <td>
                                         <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post" class="form-horizontal">
                                             {{ csrf_field() }}

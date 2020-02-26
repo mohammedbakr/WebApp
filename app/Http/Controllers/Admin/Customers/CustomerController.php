@@ -71,7 +71,7 @@ class CustomerController extends Controller
     {
         $this->customerRepo->createCustomer($request->except('_token', '_method'));
 
-        return redirect()->route('admin.customers.index');
+        return redirect()->route('admin.customers.index', ['tab' => 'customer']);
     }
 
     /**
@@ -122,7 +122,7 @@ class CustomerController extends Controller
         $update->updateCustomer($data);
 
         $request->session()->flash('message', 'Update successful');
-        return redirect()->route('admin.customers.edit', $id);
+        return redirect()->route('admin.customers.index', ['tab' => 'customer']);
     }
 
     /**
@@ -140,6 +140,6 @@ class CustomerController extends Controller
         $customerRepo = new CustomerRepository($customer);
         $customerRepo->deleteCustomer();
 
-        return redirect()->route('admin.customers.index')->with('message', 'Delete successful');
+        return redirect()->route('admin.customers.index', ['tab' => 'customer'])->with('message', 'Delete successful');
     }
 }
