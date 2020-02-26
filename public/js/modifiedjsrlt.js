@@ -9,54 +9,99 @@ function openNav() {
   }
   
   /* Side navigation bar button */
-  $(document).ready(function(){
-    $("#fade").click(function() {
-      $("#fadetoggle").fadeToggle("normal", "swing");
-      $("#fadetoggle").toggleClass("slideInUp");
-      $("#icon").toggleClass("fa-times");
-    });
+$(document).ready(function(){
+  $("#sidebars").on('click', function() {
+    $("#mySidenav").toggleClass("open");
+    if ($("#xicon").hasClass("fa-bars")) {
+      $("#xicon").removeClass("fa-bars");
+      $("#xicon").addClass("fa-times");
+    } else {
+      $("#xicon").removeClass("fa-times");
+      $("#xicon").addClass("fa-bars");
+    }
   });
-  
-  /* fade for search */
-  $(document).ready(function(){
-    $("#sidebars").on('click', function() {
-      $("#mySidenav").toggleClass("open");
-      $("#xicon").toggleClass("fa-times");
-    });
-  });
-  
-  // slid Up & Down toggle for category side bar
-  $(document).ready(function(){
-    $("#dropdown-btn").click(function(){
-      $("#dropdown-container").slideToggle("slow", function(){
-        $('#side1').toggleClass("fa-caret-up");
-      });
-    });
-  });
-  
-  // validation for quantity
-  var quantity = document.getElementById("quantity").value;
-  function validation() {
-    if (quantity <= 0) {
-      alert("Invalid Quantity");
-    } 
-    // else if (quantity > 99) {
-    //   alert("You Can Have Maximum 99 Product");
-    // }
-  };
-  
-  // All Department Button slide 
-  $(document).ready(function(){
-    $(".my-button").on('click', function() {
-      $(".departments").slideToggle('fast');
-    });
-  });
+});
 
-  // Scroll
+/* fade for search */
+$(document).ready(function(){
+  $("#fade").click(function() {
+    $("#fadetoggle").fadeToggle("normal", "swing");
+    $("#fadetoggle").toggleClass("slideInUp");
+    $("#icon").toggleClass("fa-times");
+  });
+});
+
+// slid Up & Down toggle for category side bar $('#side1').toggleClass("fa-caret-up");
+$(document).ready(function(){
+  $("button.dropdown-btn").click(function(){
+    $(this).next().slideToggle('slow');
+    $("div.dropdown-container").not($(this).next()).slideUp('slow');
+  });
+});
+
+// validation for quantity
+// var quantity = document.getElementById("quantity").value;
+// function validation() {
+//   if (quantity <= 0) {
+//     alert("Invalid Quantity");
+//   } 
+  // else if (quantity > 99) {
+  //   alert("You Can Have Maximum 99 Product");
+  // }
+// };
+
+
+// Validation for Search for mobile Search
+function validForm() {
+  var x = document.forms["my-Form"]["q"].value;
+  if (x == "" || x == null) {
+    alert("Product must be filled out");
+    return false;
+  }
+}
+// Validation for Search For laptops
+function validateForm() {
+  var x = document.forms["myForm"]["q"].value;
+  if (x == "" || x == null) {
+    $(".search-form").submit(function () {
+      var isFormValid = true;
+      $('.bubble').remove();
+      
+          if ($.trim($(this).val()).length === 0) {
+              $(this).addClass("highlight");
+              isFormValid = false;
+          } else {
+              $(this).removeClass("highlight");
+              isFormValid = true;
+          }
+     
+      if (!isFormValid) {
+          $('.search-form').after("<span class='bubble'><span class='exclaimationMark'>!</span>Product must be filled out</span>");
+      }
+      return isFormValid;
+    });
+    
+    $('html').click(function () {
+      $('.bubble').remove();
+    });
+    return false;
+  }
+}
+
+
+
+// All Department Button slide 
+$(document).ready(function(){
+  $(".my-button").on('click', function() {
+    $(".departments").slideToggle('fast');
+  });
+});
+
+// Scroll
 $(document).ready(function(){
   // Scroll for whole page
   $(function() {  
-    $("body").niceScroll({
+    $("html").niceScroll({
       cursorcolor: "#19afd0",
       cursorwidth: "10px",
       cursorborder: "1px solid #19afd0",
@@ -64,11 +109,15 @@ $(document).ready(function(){
   });
 });
 
-// Validation for Search
-function validateForm() {
-  const x = document.forms["myForm"]["q"].value;
-  if (x == "") {
-    alert("Product must be filled out");
-    return false;
-  }
-}
+// Scroll Up
+$(document).ready(function(){
+  const scrollBtn = $("#scroll-up");
+  // On window Scrolling
+  $(window).scroll(function(){
+    $(this).scrollTop() >= 500 ? scrollBtn.fadeIn(500) : scrollBtn.fadeOut(500);
+  });
+  scrollBtn.click(function(){
+    $("html, body").animate({ scrollTop : 0}, 1000);
+  });
+});
+

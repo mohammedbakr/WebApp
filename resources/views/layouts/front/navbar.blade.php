@@ -20,10 +20,10 @@
                 <li class="nav-item">
                     <a id="fade" class="nav-link" href="#"><i id="icon" class="fa fa-search" aria-hidden="true" title="Search"></i></a>
                     <div id="fadetoggle" class="animated fadetoggle">
-                        <form class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
+                        <form class="navbar-form navbar-left form-inline text-center" action="{{route('search.product')}}" name="my-Form" method="GET" onsubmit="return validForm()">
                             <div class="input-group">
-                                <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
-                                    value="{!! request()->input('q') !!}">
+                                <input type="search" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
+                                    value="{!! request()->input('q') !!}" required>
                                 <div class="input-group-btn">
                                     <button class="btn btn-default btn-search" type="submit">
                                         <i class="fa fa-search"></i>
@@ -127,7 +127,7 @@
                     <br />
                 </li>
                 <li class="nav-item">
-                    <form class="navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" name="myForm" onsubmit="return validateForm()" method="GET">
+                    <form class="search-form navbar-form navbar-left form-inline text-center search" action="{{route('search.product')}}" name="myForm" method="GET" onsubmit="return validateForm()">
                     <div class="input-group">
                         <input type="text" name="q" class="form-control search-field" placeholder="{{trans('main.front.Search')}}..."
                             value="{!! request()->input('q') !!}">

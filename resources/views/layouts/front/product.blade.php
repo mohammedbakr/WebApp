@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-md-6">
-        <ul id="thumbnails" class="col-md-4 list-unstyled">
+    <div class="col-xs-12 col-sm-6 col-md-6" style="margin-bottom:10px;">
+        <ul id="thumbnails" class="col-md-4 col-xs-4 list-unstyled">
             <li>
                 <a href="javascript: void(0)">
                     @if(isset($product->cover))
@@ -26,7 +26,7 @@
                 @endforeach
             @endif
         </ul>
-        <figure class="text-center product-cover-wrap col-md-8">
+        <figure class="text-center product-cover-wrap col-xs-8 col-md-8">
             @if(isset($product->cover))
                 <img id="main-image" class="product-cover img-responsive"
                      src="{{ asset("storage/$product->cover") }}?w=400"
@@ -37,7 +37,7 @@
             @endif
         </figure>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-12 col-sm-6 col-md-6">
         @include('layouts.errors-and-messages')
         <div class="product-description">
             @if (app()->getLocale() == 'ar')

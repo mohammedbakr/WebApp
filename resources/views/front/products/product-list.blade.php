@@ -60,8 +60,12 @@
                     <!-- Modal -->
                     <div class="modal fade" id="myModal_{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                @include('layouts.front.product')
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <div class="modal-content">
+                                        @include('layouts.front.product')
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

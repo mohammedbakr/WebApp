@@ -10252,9 +10252,9 @@ a:hover img {
     display: none;
 }
 
-.modal-dialog .modal-content {
+/* .modal-dialog .modal-content {
     min-width: 800px;
-}
+} */
 
 .modal-dialog h1 {
     font-size: 18px;
