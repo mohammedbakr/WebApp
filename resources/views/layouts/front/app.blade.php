@@ -62,32 +62,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')}}"></script>
     <style>
-        .my-Scroll {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #198da7;
-            border-radius: 50%;
-            text-align: center;
-            position: fixed;
-            right: 2%;
-            bottom: 3%;
-            cursor: pointer;
-            z-index: 9999;
-            display: none;
-            /* background-color: #FFF: */
-        }
-        .my-Scroll i {
-            font-size: 36px;
-            color: #198da7;
-            padding: 5px;
-            line-height: 24px;
-        }
-        .my-Scroll:hover {
-            background-color: #198da7;
-            color: #FFF;
-            transition: all 0.5 ease-in-out;
-        }
-        .my-Scroll i:hover {color: #FFF; transition: all 0.5 ease-in-out;}
     </style>
 </head>
 
@@ -101,7 +75,7 @@
     @include('layouts.front.navbar')
     @include('layouts.front.sidebarFront')
     <div id="scroll-up" class="my-Scroll">
-        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        <i class="fa fa-arrow-up u-go-to__inner" aria-hidden="true"></i>
     </div>
 
     @yield('content')

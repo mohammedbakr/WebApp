@@ -791,22 +791,21 @@ div.btn-s {
 .product-style  h2 {
   margin: 30px auto;
   padding: 6px;
-  border-bottom: 2px solid #198da7;
+  border-bottom: 2px solid #19afd0;
   max-width: 150px;
 }
 
 .my-prodstyle {
-  border: 2px solid #198da7;
   padding: 20px 10px;
-  border-radius: 15px;
 }
 
 .my-prodstyle .product-list .single-product {
-  border: 2px solid #198da7;
+  border: 2px solid #19afd069;
   padding: 15px;
   border-radius: 15px;
   margin: 15px;
   min-height: 360px;
+  box-shadow: 24px 25px 40px 2px #DDD;
 }
 
 
@@ -861,3 +860,33 @@ div.btn-s {
   text-align:center;
   margin-right:10px;
 }
+
+/* Start Scroll Up Style */
+.my-Scroll {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #19afd0;
+  border-radius: 20%;
+  text-align: center;
+  position: fixed;
+  right: 2%;
+  bottom: 3%;
+  cursor: pointer;
+  z-index: 9999;
+  display: none;
+  background-color: #19afd0;
+  color: #FFF;
+  opacity: .5;
+}
+.my-Scroll i {
+  font-size: 18px;
+  color: #FFF;
+  padding: 5px;
+  line-height: 24px;
+}
+.my-Scroll:hover {
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+.my-Scroll i:hover {color: #FFF; transition: all .5s ease-in-out;}
+/* End Scroll Up Style */

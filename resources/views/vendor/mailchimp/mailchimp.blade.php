@@ -21,7 +21,7 @@
     </div>
     @endif
         <div class="container text-center">
-            <h4>Subscribe To our News Letter</h4>
+            <h4>{{trans('main.footer.Subscribe To our News Letter')}}</h4>
             <div class="form">
             <form action="/action_page.php">
                 {{csrf_field()}}
