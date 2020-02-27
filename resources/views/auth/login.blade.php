@@ -4,7 +4,7 @@
     <!-- Main content -->
     <section class="container content">
         <div class="col-md-12">@include('layouts.errors-and-messages')</div>
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-md-offset-4" style="margin-top: 15px; margin-bottom: 15px;">
             <h2>{{trans('main.front.Login to your account')}}</h2>
             <form action="{{ route('login') }}" method="post" class="form-horizontal">
                 {{ csrf_field() }}
