@@ -37,7 +37,8 @@ return [
         'Terms of service' => 'حقوق النشر',
         'All Rights Reserved' => 'جميع الحقوق محفوظة',
         'Your email address' => 'البريد الالكتروني',
-        'Subscribe' => 'اشتراك',
+        'Subscribe To our News Letter' => 'اشترك في نشرتنا الإخبارية',
+        'Subscribe' => 'اشترك',
     ],
 
     "product" => [

@@ -37,6 +37,7 @@ return [
         'Terms of service' => 'Terms of service',
         'All Rights Reserved' => 'All Rights Reserved',
         'Your email address' => 'Your email address',
+        'Subscribe To our News Letter' => 'Subscribe To our News Letter',
         'Subscribe' => 'Subscribe',
     ],
 

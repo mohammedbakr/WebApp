@@ -2,9 +2,19 @@
     <nav class="my-nav navbar navbar-default ml-auto category">
         <button class="my-button"><i class="fa fa-list-ul"></i> {{trans('main.categorynav.Departments')}}</button>
         <div class="departments">
-            @foreach ($categories as $category)
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 1</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 2</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 3</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 4</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 5</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 6</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 7</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 8</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 9</a>
+            <a href="#">{{trans('main.sidebarfront.Categories')}} 10</a>
+            {{-- @foreach ($categories as $category)
             <a href="{{route('front.category.slug', $category->slug)}}">{{$category->name}}</a>
-            @endforeach
+            @endforeach --}}
             {{-- <ul class="list-unstyled list-inline nav navbar-nav">
                 @foreach($categories as $category)
                 <li>

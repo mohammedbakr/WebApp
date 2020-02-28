@@ -74,6 +74,9 @@
     </noscript>
     @include('layouts.front.navbar')
     @include('layouts.front.sidebarFront')
+    <div id="scroll-up" class="my-Scroll">
+        <i class="fa fa-arrow-up u-go-to__inner" aria-hidden="true"></i>
+    </div>
 
     @yield('content')
 

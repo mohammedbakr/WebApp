@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" @if(request()->input('tab') == 'Individual') class="active" @endif><a
