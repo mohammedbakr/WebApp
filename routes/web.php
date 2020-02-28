@@ -101,6 +101,8 @@ Route::group(
                     Route::resource('country.state', 'CountryStateController');
                     Route::resource('state.city', 'StateCityController');
                 });
+
+                Route::resource('comprojects', 'ProjectController');
         
                 Route::get('accounts', 'AccountsController@index')->name('accounts');
                 Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');

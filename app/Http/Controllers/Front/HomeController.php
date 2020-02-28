@@ -35,29 +35,50 @@ class HomeController
 
         if(!Auth::user()){
             return view('front.index', compact('cat1',
-            'cat2',
-            'categories'
+             'cat2',
+             'categories'
+            ));
+        } elseif(Auth::user()->company == 1){
+            if(!Auth::user()->identity_card){
+                return redirect()->route('accounts.edit', Auth::user()->id)->withError(trans('main.front.You must continue uploading your registeration files to continue shopping'));
+            }else{
+                return view('front.index', compact('cat1',
+                'cat2',
+                'categories'
+               ));
+            }
+        }else{
+            return view('front.index', compact('cat1',
+             'cat2',
+             'categories'
             ));
         }
 
-        if(Auth::user()->company == 0){
+        // if(!Auth::user()){
+        //     return view('front.index', compact('cat1',
+        //     'cat2',
+        //     'categories'
+        //     ));
+        // }
 
-            return view('front.index', compact('cat1',
-            'cat2', 
-            'categories'
-            ));
+        // if(Auth::user()->company == 0){
 
-        }else{
-            if(Auth::user()->identity_card){
+        //     return view('front.index', compact('cat1',
+        //     'cat2', 
+        //     'categories'
+        //     ));
+
+        // }else{
+        //     if(Auth::user()->identity_card){
                 
-                return view('front.index', compact('cat1',
-            'cat2',
-            'categories'
-            ));
+        //         return view('front.index', compact('cat1',
+        //     'cat2',
+        //     'categories'
+        //     ));
 
-            }else{
-                return redirect()->route('accounts.edit', Auth::user()->id)->withError(trans('main.front.You must continue uploading your registeration files to continue shopping'));
-            }
-        } 
+        //     }else{
+        //         return redirect()->route('accounts.edit', Auth::user()->id)->withError(trans('main.front.You must continue uploading your registeration files to continue shopping'));
+        //     }
+        // } 
     }
 }

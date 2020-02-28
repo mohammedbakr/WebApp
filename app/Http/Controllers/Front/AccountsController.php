@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Shop\Orders\Order;
 use App\Shop\Orders\Transformers\OrderTransformable;
 use App\Shop\Customers\Requests\UpdateCustomerRequest;
+use Illuminate\Support\Facades\Auth;
+
 class AccountsController extends Controller
 {
     use OrderTransformable;
@@ -116,8 +118,17 @@ class AccountsController extends Controller
 
         $update->updateCustomer($data);
 
-        $request->session()->flash('message', 'Update successful');
-        return redirect()->route('accounts');
+        if($customer->company == 0 && $customer->company == 2 && $customer->company == 3 && $customer->company == 4){
+            $request->session()->flash('message', 'Update successful');
+            return redirect()->route('accounts');
+        }else{
+            $request->session()->flash('message', 'Update successful');
+            return redirect()->route('comprojects.create');
+        // return 'hhhhhhhhhhhhhhh';
+        }
+
+        // $request->session()->flash('message', 'Update successful');
+        // return redirect()->route('accounts');
     }
 
 }
