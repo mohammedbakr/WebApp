@@ -17,7 +17,7 @@ class AddColumnsToCustomersTable extends Migration
             $table->string('identity_card')->nullable()->after('status');
             $table->string('commerical_register')->nullable()->after('identity_card');
             $table->string('undertaking')->nullable()->after('commerical_register');
-            $table->boolean('company')->nullable()->after('undertaking');
+            $table->integer('company')->default(0)->nullable()->after('undertaking');
         });
     }
 
