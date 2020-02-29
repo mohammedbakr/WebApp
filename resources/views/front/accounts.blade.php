@@ -39,7 +39,8 @@
                                 <div class="box">
                                     <div class="box-body">
                                         <h2 class="pull-left">Projects</h2>
-                                        <a class="pull-right" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                                        <a class="pull-right btn btn-primary" style="margin-left: 10px;" href="{{route('comprojects.create')}}">Add Projects</a>
+                                        <a class="pull-right btn btn-primary" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
                                         <table class="table center table-hover table-striped">
                                             <thead>
                                                 <tr>
@@ -49,6 +50,7 @@
                                                     <th>Accountant</th>
                                                     <th>Engineer</th>
                                                     <th>Purchasing Manager</th>
+                                                    <th>Add Staff</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
@@ -58,45 +60,24 @@
                                                         <td>{{ $project->id }}</td>
                                                         <td>{{ $project->name }}</td>
                                                         <td >{{ $project->budget }}</td>
-                                                        @foreach($project->employees as $employee)
-                                                        @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Accountant' )
-                                                            <td>
-                                                                {{$employee->name}}
-                                                                @if($employee->status == 0 )
-                                                                    <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                        <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                                    </a>
-                                                                @endif
-                                                            </td>
-                        
-                                                        @endif
-                                                    @endforeach
-                                                    @foreach($project->employees as $employee)
-                                                        @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Engineer' )
-                                                            <td>
-                                                                {{$employee->name}}
-                                                                @if($employee->status == 0 )
-                    
-                                                                    <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                        <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                                    </a>
-                                                                @endif
-                                                            </td>
-                                                        @endif
-                                                    @endforeach
-                                                    @foreach($project->employees as $employee)
-                                                        @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Purchasing Manager' )
-                                                            <td>
-                                                                {{$employee->name}}
-                                                                @if($employee->status == 0 )
-                                                                    <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                        <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                                    </a>
-                                                                @endif
-                                                            </td>
-                                                        @endif
-                                                    @endforeach
-                                                    <td>@include('layouts.status', ['status' => $project->status])</td>
+                                                        <td>
+                                                           hhh
+                                                        </td>
+                                                        <td>
+                                                   
+                                                            @if($project->coc_id == auth()->user()->id)
+                                                            {{-- @if($customer->id == $customer->company_id) --}}
+                                                                {{$customer}}
+                                                            {{-- @endif --}}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                          hhh
+                                                        </td>
+                                                        <td>
+                                                                 <a href="{{route('comprojects.createStaff', $project->id)}}">Add Staff</a>
+                                                        </td>
+                                                        <td>@include('layouts.status', ['status' => $project->status])</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

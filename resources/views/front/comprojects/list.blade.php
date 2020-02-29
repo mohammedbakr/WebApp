@@ -40,7 +40,7 @@
                                             <input type="hidden" name="_method" value="delete">
                                             <div class="btn-group">
                                                 <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Show Staff</a>
-                                                <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Add Staff</a>
+                                                <a href="{{ route('comprojects.createStaff', $project->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Add Staff</a>
                                                 <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
                                             </div>
                                         </form>

@@ -73,6 +73,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        
         return view('front.comprojects.create');
     }
 
@@ -89,7 +90,7 @@ class ProjectController extends Controller
 
         Project::create($input);
 
-        return redirect()->route('comprojects.index');
+        return redirect()->route('accounts');
     }
 
     /**
@@ -135,5 +136,11 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function createStaff($id)
+    {
+        return view('front.comprojects.createStaff');
     }
 }

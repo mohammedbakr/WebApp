@@ -8,14 +8,14 @@
             <form action="{{ route('comprojects.store') }}" method="post" class="form">
                 <div class="box-body">
                     {{ csrf_field() }}
-                    <input type="hidden" value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="coc_id" value="{{ auth()->user()->id }}">
                     <div class="form-group">
                         <label for="name">Name <span class="text-danger">*</span></label>
                         <input  required type="text" name="name" id="name" placeholder="Name" class="form-control " value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
                         <label for="budget">Budget <span class="text-danger">*</span></label>
-                        <input required type="text" name="budget" id="budget" placeholder="Budget $" class="form-control" value="{{ old('budget')}}">
+                        <input required type="number" name="budget" id="budget" placeholder="Budget $" class="form-control" value="{{ old('budget')}}">
                     </div>
                 </div>
 
