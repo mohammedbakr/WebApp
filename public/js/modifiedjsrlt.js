@@ -35,15 +35,15 @@ function openNav() {
   });
   
   // validation for quantity
-  var quantity = document.getElementById("quantity").value;
-  function validation() {
-    if (quantity <= 0) {
-      alert("Invalid Quantity");
-    } 
+  // var quantity = document.getElementById("quantity").value;
+  // function validation() {
+  //   if (quantity <= 0) {
+  //     alert("Invalid Quantity");
+  //   } 
     // else if (quantity > 99) {
     //   alert("You Can Have Maximum 99 Product");
     // }
-  };
+  // };
   
   // All Department Button slide 
   $(document).ready(function(){

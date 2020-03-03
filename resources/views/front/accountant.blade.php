@@ -31,7 +31,8 @@
                 <div class="tab-content customer-order-list">
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
-                        @if($customer->company == 0)
+                        @if($customer->company == 3)
+                            <strong>Hello Accountant, </strong>
                             {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
                             <a href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
                         @endif
