@@ -2,59 +2,8 @@
 @extends('layouts.front.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-<style>
-    .my-contact {
-        margin: 40px auto;
-        border: 2px solid #EEE;
-        padding: 15px;
-    }
-    .my-contact h2 {color: #444}
-    .my-contact .contact-form {max-width: 450px; margin: 10px auto;}
-    .my-contact .contact-form input,
-    .my-contact .contact-form textarea {
-        margin: 15px auto;
-    }
-    .my-contact .contact-form textarea {
-        resize: none;
-    }
-    .my-contact .contact-form input:not([type='submit']) + i {
-        height: 0;
-        float: left;
-        position: relative;
-        top: -40px;
-        left: 25px;
-        color: #999;
-    }
-    .my-contact .contact-form input:not([type='submit']) + i:nth-of-type(3) {
-        font-size: 26px;
-        top: -44px;
-        left: 18px;
-    }
-    .my-contact .contact-form input[type='submit'] {
-        padding-left: 32px;
-    }
-    .my-contact .contact-form i.my-icon{
-        position: relative;
-        display: block;
-        top: -39px;
-        left: 10px;
-        color: #FFF;
-    }
-</style>
-    <title>Awtad/Contact Us</title>
-</head>
-<body>
-    
 
-
- <section class="my-contact">
+<section class="my-contact">
     <div class="container">
 
         <h2 class="text-center">{{trans('main.footer.Contact us')}}</h2>
@@ -81,7 +30,7 @@
                 @endif
             </div>
             <input class="btn btn-success" type="submit" value="{{trans('main.footer.Send Message')}}">
-
+            <i class="fa fa-paper-plane my-icon" aria-hidden="true"></i>
         </form>
     </div>
 </section> 
