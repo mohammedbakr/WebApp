@@ -90,6 +90,11 @@ Route::group(
         
         Route::namespace('Front')->group(function () {
             Route::get('/', 'HomeController@index')->name('home');
+
+            Route::get('/contact', 'ContactController@create')->name('contact');
+            Route::post('/contact', 'ContactController@store')->name('contactstore');
+
+        
             Route::group(['middleware' => ['auth', 'web']], function () {
         
                 Route::namespace('Payments')->group(function () {
@@ -101,6 +106,9 @@ Route::group(
                     Route::resource('country.state', 'CountryStateController');
                     Route::resource('state.city', 'StateCityController');
                 });
+
+                Route::resource('comprojects', 'ProjectController');
+                Route::get('comprojects/createStaff/{id}', 'ProjectController@createStaff')->name('comprojects.createStaff');
         
                 Route::get('accounts', 'AccountsController@index')->name('accounts');
                 Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');

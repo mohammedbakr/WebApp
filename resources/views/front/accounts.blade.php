@@ -32,84 +32,72 @@
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
                         @if($customer->company == 0)
-                        {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
-                        <a href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                            {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
+                            <a href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                        @elseif($customer->company == 1)
+                            @if($customer->identity_card)
+                                <div class="box">
+                                    <div class="box-body">
+                                        <h2 class="pull-left">Projects</h2>
+                                        <a class="pull-right btn btn-primary" style="margin-left: 10px;" href="{{route('comprojects.create')}}">Add Projects</a>
+                                        <a class="pull-right btn btn-primary" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                                        <table class="table center table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Project Name</th>
+                                                    <th>Budget</th>
+                                                    <th>Accountant</th>
+                                                    <th>Engineer</th>
+                                                    <th>Purchasing Manager</th>
+                                                    <th>Add Staff</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                @foreach ($customer->projects as $project)
+                                                    <tr>
+                                                        <td>{{ $project->id }}</td>
+                                                        <td>{{ $project->name }}</td>
+                                                        <td >{{ $project->budget }}</td>
+                                                        <td>
+                                                           hhh
+                                                        </td>
+                                                        <td>
+                                                   
+                                                            @if($project->coc_id == auth()->user()->id)
+                                                            {{-- @if($customer->id == $customer->company_id) --}}
+                                                                {{$customer}}
+                                                            {{-- @endif --}}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                          hhh
+                                                        </td>
+                                                        <td>
+                                                                 <a href="{{route('comprojects.createStaff', $project->id)}}">Add Staff</a>
+                                                        </td>
+                                                        <td>@include('layouts.status', ['status' => $project->status])</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            @else
+                                <p>{{trans('main.front.One step ahead to complete registeration, You must upload some files!')}}</p>
+                                <a href="{{route('accounts.edit', $customer->id)}}">{{trans('main.front.Continue registeration')}}</a>
+                            @endif
+                        @elseif($customer->company == 2)
+                        <h1>hello iam company 2</h1>
+                        @elseif($customer->company == 3)
+                        <h1>hello iam company 3</h1>
                         @else
-                        @if($customer->identity_card)
-                        <div class="box">
-                            <div class="box-body">
-                                <h2 class="pull-left">Projects</h2>
-                                <a class="pull-right" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
-                                <table class="table center table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Project Name</th>
-                                            <th>Budget</th>
-                                            <th>Accountant</th>
-                                            <th>Engineer</th>
-                                            <th>Purchasing Manager</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody >
-                                        @foreach ($customer->projects as $project)
-                                            <tr>
-                                                <td>{{ $project->id }}</td>
-                                                 <td>{{ $project->name }}</td>
-                                                <td >{{ $project->budget }}</td>
-                                                @foreach($project->employees as $employee)
-                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Accountant' )
-                                                    <td>
-                                                        {{$employee->name}}
-                                                        @if($employee->status == 0 )
-                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                
-                                                @endif
-                                            @endforeach
-                                             @foreach($project->employees as $employee)
-                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Engineer' )
-                                                    <td>
-                                                        {{$employee->name}}
-                                                        @if($employee->status == 0 )
-            
-                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                                                @endif
-                                            @endforeach
-                                             @foreach($project->employees as $employee)
-                                                @if($employee->pivot->project_id == $project->id && $employee->types[0]->type == 'Purchasing Manager' )
-                                                    <td>
-                                                        {{$employee->name}}
-                                                        @if($employee->status == 0 )
-                                                            <a href="{{ route('admin.projects.edit', $project->id) }}" title="This user is disabled, Please choose another one">
-                                                                <b class="text-danger bg-danger">Disabled <i class="fa fa-exclamation-circle"></i></b>
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                                                @endif
-                                            @endforeach
-                                            <td>@include('layouts.status', ['status' => $project->status])</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
-                        @else
-                        <p>{{trans('main.front.One step ahead to complete registeration, You must upload some files!')}}</p>
-                        <a href="{{route('accounts.edit', $customer->id)}}">{{trans('main.front.Continue registeration')}}</a>
+                        <h1>hello iam company 4</h1>
                         @endif
-                        @endif
+
                     </div>
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'orders')active @endif"
                         id="orders">

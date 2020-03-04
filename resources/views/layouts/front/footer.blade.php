@@ -5,8 +5,8 @@
 
                 <ul class="footer-menu">
                     <li> <a href="{{ route('accounts', ['tab' => 'profile']) }}">{{trans('main.footer.Your account')}}</a>  </li>
+                    <li> <a href="{{route('contact')}}">{{trans('main.footer.Contact us')}}</a>  </li>
                     <li> <a href="#">{{trans('main.footer.Terms of service')}}</a>  </li>
-                    <li> <a href="#">{{trans('main.footer.Contact us')}}</a>  </li>
                 </ul>
 
                 <ul class="footer-social">
