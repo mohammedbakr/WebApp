@@ -61,6 +61,7 @@
     @yield('og')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
     </style>
 </head>
