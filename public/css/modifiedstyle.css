@@ -1,3 +1,13 @@
+/* Font */
+@font-face {
+  font-family: awtadFont;
+  src: url(../fonts/Fairuz-Normal.otf);
+}
+
+* {
+  font-family: awtadFont;
+}
+/* Font */
 /* Start Top nav style */
 .top-nav {
   padding: 0px;
@@ -225,6 +235,7 @@
   font-weight: bold;
   padding: 7px 70px 7px 20px;
   width: 236px;
+  outline: none;
 }
 
 .my-nav .my-button:active {
@@ -805,7 +816,11 @@ div.btn-s {
   border-radius: 15px;
   margin: 15px;
   min-height: 360px;
-  box-shadow: 24px 25px 40px 2px #DDD;
+}
+
+.my-prodstyle .product-list .single-product:hover {
+  box-shadow: -24px 25px 40px 2px #DDD;
+  transition: all .5s ease-in-out;
 }
 
 
@@ -890,3 +905,44 @@ div.btn-s {
 }
 .my-Scroll i:hover {color: #FFF; transition: all .5s ease-in-out;}
 /* End Scroll Up Style */
+
+
+/* Start Contact Us form Style */
+.my-contact {
+  margin: 40px auto;
+  border: 2px solid #EEE;
+  padding: 15px;
+}
+.my-contact h2 {color: #444}
+.my-contact .contact-form {max-width: 450px; margin: 10px auto;}
+.my-contact .contact-form input,
+.my-contact .contact-form textarea {
+  margin: 15px auto;
+}
+.my-contact .contact-form textarea {
+  resize: none;
+}
+.my-contact .contact-form input:not([type='submit']) + i {
+  height: 0;
+  float: left;
+  position: relative;
+  top: -40px;
+  left: 25px;
+  color: #999;
+}
+.my-contact .contact-form input:not([type='submit']) + i:nth-of-type(3) {
+  font-size: 26px;
+  top: -44px;
+  left: 18px;
+}
+.my-contact .contact-form input[type='submit'] {
+  padding-left: 32px;
+}
+.my-contact .contact-form i.my-icon{
+  position: relative;
+  display: block;
+  top: -39px;
+  left: 10px;
+  color: #FFF;
+}
+/* End Contact Us form Style */

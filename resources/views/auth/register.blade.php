@@ -7,10 +7,10 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" @if(request()->input('tab') == 'Individual') class="active" @endif><a
                     href="#Individual" aria-controls="Individual" role="tab"
-                    data-toggle="tab">Individual</a></li>
+                    data-toggle="tab">{{trans('main.front.Individual')}}</a></li>
             <li role="presentation" @if(request()->input('tab') == 'Company') class="" @endif><a
                     href="#Company" aria-controls="Company" role="tab"
-                    data-toggle="tab">Company</a></li>
+                    data-toggle="tab">{{trans('main.front.Company')}}</a></li>
         </ul>
         <!-- Tab panes -->
 
