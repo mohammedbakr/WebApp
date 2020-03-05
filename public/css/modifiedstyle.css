@@ -306,8 +306,59 @@
 }
 /* End Category navBar style */
 
+/* Sidebar button */
+.icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 6px;
+  left: -10px;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 50px;
+  height: 6px;
+  background: #222;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.65);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #222;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger::before {top: -16px;}
+.hamburger::after {top: 16px;}
+
+.icon.active .hamburger {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.icon.active .hamburger::after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
 /* Side icon button for navbar */
-#sideicon, #sidebars {
+#sideicon {
   -webkit-font-size:30px;
   -moz-font-size:30px;
   -o-font-size:30px;
@@ -684,7 +735,8 @@ div.btn-s {
     margin: 0px auto !important;
     padding: 5px !important;
   }
- }
+  .my-Scroll {right: 3% !important;}
+}
 
  /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767px) {
@@ -940,9 +992,10 @@ div.btn-s {
 }
 .my-contact .contact-form i.my-icon{
   position: relative;
-  display: block;
-  top: -39px;
-  left: 10px;
+  display: inline-block;
+  top: 2px;
+  left: -125px;
   color: #FFF;
+  cursor: pointer;
 }
 /* End Contact Us form Style */
