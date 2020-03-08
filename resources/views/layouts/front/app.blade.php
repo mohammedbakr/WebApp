@@ -29,6 +29,9 @@
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/modifiedstyle.css') }}" rel="stylesheet">
     @endif
+    {{-- Owel Slider --}}
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     {{-- Animate --}}
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     {{-- Google Fonts --}}
@@ -86,7 +89,7 @@
     <script src="{{ asset('js/front.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')
-    
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     @if (app()->getLocale() == 'ar')
     <script src="{{ asset('js/modifiedjsrlt.js') }}"></script>
     @else
