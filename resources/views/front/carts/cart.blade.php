@@ -186,11 +186,11 @@
                         </table>
                         <hr>
                         @if (!session()->has('coupon'))
-                        <div class="row">
+                        <div class="row text-center">
                             <p>{{trans('main.cart.Have a code')}} ?</p>
                             <form action="{{route('coupon.store')}}" method="POST">
                                 @csrf
-                                <input type="text" name="couponCode" id="couponCode">
+                                <input type="text" name="couponCode" id="couponCode" style="padding: 6px 12px; height: 100%;">
                                 <button type="submit" class="btn btn-primary">{{trans('main.cart.Apply')}}</button>
                             </form>
                         </div>
