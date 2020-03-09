@@ -209,8 +209,8 @@
   display: none;
   position: absolute;
   z-index: 999;
-  top: 135%;
-  right: -600px;
+  top: 107%;
+  left: -200%;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.28);
   border-radius: 10px;
   background-clip: padding-box;
@@ -807,6 +807,7 @@ div.btn-s {
 /* Subscribe form */
 
 /* footer */
+
 .footer-section {
   margin-top: 15px;
 }
@@ -816,7 +817,8 @@ div.btn-s {
 /* Extra small devices (portrait phones, less than 320px) */
 @media (max-width: 320px) {
   .fadetoggle {
-    right: -165px !important;
+    top: 135%;
+    left: -218%;
   }
 }
 
@@ -835,7 +837,8 @@ div.btn-s {
   }
 
   .fadetoggle {
-    right: -185px;
+    top: 135%;
+    left: -150%;
   }
 
   .input-group .search-field {
@@ -868,10 +871,8 @@ div.btn-s {
     visibility: hidden;
   }
 
-  .slider .owl-carousel .content h2,
-  .slider .owl-carousel .content h4 {
-    font-size: 14px;
-  }
+  .slider .owl-carousel .content h2 {font-size: 18px;}
+  .slider .owl-carousel .content h4 {font-size: 14px;}
 
   .btn-subscribe {
     margin-right: 25%;
@@ -915,8 +916,12 @@ div.btn-s {
   }
 
   .fadetoggle {
-    right: -385px !important;
+    top: 135%;
+    left: -85%;
   }
+
+  .slider .owl-carousel .content h2 {font-size: 24px;}
+  .slider .owl-carousel .content h4 {font-size: 18px;}
 
   .input-group .search-field {
     width: 400px !important;
@@ -1046,8 +1051,7 @@ div.btn-s {
 }
 
 .product-style h2 {
-  margin: 30px auto;
-  padding: 6px;
+  margin: 10px auto;
   border-bottom: 2px solid #19afd0;
   max-width: 150px;
 }
