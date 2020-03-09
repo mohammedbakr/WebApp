@@ -98,6 +98,8 @@ $(document).ready(function(){
       cursorcolor: "#19afd0",
       cursorwidth: "5px",
       cursorborder: "1px solid #19afd0",
+      zindex: "9999",
+      railalign: 'right'
     });
   });
 });
@@ -114,3 +116,29 @@ $(document).ready(function(){
   });
 });
 
+$("#slider").owlCarousel({
+  autoplay: true,
+  autoplayTimeout: 6000,
+  autoplayHoverPause: true,
+  nav: true,
+  transitionStyle: true,
+  dots: true,
+  loop: true,
+  ltr: true,
+  smartSpeed: 1000,
+  navText: [
+      "<i class='fa fa-chevron-right'></i>",
+      "<i class='fa fa-chevron-left'></i>"
+  ],
+  responsive: {
+      0: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+});
