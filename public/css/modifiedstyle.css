@@ -1,16 +1,13 @@
-/* Font */
+/* Awtad Font */
 @font-face {
   font-family: awtadFont;
   src: url(../fonts/Fairuz-Normal.otf);
 }
 
-* {
-  font-family: awtadFont;
-}
-
 /* Font */
 /* Start Top nav style */
 .top-nav {
+  font-family: awtadFont;
   padding: 0px;
   border-bottom: 1px solid #e8e8e8;
 }
@@ -124,6 +121,7 @@
 
 /* Start Middle navbar */
 .middle-navbar {
+  font-family: awtadFont;
   display: flex;
   padding-bottom: 20px;
   border-bottom: 1px solid #e8e8e8;
@@ -767,6 +765,8 @@ div#mySidenav.sidenav label:hover {
   transition: .5s;
 }
 
+.owl-theme .owl-nav {margin-top: 0px !important;}
+
 /* Slider overlay */
 
 /* Subscribe form */
@@ -1051,7 +1051,7 @@ div.btn-s {
 }
 
 .product-style h2 {
-  margin: 10px auto;
+  margin: 0px auto;
   border-bottom: 2px solid #19afd0;
   max-width: 150px;
 }
