@@ -7,6 +7,8 @@ return [
         'Logout' => 'Logout',
         'Login' => 'Login',
         'Register' => 'Register',
+        'Individual' => 'Individual',
+        'Company' => 'Company',
         'Register For Company' => 'Register For Company',
         'identity_card' => 'Identity Card',
         'commerical_register' => 'Commerical Register',
@@ -39,6 +41,9 @@ return [
         'Your email address' => 'Your email address',
         'Subscribe To our News Letter' => 'Subscribe To our News Letter',
         'Subscribe' => 'Subscribe',
+        'Mobile' => 'Mobile Number 123-456-789',
+        'Your Message' => 'Your Message!',
+        'Send Message' => 'Send Message',
     ],
 
     "product" => [

@@ -29,6 +29,9 @@
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/modifiedstyle.css') }}" rel="stylesheet">
     @endif
+    {{-- Owel Slider --}}
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     {{-- Animate --}}
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     {{-- Google Fonts --}}
@@ -61,6 +64,7 @@
     @yield('og')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
     </style>
 </head>
@@ -85,7 +89,7 @@
     <script src="{{ asset('js/front.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')
-    
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     @if (app()->getLocale() == 'ar')
     <script src="{{ asset('js/modifiedjsrlt.js') }}"></script>
     @else

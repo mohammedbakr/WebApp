@@ -7,6 +7,8 @@ return [
         'Logout' => 'تسجيل الخروج',
         'Login' => 'تسجيل الدخول',
         'Register' => 'اضافة حساب',
+        'Individual' => 'تسجيل كفرد',
+        'Company' => 'تسجيل كشركة',
         'Register For Company' => 'اضافة حساب للشركة',
         'identity_card' => 'البطاقة الشخصية',
         'commerical_register' => 'السجل التجاري',
@@ -33,12 +35,15 @@ return [
 
     "footer" => [
         'Your account' => 'صفحتك',
-        'Contact us' => 'النواصل معنا',
+        'Contact us' => 'التواصل معنا',
         'Terms of service' => 'حقوق النشر',
         'All Rights Reserved' => 'جميع الحقوق محفوظة',
         'Your email address' => 'البريد الالكتروني',
         'Subscribe To our News Letter' => 'اشترك في نشرتنا الإخبارية',
         'Subscribe' => 'اشترك',
+        'Mobile' => 'رقم الهاتف 123-456-789',
+        'Your Message' => 'رسالتــــك !',
+        'Send Message' => 'ارسل رسالتك',
     ],
 
     "product" => [

@@ -115,7 +115,11 @@
                 @endif
             <ul class="nav navbar-nav navbar-right items">
                 <li class="nav-item">
-                    <span class="nav-link" id="sidebars"><i id="xicon" class="fa fa-bars" aria-hidden="true" title="Side Bar"></i></span>
+                    <span class="nav-link">
+                        <div id="sidebars" class="icon">
+                            <div class="hamburger"></div>
+                        </div>
+                    </span>
                 </li>
                 <li>
                     <br />

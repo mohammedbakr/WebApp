@@ -1,24 +1,18 @@
 /* Set the left of the side navigation to 0px */
 function openNav() {
-    document.getElementById("mySidenav").style.right = "0px";
-  }
-  
-  /* Set the left of the side navigation to -250px */
-  function closeNav() {
-    document.getElementById("mySidenav").style.right = "-250px";
-  }
-  
-  /* Side navigation bar button */
+  document.getElementById("mySidenav").style.right = "0px";
+}
+
+/* Set the left of the side navigation to -250px */
+function closeNav() {
+  document.getElementById("mySidenav").style.right = "-250px";
+}
+
+/* Side navigation bar button */
 $(document).ready(function(){
   $("#sidebars").on('click', function() {
     $("#mySidenav").toggleClass("open");
-    if ($("#xicon").hasClass("fa-bars")) {
-      $("#xicon").removeClass("fa-bars");
-      $("#xicon").addClass("fa-times");
-    } else {
-      $("#xicon").removeClass("fa-times");
-      $("#xicon").addClass("fa-bars");
-    }
+    $(this).toggleClass("active");
   });
 });
 
@@ -74,7 +68,6 @@ function validateForm() {
               $(this).removeClass("highlight");
               isFormValid = true;
           }
-     
       if (!isFormValid) {
           $('.search-form').after("<span class='bubble'><span class='exclaimationMark'>!</span>Product must be filled out</span>");
       }
@@ -103,8 +96,10 @@ $(document).ready(function(){
   $(function() {  
     $("html").niceScroll({
       cursorcolor: "#19afd0",
-      cursorwidth: "10px",
+      cursorwidth: "5px",
       cursorborder: "1px solid #19afd0",
+      zindex: "9999",
+      railalign: 'right'
     });
   });
 });
@@ -119,5 +114,32 @@ $(document).ready(function(){
   scrollBtn.click(function(){
     $("html, body").animate({ scrollTop : 0}, 1000);
   });
+});
+
+$("#slider").owlCarousel({
+  autoplay: true,
+  autoplayTimeout: 6000,
+  autoplayHoverPause: true,
+  nav: true,
+  transitionStyle: true,
+  dots: true,
+  loop: true,
+  rtl: true,
+  smartSpeed: 1000,
+  navText: [
+      "<i class='fa fa-chevron-right'></i>",
+      "<i class='fa fa-chevron-left'></i>"
+  ],
+  responsive: {
+      0: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
 });
 
