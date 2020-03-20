@@ -17,7 +17,6 @@ class Project extends Model
 
     protected $fillable = [
         'name',
-        'coc_id',
         'budget',
         'company_id',
         'status'
@@ -57,9 +56,9 @@ class Project extends Model
         return $this->hasMany(State::class);
     }
 
-    public function customer()
+    public function customers()
     {
-        return $this->belongsTo(Customer::class,'coc_id');
+        return $this->belongsToMany(Customer::class);
     }
 
 

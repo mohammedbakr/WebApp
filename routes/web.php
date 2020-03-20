@@ -104,6 +104,10 @@ Route::group(
 
                 Route::resource('comprojects', 'ProjectController');
                 Route::get('comprojects/createStaff/{id}', 'ProjectController@createStaff')->name('comprojects.createStaff');
+                Route::get('comprojects/staff/{id}', 'ProjectController@showStaff')->name('comprojects.showStaff');
+                Route::get('comprojects/staff/{id}/edit', 'ProjectController@editStaff')->name('comprojects.editStaff');
+                Route::put('comprojects/staff/{id}', 'ProjectController@updateStaff')->name('comprojects.updateStaff');
+                Route::delete('comprojects/staff/{id}', 'ProjectController@deleteStaff')->name('comprojects.deleteStaff');
         
                 Route::get('accounts', 'AccountsController@index')->name('accounts');
                 Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');

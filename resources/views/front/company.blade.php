@@ -46,11 +46,10 @@
                                                 <th>#</th>
                                                 <th>Project Name</th>
                                                 <th>Budget</th>
-                                                <th>Engineer</th>
-                                                <th>Accountant</th>
-                                                <th>Purchasing Manager</th>
-                                                <th>Add Staff</th>
+                                                <th>Add Staff</th> 
+                                                <th>Show Staff</th>
                                                 <th>Status</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -58,38 +57,19 @@
                                                 <tr>
                                                     <td>{{ $project->id }}</td>
                                                     <td>{{ $project->name }}</td>
-                                                    <td >{{ $project->budget }}</td>
-                                                    <td>
-                                                        @foreach ($customers as $customer)
-                                                            @if ($customer->company == 2)
-                                                                @if ($customer->company_id == $project->coc_id)
-                                                                    {{ $customer->name}}
-                                                                @endif
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        @foreach ($customers as $customer)
-                                                            @if ($customer->company == 3)
-                                                                @if ($customer->company_id == $project->coc_id)
-                                                                    {{ $customer->name}}
-                                                                @endif
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        @foreach ($customers as $customer)
-                                                        @if ($customer->company == 4)
-                                                            @if ($customer->company_id == $project->coc_id)
-                                                                {{ $customer->name}}
-                                                            @endif
-                                                        @endif
-                                                    @endforeach
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{route('comprojects.createStaff', $project->id)}}">Add Staff</a>
-                                                    </td>
+                                                    <td>{{ $project->budget }}</td>
+                                                    <td><a href="{{route('comprojects.createStaff', $project->id)}}">Add Staff</a></td>  
+                                                    <td><a href="{{route('comprojects.showStaff', $project->id)}}" class="label label-primary"><i class="fa fa-eye"></i>Show Staff</a></td>
                                                     <td>@include('layouts.status', ['status' => $project->status])</td>
+                                                    <td>
+                                                        <form action="{{ route('comprojects.destroy', $project->id) }}" method="post" class="form-horizontal">
+                                                            {{ csrf_field() }}
+                                                            <input type="hidden" name="_method" value="delete">
+                                                            <div class="btn-group">
+                                                                <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

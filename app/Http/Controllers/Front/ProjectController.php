@@ -6,20 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Shop\Companies\Repositories\Interfaces\CompanyRepositoryInterface;
-use App\Shop\Customers\Customer;
-use App\Shop\Companies\Company;
-use App\Shop\Employees\Employee;
-use App\Shop\Projects\Repositories\ProjectRepository;
+use App\Shop\Customers\Repositories\CustomerRepository;
+use App\Shop\Customers\Requests\UpdateCustomerRequest;
 use App\Shop\Projects\Repositories\Interfaces\ProjectRepositoryInterface;
 use App\Shop\Projects\Requests\CreateProjectRequest;
 use App\Shop\Projects\Project;
-use App\Shop\Admins\Requests\CreateEmployeeRequest;
-use App\Shop\Admins\Requests\UpdateEmployeeRequest;
-use App\Shop\Employees\Repositories\EmployeeRepository;
 use App\Shop\Employees\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Shop\Types\Repositories\TypeRepositoryInterface;
-use App\Shop\Types\Type;
-
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -63,7 +57,7 @@ class ProjectController extends Controller
             'employees' => $this->employeeRepo->paginateArrayResults($list_employees->all(), 10),
            
         ]);
-        // return view('front.comprojects.list');
+
     }
 
     /**
@@ -88,7 +82,9 @@ class ProjectController extends Controller
         
         $input = $request->all();
 
-        Project::create($input);
+        $project = Project::create($input);
+
+        $project->customers()->sync($request->cust_id);
 
         return redirect()->route('accounts');
     }
@@ -112,7 +108,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -135,12 +131,56 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $project = Project::findOrFail($id);
 
+        $project->delete();
+
+        return redirect()->route('accounts');
+    }
 
     public function createStaff($id)
     {
         return view('front.comprojects.createStaff');
+    }
+
+    public function showStaff($id)
+    {
+        $project = Project::findOrFail($id);
+
+        return view('front.comprojects.showStaff', compact('project'));
+    }
+
+    public function editStaff($id)
+    {
+        return view('front.comprojects.editStaff', ['customer' => $this->customerRepo->findCustomerById($id)]);
+    }
+
+    public function updateStaff(Request $request, $id)
+    {
+        $customer = $this->customerRepo->findCustomerById($id);
+
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', Rule::unique('customers')->ignore($customer->id)],
+            'company' => ['required']
+        ]);
+
+        $update = new CustomerRepository($customer);
+        $data = $request->except('_method', '_token');
+
+        $update->updateCustomer($data);
+
+        $request->session()->flash('message', 'Updated successfully');
+        return redirect()->route('accounts');
+    }
+
+    public function deleteStaff($id)
+    {
+        $customer = $this->customerRepo->findCustomerById($id);
+
+        $customerRepo = new CustomerRepository($customer);
+        $customerRepo->deleteCustomer();
+
+        return redirect()->back()->with('message', 'Deleted successfully');
     }
 }

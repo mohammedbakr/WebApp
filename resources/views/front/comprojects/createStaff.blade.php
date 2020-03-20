@@ -8,6 +8,7 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
 
+                    <input type="hidden" name="projectid" value="{{auth()->user()->projects[0]->id}}">
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-4 control-label">{{trans('main.front.Name')}} <i class="fa fa-user"></i></label>
 
@@ -42,9 +43,10 @@
 
                         <select name="company" id="company" class="form-control" required>
                             <option value="0" disabled selected>Select</option>
-                            <option value="2">Engineer</option>
-                            <option value="3">Accountant</option>
                             <option value="4">Purchasing Manager</option>
+                            <option value="3">Accountant</option>
+                            <option value="2">Engineer</option>
+                  
                         </select>
 
                         @if ($errors->has('company'))
