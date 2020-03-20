@@ -59,9 +59,19 @@ class RegisterController extends Controller
 
     public function register(RegisterCustomerRequest $request)
     {
+
         $customer = $this->create($request->except('_method', '_token'));
+  
+
+        if($request->company){
+
+            $customer->projects()->attach($request->projectid);//project_id
+        }
+
+        
         Auth::login($customer);
 
+    
         return redirect()->route('accounts');
     }
 }

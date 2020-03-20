@@ -15,7 +15,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Customer extends Authenticatable
 {
-    use Notifiable, SoftDeletes, SearchableTrait, Billable;
+    use Notifiable, SearchableTrait, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,9 @@ class Customer extends Authenticatable
         'email',
         'password',
         'status',
-        'company'
+        'company',
+        'company_id'
+
     ];
 
     /**
@@ -86,7 +88,7 @@ class Customer extends Authenticatable
 
     public function projects()
     {
-        return $this->hasMany(Project::class, 'coc_id');
+        return $this->belongsToMany(Project::class);
     }
     
     public function employees()

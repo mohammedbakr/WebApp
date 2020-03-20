@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Shop\Orders\Order;
 use App\Shop\Orders\Transformers\OrderTransformable;
 use App\Shop\Customers\Requests\UpdateCustomerRequest;
+
 class AccountsController extends Controller
 {
     use OrderTransformable;
@@ -39,6 +40,8 @@ class AccountsController extends Controller
 
     public function index()
     {
+        $list = $this->customerRepo->listCustomers('created_at', 'desc');
+
         $customer = $this->customerRepo->findCustomerById(auth()->user()->id);
 
         $customerRepo = new CustomerRepository($customer);
@@ -52,11 +55,38 @@ class AccountsController extends Controller
 
         $addresses = $customerRepo->findAddresses();
 
-        return view('front.accounts', [
-            'customer' => $customer,
-            'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
-            'addresses' => $addresses
-        ]);
+        if($customer->company == 1){
+            return view('front.company', [
+                'customers' => $this->customerRepo->paginateArrayResults($list->all()),
+                'customer' => $customer,
+                'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
+                'addresses' => $addresses
+            ]);
+        }elseif($customer->company == 2){
+            return view('front.engineer', [
+                'customer' => $customer,
+                'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
+                'addresses' => $addresses
+            ]);
+        }elseif($customer->company == 3){
+            return view('front.accountant', [
+                'customer' => $customer,
+                'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
+                'addresses' => $addresses
+            ]);
+        }elseif($customer->company == 4){
+            return view('front.purchasingManager', [
+                'customer' => $customer,
+                'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
+                'addresses' => $addresses
+            ]);
+        }else {
+            return view('front.accounts', [
+                'customer' => $customer,
+                'orders' => $this->customerRepo->paginateArrayResults($orders->toArray(), 15),
+                'addresses' => $addresses
+            ]);
+        }
     }
 
 
@@ -116,8 +146,12 @@ class AccountsController extends Controller
 
         $update->updateCustomer($data);
 
-        $request->session()->flash('message', 'Update successful');
-        return redirect()->route('accounts');
+        if($customer->company == 0 && $customer->company == 2 && $customer->company == 3 && $customer->company == 4){
+            $request->session()->flash('message', 'Update successful');
+            return redirect()->route('accounts');
+        }else{
+            $request->session()->flash('message', 'Update successful');
+            return redirect()->route('comprojects.create');
+        }
     }
-
 }

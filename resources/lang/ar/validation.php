@@ -175,5 +175,6 @@ return [
         'time'                  => 'الوقت',
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
+        'company'               => 'role'
     ],
 ];

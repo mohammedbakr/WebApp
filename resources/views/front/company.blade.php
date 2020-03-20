@@ -31,9 +31,56 @@
                 <div class="tab-content customer-order-list">
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
-                        @if($customer->company == 0)
-                            {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
-                            <a href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                        <strong>Hello Company, </strong>
+                        {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
+                        <hr>
+                        @if($customer->identity_card)
+                            <div class="box">
+                                <div class="box-body">
+                                    <h2 class="pull-left">Projects</h2>
+                                    <a class="pull-right btn btn-primary" style="margin-left: 10px;" href="{{route('comprojects.create')}}">Add Projects</a>
+                                    <a class="pull-right btn btn-primary" href="{{route('accounts.edit', $customer->id)}}">Edit your Profile</a>
+                                    <table class="table center table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Project Name</th>
+                                                <th>Budget</th>
+                                                <th>Add Staff</th> 
+                                                <th>Show Staff</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            @foreach ($customer->projects as $project)
+                                                <tr>
+                                                    <td>{{ $project->id }}</td>
+                                                    <td>{{ $project->name }}</td>
+                                                    <td>{{ $project->budget }}</td>
+                                                    <td><a href="{{route('comprojects.createStaff', $project->id)}}">Add Staff</a></td>  
+                                                    <td><a href="{{route('comprojects.showStaff', $project->id)}}" class="label label-primary"><i class="fa fa-eye"></i>Show Staff</a></td>
+                                                    <td>@include('layouts.status', ['status' => $project->status])</td>
+                                                    <td>
+                                                        <form action="{{ route('comprojects.destroy', $project->id) }}" method="post" class="form-horizontal">
+                                                            {{ csrf_field() }}
+                                                            <input type="hidden" name="_method" value="delete">
+                                                            <div class="btn-group">
+                                                                <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        @else
+                            <p>{{trans('main.front.One step ahead to complete registeration, You must upload some files!')}}</p>
+                            <a href="{{route('accounts.edit', $customer->id)}}">{{trans('main.front.Continue registeration')}}</a>
                         @endif
                     </div>
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'orders')active @endif"
