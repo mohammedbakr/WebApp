@@ -31,9 +31,6 @@
                 <div class="tab-content customer-order-list">
                     <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'profile')active @endif"
                         id="profile">
-                        <strong>Hello Company, </strong>
-                        {{$customer->name}} <br /><small>{{$customer->email}}</small><br>
-                        <hr>
                         @if($customer->identity_card)
                             <div class="box">
                                 <div class="box-body">
@@ -66,6 +63,7 @@
                                                             {{ csrf_field() }}
                                                             <input type="hidden" name="_method" value="delete">
                                                             <div class="btn-group">
+                                                                <a href="{{ route('comprojects.edit', $project->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                                                 <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
                                                             </div>
                                                         </form>

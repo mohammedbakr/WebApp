@@ -90,17 +90,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -108,7 +97,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+        $project = Project::findOrFail($id);
 
+        return view('front.comprojects.edit', compact('project'));
     }
 
     /**
@@ -120,7 +111,11 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->update($request->all());
+
+        $request->session()->flash('message', 'Updated successfully');
+        return redirect()->route('accounts');
     }
 
     /**
@@ -135,7 +130,7 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        return redirect()->route('accounts');
+        return redirect()->route('accounts')->with('message', 'Deleted Successfully');
     }
 
     public function createStaff($id)
