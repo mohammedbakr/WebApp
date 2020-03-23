@@ -16,20 +16,20 @@ class Product extends Model implements Buyable
 {
     use SearchableTrait;
 
-    public const MASS_UNIT = [
-        'OUNCES' => 'oz',
-        'GRAMS' => 'gms',
-        'POUNDS' => 'lbs'
-    ];
+    // public const MASS_UNIT = [
+    //     'OUNCES' => 'oz',
+    //     'GRAMS' => 'gms',
+    //     'POUNDS' => 'lbs'
+    // ];
 
-    public const DISTANCE_UNIT = [
-        'CENTIMETER' => 'cm',
-        'METER' => 'mtr',
-        'INCH' => 'in',
-        'MILIMETER' => 'mm',
-        'FOOT' => 'ft',
-        'YARD' => 'yd'
-    ];
+    // public const DISTANCE_UNIT = [
+    //     'CENTIMETER' => 'cm',
+    //     'METER' => 'mtr',
+    //     'INCH' => 'in',
+    //     'MILIMETER' => 'mm',
+    //     'FOOT' => 'ft',
+    //     'YARD' => 'yd'
+    // ];
 
     /**
      * Searchable rules.
@@ -48,27 +48,8 @@ class Product extends Model implements Buyable
      *
      * @var array
      */
-    protected $fillable = [
-        'sku',
-        'name',
-        'name_ar',
-        'description',
-        'description_ar',
-        'cover',
-        'quantity',
-        'price',
-        'brand_id',
-        'status',
-        'weight',
-        'mass_unit',
-        'status',
-        'sale_price',
-        'length',
-        'width',
-        'height',
-        'distance_unit',
-        'slug',
-    ];
+    protected $guarded = [];
+      
 
     /**
      * The attributes that should be hidden for arrays.

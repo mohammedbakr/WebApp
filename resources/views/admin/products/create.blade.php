@@ -30,6 +30,33 @@
                             <label for="description_ar">Description In Arabic </label>
                             <textarea class="form-control" name="description_ar" id="description_ar" rows="5" placeholder="Description In Arabic">{{ old('description_ar') }}</textarea>
                         </div>
+
+                        <div class="form-group">
+                            <label for="name">Color <span class="text-danger">*</span></label>
+                            <input type="text" name="color" id="color" placeholder="color" class="form-control" value="{{ old('color') }}" >
+                        </div>
+
+            
+
+                        <div class="form-group">
+                            <label for="name">Size <span class="text-danger">*</span></label>
+                            <input type="text" name="size" id="size" placeholder="size" class="form-control" value="{{ old('size') }}" >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="name">Factory <span class="text-danger">*</span></label>
+                            <input type="text" name="factory" id="factory" placeholder="factory" class="form-control" value="{{ old('factory') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Type <span class="text-danger">*</span></label>
+                            <input type="text" name="type" id="type" placeholder="type" class="form-control" value="{{ old('type') }}" >
+                        </div>
+
+
+
+
                         <div class="form-group">
                             <label for="cover">Cover </label>
                             <input type="file" name="cover" id="cover" class="form-control">
@@ -62,7 +89,6 @@
                         </div>
                         @endif
                         @include('admin.shared.status-select', ['status' => 0])
-                        @include('admin.shared.attribute-select', [compact('default_weight')])
                     </div>
                     <div class="col-md-4">
                         <h2>Categories</h2>

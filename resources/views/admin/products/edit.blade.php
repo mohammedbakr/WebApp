@@ -42,6 +42,32 @@
                                                 <label for="description_ar">Description In Arabic </label>
                                                 <textarea class="form-control" name="description_ar" id="description_ar" rows="5" placeholder="Description In Arabic">{!! $product->description_ar  !!}</textarea>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label for="name">Color <span class="text-danger">*</span></label>
+                                                <input type="text" name="color" id="color" placeholder="color" class="form-control" value="{{ $product }}" >
+                                            </div>
+                    
+                                
+                    
+                                            <div class="form-group">
+                                                <label for="name">Size <span class="text-danger">*</span></label>
+                                                <input type="text" name="size" id="size" placeholder="size" class="form-control" value="{!! $product->size !!}" >
+                                            </div>
+                    
+                    
+                                            <div class="form-group">
+                                                <label for="name">Factory <span class="text-danger">*</span></label>
+                                                <input type="text" name="factory" id="factory" placeholder="factory" class="form-control" value="{!! $product->factory !!}">
+                                            </div>
+                    
+                                            <div class="form-group">
+                                                <label for="name">Type <span class="text-danger">*</span></label>
+                                                <input type="text" name="type" id="type" placeholder="type" class="form-control" value="{!! $product->type !!}" >
+                                            </div>
+                    
+
+
                                             <div class="form-group">
                                                 <div class="col-md-3">
                                                     <div class="row">
@@ -124,7 +150,6 @@
                                             <div class="form-group">
                                                 @include('admin.shared.status-select', ['status' => $product->status])
                                             </div>
-                                            @include('admin.shared.attribute-select', [compact('default_weight')])
                                             <!-- /.box-body -->
                                         </div>
                                         <div class="col-md-4">
