@@ -26,7 +26,8 @@ class UpdateCustomerRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'email' => ['required', 'email', Rule::unique('customers')->ignore($this->segment(3))]
+            'email' => ['required', 'email', Rule::unique('customers')->ignore($this->segment(3))],
+            'password' => ['required', 'string', 'min:6']
         ];
     }
 }
