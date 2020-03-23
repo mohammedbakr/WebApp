@@ -17,6 +17,12 @@
  */
 
 Route::namespace('Admin')->group(function () {
+
+    Route::get('admin/products/export', 'Products\ProductController@export')->name('admin.export');
+
+    Route::get('importExportView', 'Products\ProductController@importExportView');
+    Route::post('import', 'Products\ProductController@import')->name('admin.import');
+
     Route::get('admin/login', 'LoginController@showLoginForm')->name('admin.login');
     Route::post('admin/login', 'LoginController@login')->name('admin.login');
     Route::get('admin/logout', 'LoginController@logout')->name('admin.logout');

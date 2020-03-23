@@ -21,6 +21,7 @@
         "laravel/cashier": "~7.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "~1.0",
+        "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.4",
         "nicolaslopezj/searchable": "^1.10",
         "paypal/rest-api-sdk-php": "*",
